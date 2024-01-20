@@ -1,0 +1,87 @@
+.heading{
+  
+    color:black;
+}
+.footer-container{
+    width:100vw;
+    display:flex;
+    flex-wrap:wrap;
+}
+.footer-section{
+   width:100%;
+   margin:20px;
+   text-align:left;
+}
+.flex-sub-section{
+    display:flex;
+    flex-wrap:wrap;
+}
+.box{
+border-radius:10px;
+border:1px solid #2c2b2b;
+padding:10px;
+}
+@media(min-width:600px){
+    .flex-sub-section{
+        width:100%;
+        justify-content: space-between;
+        padding:20px;
+    }
+    .footer-section{
+        width:300px;
+    }
+}
+@media(min-width:1000px){
+    .footer-container{
+        flex-wrap: nowrap;
+    }
+   .flex-sub-section{
+    justify-content: space-around;
+   }
+   .box{
+    width:300px;
+   }
+}
+.image{
+    width:80%;
+    border-radius:5px;
+}
+.seperate{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    align-items:Center;
+}
+.footer-bg{
+    background-color:rgb(103, 238, 108);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top:20px solid rgb(247, 63, 7);
+}
+.logo-color{
+    background-color:blue;
+    width:40px;
+    height:40px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.logo-color-insta{
+    background-color:white;
+    width:40px;
+    height:40px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.logo-color-git{
+    background-color:rgb(27, 25, 25);
+    width:40px;
+    height:40px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

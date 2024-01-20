@@ -1,0 +1,83 @@
+.services-container{
+    margin:30px 10px 30px 30px;
+    }
+    .services-item{
+        min-width:280px;
+        max-width:280px;
+        height:auto;
+        margin:20px;
+        position:relative;
+      }
+    
+      .services-items{
+        width: 100vw;
+        overflow: scroll; 
+        scroll-behavior: smooth;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        left:5px;
+    }
+    .services-items::-webkit-scrollbar{
+        width:0px;
+    }
+    
+    .service-heading{
+        font-size:30px;
+        font-weight: bold;
+        margin-top:40px;
+        padding-left:20px;
+    }
+    .service-para{
+        font-size:20px;
+        color:"#6B7280";
+        padding-left:20px;
+    }
+    .services-item-btn{
+        position: absolute;
+        margin-top:-60px;
+        margin-left:30px;
+        font-weight:bold;
+        color:#ffffff;
+        font-size:20px;
+        transform:scale(0.5);
+        animation:zoom 2s ease-in-out infinite;
+        transition:color 0.3s ease-in ;
+    }
+    @keyframes zoom {
+        100%{
+            transform:scale(1.2);
+            color:rgb(249, 11, 11);
+        }
+        
+    }
+    @media(min-width:420px){
+     .services-item{
+        min-width:400px;
+        max-width:400px;
+     }
+    }
+    @media(min-width:520px){
+        .services-item{
+           min-width:500px;
+           max-width:500px;
+        }
+       }
+    @media(min-width:600px){
+    .services-item{
+        min-width:600px;
+        max-width:600px;
+    }
+    }
+    .services-item-btn:hover {
+        animation-play-state: paused; /* Pause the animation on hover */
+        color: red; /* Change text color to red on hover */
+        background-color: rgba(255, 255, 255, 0.8); /* White background with some blur */
+        backdrop-filter: blur(5px); /* Adding blur effect to the background */
+        font-size: 20px;
+        padding:5px;
+        border-radius: 10px;
+        transform: scale(1.2);
+      }
+       
+       

@@ -1,0 +1,16 @@
+.aco{
+    width: 100vw;
+    overflow: scroll; 
+    scroll-behavior: smooth;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    left:5px;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+.aco::-webkit-scrollbar{
+    width:0px;
+}
+
+  

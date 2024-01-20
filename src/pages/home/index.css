@@ -1,0 +1,15 @@
+.home-container{
+    margin-top:15vh;
+}
+
+.animated-color{
+  font-size: 1em;
+  font-weight: bold;
+  animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
