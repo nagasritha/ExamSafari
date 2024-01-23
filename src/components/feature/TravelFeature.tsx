@@ -2,7 +2,7 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { TbZoomMoney } from "react-icons/tb";
 import { Ri24HoursLine } from "react-icons/ri";
 import { MdOutlineVerifiedUser } from "react-icons/md";
-import React, { useRef,useEffect, useState } from 'react';
+import { useRef,useEffect, useState } from 'react';
 import './index.css'
 
 function TravelFeature() {
