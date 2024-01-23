@@ -1,0 +1,32 @@
+.exams-item-btn{
+    position: absolute;
+    margin-top:-60px;
+    margin-left:30px;
+    font-weight:bold;
+    color:#ffffff;
+    font-size:20px;
+    transform:scale(0.5);
+    animation:zoom 2s ease-in-out infinite;
+    transition:color 0.3s ease-in ;
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some blur */
+    backdrop-filter: blur(5px); 
+    border-radius: 10px;
+}
+@keyframes zoom {
+    100%{
+        transform:scale(1.2);
+        color:rgb(82, 11, 249);
+    }
+    
+}
+
+.exams-item-btn:hover {
+    animation-play-state: paused; /* Pause the animation on hover */
+    color: red; /* Change text color to red on hover */
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some blur */
+    backdrop-filter: blur(5px); /* Adding blur effect to the background */
+    font-size: 20px;
+    padding:5px;
+    border-radius: 10px;
+    transform: scale(1.2);
+  }

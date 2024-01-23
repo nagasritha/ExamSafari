@@ -1,0 +1,22 @@
+.quest-color{
+    color:rgb(13, 13, 68);
+    font-size:18px;
+}
+.faq-section{
+    margin:30px 10px 30px 10px;
+    width:100%;
+}
+.faq-part{
+    width:80%;
+}
+@media(min-width:1000px){
+    .faq-section{
+        margin:30px 20px 230px 30px;
+        width:100%;
+        display:flex;
+        justify-content:space-evenly;
+    }
+    .faq-part{
+        width:45%;
+    }
+}
