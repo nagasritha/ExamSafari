@@ -54,7 +54,7 @@ function ExamCity() {
             
             <Link to="/allahabad">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
-                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./public/images/allahabad.png" alt="dummy-image"/>
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/allahabad.png" alt="dummy-image"/>
                 <a href="" className='absolute top-1 ml-2 text-2xl font-semibold text-neutral-50 pt-6 pl-4'></a>
                 <button className="exams-item-btn">Allahabad..</button>
             </div>
@@ -62,7 +62,7 @@ function ExamCity() {
           
             <Link to="/lucknow">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
-                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./public/images/lucknow.png" alt="dummy-image"/>
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/lucknow.png" alt="dummy-image"/>
                 <a href="" className='absolute top-1 ml-2 text-2xl font-semibold uppercase text-neutral-50 pt-6 pl-4'></a>
             <button className="exams-item-btn">Lucknow..</button>
             </div>
@@ -70,7 +70,7 @@ function ExamCity() {
 
             <Link to="/kanpur">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
-                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./public/images/kanpur.png" alt="dummy-image"/>
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/kanpur.png" alt="dummy-image"/>
                 <a href="" className='absolute top-1 ml-2 text-2xl font-semibold text-neutral-50 pt-6 pl-4'></a>
                 <button className="exams-item-btn">Kanpur..</button>
             </div>
