@@ -1,4 +1,3 @@
-import React from 'react'
 import RoomTypeCard from './RoomTypeCard'
 
 

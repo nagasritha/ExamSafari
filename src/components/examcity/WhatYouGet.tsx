@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaAngleRight } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 

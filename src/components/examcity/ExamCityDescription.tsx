@@ -1,4 +1,4 @@
-import React from 'react';
+
 import LeftPortion from './LeftPortion';
 import RightPortion from './RightPortion';
 
