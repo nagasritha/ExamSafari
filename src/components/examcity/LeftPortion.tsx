@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import { GoShare } from "react-icons/go";
 import { CiHeart } from "react-icons/ci";
 import { IoCameraOutline } from "react-icons/io5";

@@ -1,14 +1,13 @@
-import React from 'react'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import './index.css'
 
-function Layout({ children }) {
+function Layout({ children } : any) {
   return (
     <div>
-       <marquee className="animated-color">
+       <div className="animated-color">
      15% discount for 1st time users!!
-    </marquee>
+    </div>
       <Navbar />
       <div className="content">
         {children}
