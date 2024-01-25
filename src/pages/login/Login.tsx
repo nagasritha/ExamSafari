@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./login.css";
-import Banner from "/images/bannar3-modified.png";
+import Banner from "/public/images/bannar3-modified.png";
 import { useState, useEffect } from "react";
 
 function Login() {
@@ -56,7 +56,7 @@ function Login() {
       <div
         className="py-16 relative inset-0"
         style={{
-          backgroundImage: 'url(${Banner})',
+          backgroundImage: `url(${Banner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -109,7 +109,7 @@ function Login() {
             <form onSubmit={handleFormSubmit} className="mt-4 mb-2">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                for="phone"
+                htmlFor="phone"
               >
                 Phone Number
               </label>
@@ -157,7 +157,7 @@ function Login() {
                           inputMode="numeric"
                           autoComplete="one-time-code"
                           maxLength={1}
-                          key={2}
+                          key={index}
                         />
                       );
                     })}
