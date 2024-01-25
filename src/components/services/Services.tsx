@@ -47,7 +47,7 @@ function Services() {
   };
 
   return (
-    <div className='services-container lg:my-36'>  
+    <div className='services-container lg:my-26'>  
       <h1 className='service-heading'>Services</h1>
       <p className='service-para'>Little text about services </p>
       <div className='services-items' ref={containerRef}>
