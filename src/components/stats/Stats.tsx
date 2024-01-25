@@ -1,7 +1,7 @@
 import { FaCity } from "react-icons/fa";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { FaPeopleRoof } from "react-icons/fa6";
-import React, { useRef,useEffect, useState } from 'react';
+import { useRef,useEffect, useState } from 'react';
 import './index.css'
 
 function Stats() {

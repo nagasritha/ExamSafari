@@ -60,6 +60,7 @@ function ExamCity() {
               </div>
               </Link>
             
+
               <Link to="/lucknow">
               <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                   <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./public/images/lucknow.png" alt="dummy-image"/>
@@ -78,6 +79,41 @@ function ExamCity() {
           </div>
           <div className='controls'>
           {/* Left arrow control */}
+
+            <Link to="/allahabad">
+            <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/allahabad.png" alt="dummy-image"/>
+                <button className="exams-item-btn">Allahabad..</button>
+            </div>
+            </Link>
+          
+            <Link to="/lucknow">
+            <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/lucknow.png" alt="dummy-image"/>
+                <button className="exams-item-btn">Lucknow..</button>
+            </div>
+            </Link>
+
+            <Link to="/kanpur">
+            <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
+                <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/kanpur.png" alt="dummy-image"/>
+                <button className="exams-item-btn">Kanpur..</button>
+            </div>
+            </Link>
+        </div>
+        <div className='controls'>
+        {/* Left arrow control */}
+     <div>
+     {showLeftArrow && <div className="control-style"
+        onClick={scrollLeft}
+      >
+       &lt;
+      </div>
+      }
+     </div>
+               
+      {/* Right arrow control */}
+
       <div>
       {showLeftArrow && <div className="control-style"
           onClick={scrollLeft}

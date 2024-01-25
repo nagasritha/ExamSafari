@@ -3,12 +3,10 @@ import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import './index.css'
 
-function Layout({ children }) {
+
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div>
-       <marquee className="animated-color">
-     15% discount for 1st time users!!
-    </marquee>
       <Navbar />
       <div className="content">
         {children}
