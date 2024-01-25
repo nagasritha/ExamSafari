@@ -47,7 +47,7 @@ function ExamCity() {
     }
   };
   return (
-    <div className='services-container lg:my-36'>
+    <div className='services-container lg:my-26'>
         <div className='service-heading'>Exam Cities</div>
         <div className='service-para'>Little text about Cities </div>
         <div className='services-items' ref={containerRef}>
