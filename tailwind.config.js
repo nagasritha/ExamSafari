@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   prefix: "",
   theme: {
@@ -53,9 +54,9 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        'sm': '0.125rem', // small
+        'md': '0.375rem', // medium
+        'lg': '0.75rem',  // large
       },
       keyframes: {
         "accordion-down": {
@@ -73,5 +74,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    
+  ],
 }
