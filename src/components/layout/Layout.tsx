@@ -2,7 +2,8 @@ import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import './index.css'
 
-function Layout({ children } : any) {
+
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div>
        <div className="animated-color">
