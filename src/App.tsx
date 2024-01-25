@@ -15,7 +15,8 @@ import Lucknow from './pages/lucknow/Lucknow';
 import Travel from './pages/travel/Travel';
 import TravelWithAccomadation from './pages/travelwithaccomadation/TravelWithAccomadation';
 import NoPage from './pages/nopage/NoPage';
-import ExamCityDescription from "./components/examcity/ExamCityDescription";
+import ExamCityDescription from "./components/examcitydescription/ExamCityDescription";
+import ExamCity from "./components/examcity/ExamCity";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                   <Route path="/travelwithaccomadation" element={<TravelWithAccomadation/>} /> 
                   <Route path="/*" element={<NoPage/>} />
                   <Route path="examcitydescription" element={<ExamCityDescription/>} />
+                  <Route path="/examcity" element={<ExamCity/>}/>
                 </Routes>
           </Router>
           </div>
