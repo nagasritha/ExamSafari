@@ -7,7 +7,6 @@ import { CiLocationOn,CiCamera } from "react-icons/ci";
 import { BsFillLightningChargeFill } from "react-icons/bs"
 import { IoMdStar } from "react-icons/io";
 import { FaRegCirclePlay } from "react-icons/fa6";
-
 import Modal from "react-modal";
 import Layout from "@/components/layout/Layout"
 import Navbar from "@/components/navbar/Navbar"
@@ -111,7 +110,7 @@ function Accomadation() {
     
       </div>  
     </Layout>
-    
+  
   )
 }
 

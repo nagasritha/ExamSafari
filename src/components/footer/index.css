@@ -1,5 +1,4 @@
 .heading{
-  
     color:rgb(16, 1, 1);
 }
 .footer-container{
@@ -57,7 +56,6 @@ padding:10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-top:20px solid rgb(6, 140, 158);
-}
 .logo-color{
     background-color:blue;
     width:40px;
@@ -92,5 +90,4 @@ padding:10px;
 .content-items{
     width:90%;
     overflow:hidden;
-
 }
