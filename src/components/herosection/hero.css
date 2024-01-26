@@ -15,7 +15,7 @@
     transition: all 0.3s ease-in-out;
 }
 .heroSection{
-    background-image: url('images/banner1.sm.PNG');
+    background-image: url(./images/banner1.sm.PNG);
     height:80vh;
     width:100%;
     background-size:cover;
@@ -36,11 +36,31 @@
         opacity: 1;
     }
 }
+@media(max-width:1000px){
+  .blur{
+    background-color: #40BAD4;
+    opacity:0.5;
+   position:absolute;
+    width:100%;
+    height:80%;
+    border-radius:10px;
+  }
+  .bottom{
+    position:relative;
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+  }
+}
 @media(min-width:1000px){
     .heroSection{
-       background-image:url('images/bannar3.png');
+       background-image:url(./images/bannar3.png);
        align-items:flex-end;
        padding-right:50px;
+    }
+    .blur{
+      display:none;
     }
 }
 .trans{
