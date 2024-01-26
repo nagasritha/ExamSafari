@@ -18,16 +18,24 @@ function Accomadation() {
   
         <div>
         <div className='accomadation-card mb-10'>
-          <div className='flex justify-evenly'>
-            <div>
-              <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705821960/bed_zzry0x.png' width='100%' className='accomadation-wallpaper'/>
+        <div className="Picture-box">
+          <div className="flex mt-4 items-center">
+            <div className="big_img w-3/4 mr-2">
+              <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705821960/bed_zzry0x.png' width='100%' className='rounded-2xl'/>
             </div>
-            <div className='flex-none flex-wrap'>
-              <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pic'/>
-              <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pic'/>
-              <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pic'/>
+            <div className="w-1/4 gap-1">
+       
+                <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pb-2 lg:pb-4 rounded-xl'/>
+           
+                <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pb-2 lg:pb-4 rounded-xl'/>
+           
+             
+                <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pb-2 lg:pb-4 rounded-xl'/>
+              
+              
             </div>
           </div>
+         </div> 
           <div className='flex flex-wrap md:flex-nowrap justify-between'>
             <div className='feature-buttons mb-5 mt-3'>
             <button className='flex items-center my-3 text-sm md:text-xl feauture-button photo md:p-3'><CiCamera className='mr-2' />Photos</button>
