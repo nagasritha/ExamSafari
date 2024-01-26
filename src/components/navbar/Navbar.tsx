@@ -74,7 +74,7 @@ export default function Navbar() {
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <div onClick={() => setSymbolTo(symbol ? 0 : 1)}>
-                  {symbol ? (
+                  {open ? (
                     <XMarkIcon className="block h-10 w-10" aria-hidden="true"/>
                   ) : (
                     <Bars3Icon className="block h-10 w-10" aria-hidden="true"/>
