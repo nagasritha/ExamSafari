@@ -9,7 +9,6 @@ import { IoMdStar } from "react-icons/io";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import Modal from "react-modal";
 import Layout from "@/components/layout/Layout"
-import Navbar from "@/components/navbar/Navbar"
 import './index.css'
 function Accomadation() {
   const [modalIsOpen, setModalIsOpen] = useState(false);

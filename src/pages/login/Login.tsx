@@ -21,7 +21,7 @@ function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
 
-  const handlePhoneNumberChange = (e) => {
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPhoneNumber = e.target.value;
     setPhoneNumber(newPhoneNumber);
 
@@ -30,13 +30,13 @@ function Login() {
     setIsValidPhoneNumber(isValid);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     setIsSubmitClicked(true);
   };
-
+  
   useEffect(() => {
-    let intervalId;
+    let intervalId: NodeJS.Timeout;;
 
     if (isSubmitClicked && timer > 0) {
       intervalId = setInterval(() => {
@@ -150,6 +150,7 @@ function Login() {
                   </div>
                   <div className="otp-inputs">
                     {initialValues.otp.map((item, index) => {
+                      console.log(item);
                       return (
                         <input
                           className="otp-input"
