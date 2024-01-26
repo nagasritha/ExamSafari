@@ -15,7 +15,7 @@
     transition: all 0.3s ease-in-out;
 }
 .heroSection{
-    background-image: url(./images/banner1.sm.PNG);
+    background-image: url("https://res.cloudinary.com/dkredoejm/image/upload/v1706283958/banner1.sm_pqzbud.png");
     height:80vh;
     width:100%;
     background-size:cover;
@@ -55,7 +55,7 @@
 }
 @media(min-width:1000px){
     .heroSection{
-       background-image:url(./images/bannar3.png);
+       background-image:url("https://res.cloudinary.com/dkredoejm/image/upload/v1706284066/banner-lg_zd4d2v.png");
        align-items:flex-end;
        padding-right:50px;
     }
