@@ -14,10 +14,19 @@
     color: white;
     transition: all 0.3s ease-in-out;
 }
-
-.animatedImage{
+.heroSection{
+    background-image: url('images/banner1.sm.PNG');
+    height:80vh;
+    width:100%;
+    background-size:cover;
     animation: animateLogo 2.5s ;
     animation-fill-mode: forwards;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 @keyframes animateLogo {
     0%{
@@ -27,7 +36,13 @@
         opacity: 1;
     }
 }
-
+@media(min-width:1000px){
+    .heroSection{
+       background-image:url('images/bannar3.png');
+       align-items:flex-end;
+       padding-right:50px;
+    }
+}
 .trans{
     background: rgba(255,255,255,0.4);
     border: none;
@@ -42,3 +57,35 @@
   :-moz-placeholder { color: #666; }
   ::-moz-placeholder { color: #666; }
   :-ms-input-placeholder { color: #666; }
+  .home-search-bar{
+    background-color:aliceblue;
+    border-radius:15px;
+    padding:5px;
+    color:#666;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    width:250px;
+  }
+  .home-input {
+    background-color: transparent !important;
+    margin-left: 5px;
+    border: 0;
+    width:90%;
+    color:black;
+    font-size:23px;
+    outline: none;
+    box-shadow: none; /* Add this line to remove the box shadow */
+  }
+  
+  .home-input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none; /* Add this line to remove the box shadow on focus */
+  }
+  @media(min-width:600px){
+    .home-search-bar{
+        width:350px;
+        font-size:24px;
+    }
+  }

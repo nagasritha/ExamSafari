@@ -44,7 +44,6 @@ export default function Navbar() {
     setIsvisible(true);
   }
   const [ismodalvisible, setIsmodalvisible] = useState(false);
-
   const openModal = () => {
     setIsmodalvisible(true);
   };
@@ -53,29 +52,39 @@ export default function Navbar() {
     setIsmodalvisible(false);
   };
 
+  const [symbol, setSymbol] = useState<boolean>(false);
+
+  const setSymbolTo = (num: number): void => {
+    console.log(num)
+    setSymbol(num === 1);
+  };
+
   return (
-    <Disclosure as="nav" className="bg-[#142d55] h-30 z-40 w-screen fixed">
+    <Disclosure as="nav" className="bg-[#142d55] h-30 z-40 w-screen fixed top-0">
       {(open: any) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-0">
             <div className="relative flex h-20 items-center justi-2 fy-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+             
+              <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-start">
+                <div className="flex flex-shrink-0 items-center">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-10 w-10" aria-hidden="true" />
+                  <div onClick={() => setSymbolTo(symbol ? 0 : 1)}>
+                  {symbol ? (
+                    <XMarkIcon className="block h-10 w-10" aria-hidden="true"/>
                   ) : (
-                    <Bars3Icon className="block h-10 w-10" aria-hidden="true" />
+                    <Bars3Icon className="block h-10 w-10" aria-hidden="true"/>
                   )}
+                  </div>
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
                   <Link to={"/"}>
                     <img
-                      className="h-11 w-auto animatedImage"
+                      className="h-11 logo"
                       src={"/images/logo.png"}
                       alt="Your Company"
                     />

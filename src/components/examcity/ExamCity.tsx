@@ -55,21 +55,21 @@ function ExamCity() {
             <Link to="/allahabad">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/allahabad.png" alt="dummy-image"/>
-                <button className="absolute bottom-2 left-3 bg-red-500 text-white p-2 rounded-[15px] hover:bg-blue-600 m-2">Allahabad..</button>
+                <button className="exams-item-btn">Allahabad..</button>
             </div>
             </Link>
           
             <Link to="/lucknow">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/lucknow.png" alt="dummy-image"/>
-            <button className="absolute bottom-2 left-3 bg-red-500 text-white p-2 rounded-[15px] hover:bg-blue-600 m-2">Lucknow..</button>
+            <button className="exams-item-btn">Lucknow..</button>
             </div>
             </Link>
 
             <Link to="/kanpur">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/kanpur.png" alt="dummy-image"/>
-                <button className="absolute bottom-2 left-3 bg-red-500 text-white p-2 rounded-[15px] hover:bg-blue-600 m-2">Kanpur..</button>
+                <button className="exams-item-btn">Kanpur..</button>
             </div>
             </Link>
         </div>

@@ -33,4 +33,7 @@
   .active{
     background-color:black !important;
   }
-  
+  .logo{
+    width:100px;
+    margin-left:50px;
+  }

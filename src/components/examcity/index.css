@@ -4,29 +4,16 @@
     margin-left:30px;
     font-weight:bold;
     color:#ffffff;
-    font-size:20px;
-    transform:scale(0.5);
-    animation:zoom 2s ease-in-out infinite;
-    transition:color 0.3s ease-in ;
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some blur */
-    backdrop-filter: blur(5px); 
-    border-radius: 10px;
-}
-@keyframes zoom {
-    100%{
-        transform:scale(1.2);
-        color:rgb(82, 11, 249);
-    }
-    
-}
-
-.exams-item-btn:hover {
-    animation-play-state: paused; /* Pause the animation on hover */
-    color: red; /* Change text color to red on hover */
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some blur */
-    backdrop-filter: blur(5px); /* Adding blur effect to the background */
-    font-size: 20px;
     padding:5px;
-    border-radius: 10px;
-    transform: scale(1.2);
+    font-size:20px;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+}
+  .exams-item-btn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.9), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.9), .125rem .125rem 1rem rgba(255, 154, 90, 0.9);
+  }
+  .exams-item-btn:focus{
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
   }
