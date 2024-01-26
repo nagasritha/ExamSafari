@@ -19,14 +19,13 @@ const RoomTypeCard = () => {
                   <button className="flex items-center font-semibold text-base py-2 gap-2 text-blue-600 hover:bg-gray-200 px-2 rounded-lg ">View More Details <FaAngleRight /></button>
                 </div>
               </div>
-              <div></div>
             </div>
             <hr className="text-gray-300 h-2"/>
             <div className="Booking flex justify-between pb-4">
               <div>
               <div className="flex py-2">
-                <p className="flex mr-4"> <p className="text-sm mr-1">Duration:</p> <p className="text-sm font-semibold">31 week</p></p>
-                <p className="md:flex hidden"><p className="text-sm mr-1">Move In :</p> <p className="text-sm font-semibold"> Flexible</p></p>
+                <div className="flex mr-4"> <p className="text-sm mr-1">Duration: <span className="text-sm font-semibold">31 week</span></p></div>
+                <div className="md:flex hidden"><p className="text-sm mr-1">Move In : <span className="text-sm font-semibold"> Flexible</span></p></div>
               </div>
               <div className="text-xs text-gray-600">
               Note: Immediate Move Ins
@@ -41,7 +40,7 @@ const RoomTypeCard = () => {
             </div>
             <hr className="text-gray-300 h-2"/>
             <div className="Durations flex justify-between py-2 items-center flex-col md:flex-row">
-              <div className="flex gap-1"> <p className="text-sm"> Duration:</p> <p className="text-sm font-semibold"> 46 week</p></div>
+              <div className="flex gap-1"> <p className="text-sm"> Duration: <span className="text-sm font-semibold"> 46 week</span></p></div>
               <div className="flex items-center  ">
                 <div className='flex '>
                 <div className="bg-gray-200 px-2 rounded-md text-sm font-semibold text-gray-600">Sold out</div>
@@ -52,7 +51,7 @@ const RoomTypeCard = () => {
             </div>
             <hr className="text-gray-300 h-2"/>
             <div className="Durations flex justify-between py-2 items-center flex-col md:flex-row">
-              <div className="flex gap-1"> <p className="text-sm"> Duration:</p> <p className="text-sm font-semibold"> 46 week</p></div>
+              <div className="flex gap-1"> <p className="text-sm"> Duration: <span className="text-sm font-semibold"> 46 week</span></p></div>
               <div className="flex items-center  ">
                 <div className='flex '>
                 <div className="bg-gray-200 px-2 rounded-md text-sm font-semibold text-gray-600">Sold out</div>

@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./login.css";
-import Banner from "/public/images/bannar3-modified.png";
+import Banner from "/images/bannar3-modified.png";
 import { useState, useEffect } from "react";
 
 function Login() {

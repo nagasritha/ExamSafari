@@ -8,3 +8,29 @@
  font-size:40px;
  cursor: pointer;
 }
+.animated-color{
+    font-size: 1em;
+    font-weight: bold;
+    animation: color-change 1s infinite;
+    display:flex;
+  }
+  @keyframes color-change {
+    0% { color: rgb(250, 247, 247); }
+    50% { color: blue; }
+    100% { color: rgb(254, 254, 254); }
+  }
+  .cancel{
+    display:flex;
+    margin-left:auto;
+    margin-top:-21px;
+    padding-right:40px;
+    background-color:black;
+    color:white;
+    font-size:20px;
+    position:relative;
+
+  }
+  .active{
+    background-color:black !important;
+  }
+  

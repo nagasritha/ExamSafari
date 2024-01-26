@@ -15,8 +15,7 @@ function Accomadation() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
     <Layout>
-      <Navbar/>
-      <div style={{paddingTop:'15vh'}} className='accomadation-container'>
+      <div style={{paddingTop:'10vh'}} className='accomadation-container'>
   
         <div>
         <div className='accomadation-card mb-10'>

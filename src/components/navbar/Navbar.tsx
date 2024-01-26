@@ -1,5 +1,5 @@
 
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import {Calendar, momentLocalizer} from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from "moment";
 import { Fragment, useState } from "react";
@@ -7,6 +7,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import "../herosection/hero.css";
 import { Link } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 import "./index.css";
 const localizer = momentLocalizer(moment);
 const events = [
@@ -44,6 +45,11 @@ export default function Navbar() {
     setIsvisible(true);
   }
   const [ismodalvisible, setIsmodalvisible] = useState(false);
+  const [mark,setMark]=useState(true);
+
+  const marquee=()=>{
+    setMark(false);
+  }
 
   const openModal = () => {
     setIsmodalvisible(true);
@@ -53,10 +59,16 @@ export default function Navbar() {
     setIsmodalvisible(false);
   };
 
+  const markClassName=mark ? "animated-color" : "hidden"
+
   return (
-    <Disclosure as="nav" className="bg-[#142d55] h-30">
+    <Disclosure as="nav" className="bg-[#142d55] h-30 z-40 w-screen fixed">
       {(open: any) => (
         <>
+           <marquee className={markClassName}>
+        15% discount for 1st time users!!
+      </marquee>
+      <button onClick={marquee} type="button" className={mark?"cancel active":"hidden"}><RxCross2/></button>
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-0">
             <div className="relative flex h-20 items-center justi-2 fy-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
