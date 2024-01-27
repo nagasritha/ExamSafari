@@ -1,12 +1,12 @@
-.Navbar:hover{
+
+.nav-width{
+  width:100vw;
+ margin:0px !important;
  background-color:#142d55;
- color:white;
- height:15vh;
- top: 0;
- padding: 10px 20px;
- border-radius: 50%;
- font-size:40px;
- cursor: pointer;
+ height:10vh;
+ z-index:2000;
+ position:fixed;
+ top:0;
 }
 .animated-color{
     font-size: 1em;

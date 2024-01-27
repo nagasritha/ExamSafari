@@ -60,7 +60,7 @@ export default function Navbar() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-[#142d55] h-30 z-40 w-screen fixed top-0">
+    <Disclosure as="nav" className="nav-width pr-10">
       {(open: any) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-0">

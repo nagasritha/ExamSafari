@@ -49,7 +49,7 @@ function Stats() {
   };
 
   return (
-    <div className='lg:my-36'>
+    <div className='lg:my-16'>
     <div className="stats" ref={containerRef}>
         <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
           <div className="align-center">
