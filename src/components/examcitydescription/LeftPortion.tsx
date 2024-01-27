@@ -18,13 +18,13 @@ const LeftPortion: React.FC = () => {
   
   return (
     <div className="MainContainer md:w-4/6 w-full items-center flex flex-col justify-center mt-4   md:ml-10 md:mr-3 mx-2  rounded-lg">
-      <div className="border  border-gray-300  my-4 mt-0 bg-white rounded-lg">
+      <div className="border w-full border-gray-300  my-4 mt-0 bg-white rounded-lg">
         <div className="m-4 ">
           <div className="flex justify-between top-container mt-4 ">
             <div className="flex left-box">
-              <p className="font-semibold text-blue-600">India </p> /
-              <p className="font-semibold text-blue-600">Uttar Pradesh </p> /
-              <p className="font-semibold text-blue-600">Allahbad</p>
+              <div className="font-semibold text-blue-600">India </div> /
+              <div className="font-semibold text-blue-600">Uttar Pradesh </div> /
+              <div className="font-semibold text-blue-600">Allahbad</div>
             </div>
 
             <div className="Right-box flex ">
@@ -104,21 +104,21 @@ const LeftPortion: React.FC = () => {
 
           <div className="Name-Box  my-4 ">
             <div className="flex">
-              <p className="text-2xl font-bold mr-3">Arbour House, London</p>
+              <div className="text-2xl font-bold mr-3">Arbour House, London</div>
               <button className="bg-blue-600 text-white rounded-3xl px-2 flex items-center">
                 <MdOutlineLocalOffer />2 offers
               </button>
             </div>
-            <p className="text-sm font-normal text-gray-500">
+            <div className="text-sm font-normal text-gray-500">
               Sebastian St, London, EC1V 0HF, United Kingdom
-            </p>
-            <p className="flex items-center my-2">
+            </div>
+            <div className="flex items-center my-2">
               <FaMapMarkerAlt style={{ color: "blue" }} />
               2.1 mi from City Center{" "}
               <button className="text-blue-600 font-medium ml-2">
                 View on map
               </button>
-            </p>
+            </div>
           </div>
 
           <div className="key-points-buttons flex">

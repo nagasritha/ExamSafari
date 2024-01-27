@@ -7,8 +7,8 @@ const HotelDescription = () => {
       <div className="Description border border-gray-300 rounded-lg my-8 bg-white">
         <div>
           <div className="m-8 mb-0 ">
-            <p className="text-2xl mb-2 font-semibold">Description</p>
-            <p>
+            <div className="text-2xl mb-2 font-semibold">Description</div>
+            <div>
               If you wish to experience the best student accommodation in
               London, Arbour House is the one for you! Arbour House is a
               well-known student accommodation in London that offers a wide
@@ -17,7 +17,7 @@ const HotelDescription = () => {
               University of London, which is a 4-minute walk away and the
               University of the Arts, which is a 10-minute walk away, make it a
               perfect choice for your new home
-            </p>
+            </div>
 
             <div className="py-4">
               <hr />
@@ -64,9 +64,9 @@ const HotelDescription = () => {
                       >
                         <path
                           stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
                           d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                         />
                       </svg>
@@ -75,22 +75,22 @@ const HotelDescription = () => {
                   </div>
                   {/* <!-- Modal body --> */}
                   <div className="p-4 md:p-5 space-y-4">
-                    <p className="text-md font-semibold">About</p>
-                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <div className="text-md font-semibold">About</div>
+                    <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                       With less than a month to go before the European Union
                       enacts new consumer privacy laws for its citizens,
                       companies around the world are updating their terms of
                       service agreements to comply.
-                    </p>
-                    <p className="text-md font-semibold">Feature</p>
-                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    </div>
+                    <div className="text-md font-semibold">Feature</div>
+                    <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                       The European Union’s General Data Protection Regulation
                       (G.D.P.R.) goes into effect on May 25 and is meant to
                       ensure a common set of data rights in the European Union.
                       It requires organizations to notify users as soon as
                       possible of high-risk data breaches that could personally
                       affect them.
-                    </p>
+                    </div>
                   </div>
                   {/* <!-- Modal footer --> */}
                   <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

@@ -33,9 +33,9 @@ const Accordion = () => {
               >
                 <path
                   stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M9 5 5 1 1 5"
                 />
               </svg>
@@ -47,14 +47,14 @@ const Accordion = () => {
             aria-labelledby="accordion-flush-heading-1"
           >
             <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-              <p className="mb-2 text-gray-500 dark:text-gray-400">
+              <div className="mb-2 text-gray-500 dark:text-gray-400">
                 Dual occupancy is available on most rooms over 23sqm. Both
                 occupants would need to apply and mention in their application
                 that they are applying for dual occupancy so that the price can
                 be amended. The price would be the total rent plus an additional
                 £50 and then divided by two for each occupant’s weekly cost
                 unless otherwise stated..
-              </p>
+              </div>
             </div>
           </div>
           <h2 id="accordion-flush-heading-2">
@@ -76,9 +76,9 @@ const Accordion = () => {
               >
                 <path
                   stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M9 5 5 1 1 5"
                 />
               </svg>
@@ -117,9 +117,9 @@ const Accordion = () => {
               >
                 <path
                   stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M9 5 5 1 1 5"
                 />
               </svg>
