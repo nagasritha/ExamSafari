@@ -16,6 +16,7 @@ const ExamCityMain = () => {
     <div className="mx-8 my-4">
     <Accordion/>
     </div>
+    
     </div>
   )
 }
