@@ -51,21 +51,21 @@ function ExamCity() {
         <div className='service-para'>Little text about Cities </div>
         <div className='services-items' ref={containerRef}>
             
-            <Link to="/allahabad">
+            <Link to="/examcitymain">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/allahabad.png" alt="dummy-image"/>
                 <button className="exams-item-btn">Allahabad..</button>
             </div>
             </Link>
           
-            <Link to="/lucknow">
+            <Link to="/examcitymain">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/lucknow.png" alt="dummy-image"/>
             <button className="exams-item-btn">Lucknow..</button>
             </div>
             </Link>
 
-            <Link to="/kanpur">
+            <Link to="/examcitymain">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/kanpur.png" alt="dummy-image"/>
                 <button className="exams-item-btn">Kanpur..</button>
