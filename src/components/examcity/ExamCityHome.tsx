@@ -3,6 +3,7 @@ import "@/index.css"
  
 
 import { properties } from "@/constants/ExamCityData";
+import Pagination from "./Pagination";
 
 const ExamCityHome = () => {
   return (
@@ -14,6 +15,9 @@ const ExamCityHome = () => {
             </div>
       <div className=" overflow-y-scroll h-screen HideScrollBar ">
       <ExamCityCard properties={properties} />
+      </div>
+    <div className="flex justify-center mt-4">
+      <Pagination/>
       </div>
     </div>
   );

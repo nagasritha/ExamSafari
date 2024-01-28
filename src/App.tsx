@@ -17,6 +17,7 @@ import NoPage from './pages/nopage/NoPage';
 import ExamCityDescription from "./components/examcitydescription/ExamCityDescription";
 import ExamCityMain from "./components/examcity/ExamCityMain";
 
+
 function App() {
   return (
     <div className="page-width">
@@ -34,6 +35,7 @@ function App() {
           <Route path="/examcitydescription" element={<ExamCityDescription />} />
           <Route path="/examcitymain" element={<ExamCityMain />} />
           <Route path="/*" element={<NoPage />} />
+          
         </Routes>
       </Router>
     </div>
