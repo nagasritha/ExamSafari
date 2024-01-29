@@ -10,6 +10,9 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import Modal from "react-modal";
 import Layout from "@/components/layout/Layout"
 import './index.css'
+
+Modal.setAppElement('#root');
+
 function Accomadation() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [enquireIsOpen, setEnquire] = useState(false);
@@ -111,13 +114,13 @@ function Accomadation() {
           <button className='accomadation-container2-button enquire font-semibold' onClick={()=>setEnquire(true)}>Enquire Now &gt;</button>
           <Modal
         isOpen={enquireIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        onRequestClose={() => setEnquire(false)}
         className="custom-modal"
         overlayClassName="custom-overlay"
       >
        <div className='flex justify-between items-center -mt-5 -ml-5 rounded-t p-3' style={{backgroundColor:"rgb(248, 61, 92)"}}>
        <h1 className='text-xl md:text-3xl font-semibold'>Description</h1>
-        <RxCross2 className='text-xl md:text-3xl' onClick={()=>setModalIsOpen(false)}/>
+        <RxCross2 className='text-xl md:text-3xl' onClick={()=>setEnquire(false)}/>
        </div>
         <hr/>
         <div className='model-overflow'>
