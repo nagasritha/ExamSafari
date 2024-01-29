@@ -19,9 +19,7 @@ interface CardProps {
   properties: Property[];
 }
 
-const handleDefClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  event.preventDefault();
-};
+
 
 const Card: React.FC<{ property: Property }> = ({ property }) => {
   return (
