@@ -1,7 +1,8 @@
 
 
 .stats{
-    width: 90vw;
+    width: 100vw;
+    height:300px;
     overflow: scroll; 
     scroll-behavior: smooth;
     display:flex;
@@ -15,10 +16,11 @@
 .stats-item{
     text-align:center;
     padding:10px;
-    min-width:280px;
-    max-width:500px;
+    min-width:260px;
+    max-width:260px;
     padding:30px 50px 20px 20px;
    }
+
 .image{
     width:60px;
     height:60px;

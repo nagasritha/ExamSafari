@@ -36,13 +36,13 @@ function ExamCity() {
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 350; // Adjust the scroll distance as needed
+      containerRef.current.scrollLeft -= 0; // Adjust the scroll distance as needed
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 350; // Adjust the scroll distance as needed
+      containerRef.current.scrollLeft += 280; // Adjust the scroll distance as needed
     }
   };
   return (
@@ -72,7 +72,7 @@ function ExamCity() {
             </div>
             </Link>
         </div>
-        <div className='controls'>
+        <div className='controls-images'>
         {/* Left arrow control */}
      <div>
      {showLeftArrow && <div className="control-style"

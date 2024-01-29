@@ -8,6 +8,7 @@
     border-radius: 50%;
     font-size:20px;
     cursor: pointer;
+    z-index:999;
 }
 .floating:hover{
     background-color: #142d55;
