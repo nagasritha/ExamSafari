@@ -139,7 +139,7 @@ function Footer() {
         </div>
       </div>
     </div>
-    <div className='seperate'>
+    <div className='seperate items-center ml-5'>
       <div className='flex'>
         <a href='#!'>
           <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705668887/playstore_bsy57l.png' className='image'/>

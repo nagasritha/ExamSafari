@@ -38,13 +38,13 @@ function Stats() {
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 350; // Adjust the scroll distance as needed
+      containerRef.current.scrollLeft -= 250; // Adjust the scroll distance as needed
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 350; // Adjust the scroll distance as needed
+      containerRef.current.scrollLeft += 250; // Adjust the scroll distance as needed
     }
   };
 

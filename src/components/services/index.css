@@ -1,5 +1,6 @@
 .services-container{
 padding:20px 10px 30px 10px;
+margin-top:10px;
 }
 @media (min-width:600px) {
     .services-container{
@@ -52,16 +53,24 @@ padding:20px 10px 30px 10px;
     margin-left:30px;
     font-weight:bold;
     color:#ef0b0b;
-    font-size:20px;
+    font-size:16px;
     transform:scale(0.5);
     animation:zoom 2s ease-in-out infinite;
     transition:color 0.3s ease-in ;
 }
 @keyframes zoom {
     100%{
-        transform:scale(1.2);
+        transform:scale(1.1);
         color:rgb(249, 11, 11);
     }
+}
+.controls-images{
+    width:100vw;
+    display:flex;
+    justify-content: space-between;
+    z-index:10;
+    padding:40px 20px 40px 20px;
+    margin-top: -180px;
 }
 @media(min-width:420px){
  .services-item.service-image{
@@ -69,6 +78,9 @@ padding:20px 10px 30px 10px;
     max-width:400px;
     min-height:200px;
     max-height: 200px;
+ }
+ .controls-images{
+    margin-top: -250px;
  }
 }
 @media(min-width:520px){
@@ -78,15 +90,10 @@ padding:20px 10px 30px 10px;
        min-height:300px;
        max-height: 300px;
     }
+    .controls-images{
+        margin-top: -220px;
+     }
    }
-@media(min-width:500px){
-.services-item,.service-image{
-    min-width:600px;
-    max-width:600px;
-    min-height:300px;
-    max-height: 300px;
-}
-}
 .services-item-btn:hover {
     animation-play-state: paused; /* Pause the animation on hover */
     color: red; /* Change text color to red on hover */

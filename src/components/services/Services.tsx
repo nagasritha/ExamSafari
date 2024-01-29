@@ -47,14 +47,16 @@ function Services() {
   };
 
   return (
-    <div className='services-container lg:my-16'>  
+    <div className='services-container'>  
       <h1 className='service-heading'>Services</h1>
       <p className='service-para'>Little text about services </p>
       <div className='services-items' ref={containerRef}>
         
       <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">
           <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/service1.png" alt="dummy-image"/>
+          <Link to='/travel'>
           <button className="services-item-btn">View More..</button>
+          </Link>
       </div>
       
       <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">
@@ -67,12 +69,14 @@ function Services() {
       
       <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">
           <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/service3.png" alt="dummy-image"/>
+          <Link to='/travelwithaccomadation'>
           <button className="services-item-btn">View More..</button>
+          </Link>
       </div>
       
 
       </div>
-      <div className='controls'>
+      <div className='controls-images'>
         {/* Left arrow control */}
      <div>
      {showLeftArrow && <div className="control-style"

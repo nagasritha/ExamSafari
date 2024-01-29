@@ -47,4 +47,8 @@ const Pagination = () => {
   )
 }
 
+<<<<<<< HEAD
 export default Pagination
+=======
+export default Pagination
+>>>>>>> a0ec70c5cfc88e833d080f5d6766f9883f6643db

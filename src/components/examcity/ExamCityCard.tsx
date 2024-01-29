@@ -58,7 +58,11 @@ const Card: React.FC<{ property: Property }> = ({ property }) => {
                 </li>
               </li>
 
+
              
+
+             
+
             </div>
           </ul>
         </div>

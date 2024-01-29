@@ -1,6 +1,10 @@
 
 .nav-width{
+<<<<<<< HEAD
   /* width:100vw; */
+=======
+width:100%;
+>>>>>>> a0ec70c5cfc88e833d080f5d6766f9883f6643db
  margin:0px !important;
  background-color:#142d55;
  height:10vh;
