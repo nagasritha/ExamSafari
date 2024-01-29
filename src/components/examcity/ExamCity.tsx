@@ -36,7 +36,7 @@ function ExamCity() {
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 0; // Adjust the scroll distance as needed
+      containerRef.current.scrollLeft -= 280; // Adjust the scroll distance as needed
     }
   };
 
