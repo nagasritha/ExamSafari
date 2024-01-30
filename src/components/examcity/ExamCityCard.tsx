@@ -57,12 +57,6 @@ const Card: React.FC<{ property: Property }> = ({ property }) => {
                   } ${property.price.status || ""}`}</p>
                 </li>
               </li>
-
-
-             
-
-             
-
             </div>
           </ul>
         </div>
