@@ -70,7 +70,7 @@ margin-top:10px;
     justify-content: space-between;
     z-index:10;
     padding:40px 20px 40px 20px;
-    margin-top: -180px;
+    margin-top: -170px;
 }
 @media(min-width:420px){
  .services-item.service-image{
