@@ -16,6 +16,7 @@ import TravelWithAccomadation from './pages/travelwithaccomadation/TravelWithAcc
 import NoPage from './pages/nopage/NoPage';
 import ExamCityDescription from "./components/examcitydescription/ExamCityDescription";
 import ExamCityMain from "./components/examcity/ExamCityMain";
+import BookingForm from "./components/booking/BookingForm";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/examcitydescription" element={<ExamCityDescription />} />
           <Route path="/examcitymain" element={<ExamCityMain />} />
           <Route path="/*" element={<NoPage />} />
+          <Route path="/bookingform" element={<BookingForm/>}/>
           
         </Routes>
       </Router>
