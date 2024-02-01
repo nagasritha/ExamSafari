@@ -1,0 +1,41 @@
+.form,.form-group{
+    display:flex;
+    flex-direction:column;
+    padding:5px;
+    width:100%;
+}
+.form{
+    height:400px;
+    overflow: auto;
+}
+.form::-webkit-scrollbar {
+    width: 5px; /* width of the scrollbar */
+  }
+ .form::-webkit-scrollbar-track {
+    background: #96b0f0; /* color of the track */
+  }
+  .form::-webkit-scrollbar-thumb {
+    background: #00c0df; /* color of the scrollbar handle */
+  }
+.submit{
+    color:rgb(249, 248, 248);
+    border-radius:10px;
+    background-color:#00c0df !important;
+}
+@media(max-width:999px){
+    .form{
+        opacity:0;
+        transform:translateY(-20px);
+        animation:transdown 0.5s ease-in-out 2.3s forwards;
+    }
+    @keyframes transdown {
+        0%{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100%{
+            opacity: 1;
+            transform:translateY(0px);
+        }
+    }
+}
