@@ -5,14 +5,26 @@ import { RxCross2 } from "react-icons/rx";
 import { BiSolidHomeSmile } from "react-icons/bi";
 import { CiLocationOn,CiCamera } from "react-icons/ci";
 import { BsFillLightningChargeFill } from "react-icons/bs"
+import { TiTick } from "react-icons/ti";
 import { IoMdStar } from "react-icons/io";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import Modal from "react-modal";
 import Layout from "@/components/layout/Layout"
+import EnquireForm from "../../components/EnquireForm"
 import './index.css'
+
+Modal.setAppElement('#root');
 
 function TravelWithAccomadation() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [enquireIsOpen, setEnquire] = useState(false);
+  const [thankyou,setThankyou] = useState(false);
+
+  const EnquireFalse=()=>{
+    setEnquire(false);
+    setThankyou(true);
+  }
+
   return (
     <Layout>
       <div style={{paddingTop:'10vh'}} className='accomadation-container'>
@@ -30,10 +42,8 @@ function TravelWithAccomadation() {
            
                 <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pb-2 lg:pb-4 rounded-xl'/>
            
-             
                 <img src='https://res.cloudinary.com/dkredoejm/image/upload/v1705839124/bed-5_sdwvta.png' className='pb-2 lg:pb-4 rounded-xl'/>
-              
-              
+
             </div>
           </div>
          </div> 
@@ -42,6 +52,7 @@ function TravelWithAccomadation() {
             <button className='flex items-center my-3 text-sm md:text-xl feauture-button photo md:p-3'><CiCamera className='mr-2' />Photos</button>
             <button className='flex items-center my-3 text-sm md:text-xl feauture-button photo md:p-3'><FaRegCirclePlay className='mr-2'/>Videos</button>
             </div>
+            
             <div>
             <button className='flex items-center my-3 text-xl feauture-button ratings p-3'><IoMdStar size='25px' color="#47c97b"/><b>5.0</b>(300+ reviews)</button>
             </div>
@@ -54,7 +65,9 @@ function TravelWithAccomadation() {
             <p className='feauture-button flex items-center'><BsFillLightningChargeFill className='mr-2' color='red'/>Verified Property</p>
             <p className='feauture-button flex items-center'><BsFillLightningChargeFill className='mr-2' color='red'/>Free services</p>
             <p className='feauture-button flex items-center'><BsFillLightningChargeFill className='mr-2' color='red'/>Free services</p>
-          </div> 
+          </div>
+          <hr className='lg:none'/> 
+          <button className='samples font-semibold sm-enquire-button p-3 rounded mb-3' style={{color:'red'}} onClick={()=>setEnquire(true)}>Enquire Now &gt;</button>
         </div>
         <div className='mt-10 mb-10 accomadation-card'>
         <h1 className='text-3xl mb-5 font-semibold'>Description</h1>
@@ -64,7 +77,7 @@ function TravelWithAccomadation() {
         <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
-        className="custom-modal"
+        className="custom-modal custom-modal-padding"
         overlayClassName="custom-overlay"
       >
        <div className='flex justify-between items-center -mt-5 -ml-5 rounded-t p-3' style={{backgroundColor:"rgb(248, 61, 92)"}}>
@@ -110,7 +123,51 @@ function TravelWithAccomadation() {
           <p className='text-xl mb-10 flex items-start mt-6'><span><FaFireAlt className='mr-3' color='red'/></span>64 students viewed this property in last 24 hours</p>
           <div className='ml-3'>
           <button className='accomadation-container2-button view font-semibold'>View Rooms</button>
-          <button className='accomadation-container2-button enquire font-semibold'>Enquire Now &gt;</button>
+          <button className='accomadation-container2-button enquire font-semibold' onClick={()=>setEnquire(true)}>Enquire Now &gt;</button>
+          <Modal
+        isOpen={enquireIsOpen}
+        onRequestClose={() => setEnquire(false)}
+        className="custom-modal"
+        overlayClassName="custom-overlay"
+      >
+       <div className='flex justify-between items-center text-white -mt-5 rounded-t p-3' style={{backgroundColor:"#00c0df"}}>
+       <h1 className='text-xl md:text-3xl font-semibold'>Enquire</h1>
+        <RxCross2 className='text-xl md:text-3xl' onClick={()=>setEnquire(false)}/>
+       </div>
+        <hr/>
+        <div className='Enqire-popup model-overflow'>
+        <div className="lg:w-1/2 size-full enquire-section-form order-2 lg:order-1">
+        <EnquireForm enquire={EnquireFalse} />
+        </div>
+        <div className='lg:w-1/2 lg:ml-1 p-3 lg:p-5 text-white size-full order-1 lg:order-2 welcome-enquire'>
+          <h1 className='my-5 font-semibold animated-text'>Welcome to Examsafari</h1>
+          <p className='text-box'>|</p>
+          <p className='text-xl my-8 para1'>Embark on a worry-free exam. Journey with ExamSafari! Offering buget-friendly transport, accommodation, and exclusive
+                                            Travel+accommodation packages for students across cities. </p>
+          <p className='text-xl mb-8 para2'>Prioritizing safety, especially for female aspirents, our services guarantee a secure and comfortable experience. Trust ExamSafari to make your exam travels stress-free and affordable.</p>
+            </div>
+        </div>
+        <div className='text-center lg:text-right'>
+          <hr/>
+        <button className='feauture-button close mb-3' onClick={() => setEnquire(false)}>Close Modal</button>
+        </div>
+      </Modal>
+      <Modal
+        isOpen={thankyou}
+        onRequestClose={() => setThankyou(false)}
+        className="thankyou-popup custom-modal-padding"
+        overlayClassName="custom-overlay"
+      >
+       <RxCross2 className='ml-auto mb-auto text-3xl mr-3' onClick={()=>setThankyou(false)}/>
+       <h1 className='tick'><TiTick color="white"/></h1>
+       <p className='pt-3 text-2xl'><b>Your form submitted successfuly!</b></p>
+       <h3 className="thanks-text">Thanks for visiting</h3>
+       <h1 className='text-examSafari'><img
+                      width="150px"
+                      src={"/images/logo.png"}
+                      alt="Your Company"
+                    /></h1>
+      </Modal>
        
           </div>
           </div>
