@@ -25,6 +25,7 @@ function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
 
+
   const handlePhoneNumberChange = (e: { target: { value: any } }) => {
     const newPhoneNumber = e.target.value;
     setPhoneNumber(newPhoneNumber);
@@ -39,10 +40,9 @@ function Login() {
     newOtpValues[index].digit = value;
     setOtpValues(newOtpValues);
   };
-
+  
   useEffect(() => {
     let intervalId: string | number | NodeJS.Timeout | undefined;
-
     if (isSubmitClicked && timer > 0) {
       intervalId = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);

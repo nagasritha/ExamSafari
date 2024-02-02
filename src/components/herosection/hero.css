@@ -8,16 +8,26 @@
     border-radius: 50%;
     font-size:20px;
     cursor: pointer;
+    z-index:999;
 }
 .floating:hover{
     background-color: #142d55;
     color: white;
     transition: all 0.3s ease-in-out;
 }
-
-.animatedImage{
+.heroSection{
+    background-image: url("https://res.cloudinary.com/dkredoejm/image/upload/v1706283958/banner1.sm_pqzbud.png");
+    height:80vh;
+    width:100%;
+    background-size:cover;
     animation: animateLogo 2.5s ;
     animation-fill-mode: forwards;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 @keyframes animateLogo {
     0%{
@@ -27,7 +37,33 @@
         opacity: 1;
     }
 }
-
+@media(max-width:1000px){
+  .blur{
+    background-color: #40BAD4;
+    opacity:0.5;
+   position:absolute;
+    width:100%;
+    height:80%;
+    border-radius:10px;
+  }
+  .bottom{
+    position:relative;
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+  }
+}
+@media(min-width:1000px){
+    .heroSection{
+       background-image:url("https://res.cloudinary.com/dkredoejm/image/upload/v1706284066/banner-lg_zd4d2v.png");
+       align-items:flex-end;
+       padding-right:50px;
+    }
+    .blur{
+      display:none;
+    }
+}
 .trans{
     background: rgba(255,255,255,0.4);
     border: none;
@@ -42,3 +78,35 @@
   :-moz-placeholder { color: #666; }
   ::-moz-placeholder { color: #666; }
   :-ms-input-placeholder { color: #666; }
+  .home-search-bar{
+    background-color:aliceblue;
+    border-radius:15px;
+    padding:5px;
+    color:#666;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    width:250px;
+  }
+  .home-input {
+    background-color: transparent !important;
+    margin-left: 5px;
+    border: 0;
+    width:90%;
+    color:black;
+    font-size:23px;
+    outline: none;
+    box-shadow: none; /* Add this line to remove the box shadow */
+  }
+  
+  .home-input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none; /* Add this line to remove the box shadow on focus */
+  }
+  @media(min-width:600px){
+    .home-search-bar{
+        width:350px;
+        font-size:24px;
+    }
+  }

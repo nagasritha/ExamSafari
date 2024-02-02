@@ -1,0 +1,12 @@
+.animated-color{
+    font-size: 1em;
+    font-weight: bold;
+    animation: color-change 1s infinite;
+    background-color:blue;
+  }
+  
+  @keyframes color-change {
+    0% { color: rgb(243, 245, 250); }
+    50% { color: blue; }
+    100% { color: rgb(243, 245, 250); }
+  }

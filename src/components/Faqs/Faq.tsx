@@ -11,7 +11,7 @@ function Faq() {
     <>
       <div id="#contact-section" className='services-container'>
         <div className='service-heading mt-36' style={{textAlign:"center"}}> Frequently Asked Questions</div>
-        <div className='service-para mb-36' style={{textAlign:"center"}}> we are here to help you </div>
+        <div className='service-para mb-16' style={{textAlign:"center"}}> we are here to help you </div>
         <div className="faq-section">
         <div className='faq-part'>
                <Accordion type="single" collapsible className="w-full">

@@ -1,11 +1,39 @@
-.Navbar:hover{
- background-color:#142d55;
- color:white;
- height:15vh;
- top: 0;
- padding: 10px 20px;
- border-radius: 50%;
- font-size:40px;
- cursor: pointer;
-}
 
+.nav-width{
+width:100%;
+ margin:0px !important;
+ background-color:#142d55;
+ height:10vh;
+ z-index:2000;
+ position:fixed;
+ top:0;
+}
+.animated-color{
+    font-size: 1em;
+    font-weight: bold;
+    animation: color-change 1s infinite;
+    display:flex;
+  }
+  @keyframes color-change {
+    0% { color: rgb(250, 247, 247); }
+    50% { color: blue; }
+    100% { color: rgb(254, 254, 254); }
+  }
+  .cancel{
+    display:flex;
+    margin-left:auto;
+    margin-top:-21px;
+    padding-right:40px;
+    background-color:black;
+    color:white;
+    font-size:20px;
+    position:relative;
+
+  }
+  .active{
+    background-color:black !important;
+  }
+  .logo{
+    width:100px;
+    margin-left:50px;
+  }

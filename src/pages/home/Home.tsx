@@ -6,7 +6,7 @@ import AcoFeature from "@/components/feature/AcoFeature";
 import TravelFeature from "@/components/feature/TravelFeature";
 import Faq from "@/components/Faqs/Faq";
 import Bannar1 from "@/components/bannar/Bannar1";
-import Navbar from "@/components/navbar/Navbar";
+
 import Layout from "@/components/layout/Layout";
 import "./index.css";
 
@@ -21,10 +21,6 @@ declare global {
 function Home() {
   return (
     <Layout>
-      <marquee className="animated-color">
-        15% discount for 1st time users!!
-      </marquee>
-      <Navbar />
       <HeroSection />
       <Stats />
       <Services />

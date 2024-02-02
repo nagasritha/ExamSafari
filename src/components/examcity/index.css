@@ -1,0 +1,16 @@
+.exams-item-btn{
+    position: absolute;
+    margin-top:-60px;
+    margin-left:30px;
+    font-weight:bold;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size:16px;
+    padding:5px;
+}
+
+.exams-item-btn:hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.9), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.9), .125rem .125rem 1rem rgba(255, 154, 90, 0.9);
+  }

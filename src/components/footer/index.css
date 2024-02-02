@@ -1,6 +1,5 @@
 .heading{
-  
-    color:black;
+    color:rgb(16, 1, 1);
 }
 .footer-container{
     width:100vw;
@@ -53,10 +52,10 @@ padding:10px;
     align-items:Center;
 }
 .footer-bg{
-    background-color:rgb(103, 238, 108);
+    background-color:#74f1fc;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    border-top:20px solid rgb(247, 63, 7);
+    border-top:20px solid rgb(6, 140, 158);
 }
 .logo-color{
     background-color:blue;
@@ -84,4 +83,12 @@ padding:10px;
     display:flex;
     justify-content:center;
     align-items:center;
+}
+.social-medias{
+    display:flex;
+    flex-wrap:wrap;
+}
+.content-items{
+    width:90%;
+    overflow:hidden;
 }
