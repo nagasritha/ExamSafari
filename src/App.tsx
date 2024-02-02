@@ -17,6 +17,7 @@ import NoPage from './pages/nopage/NoPage';
 import ExamCityDescription from "./components/examcitydescription/ExamCityDescription";
 import ExamCityMain from "./components/examcity/ExamCityMain";
 import BookingForm from "./components/booking/BookingForm";
+import BookingPage from "./components/booking/BookingPage";
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
           <Route path="/examcitymain" element={<ExamCityMain />} />
           <Route path="/*" element={<NoPage />} />
           <Route path="/bookingform" element={<BookingForm/>}/>
-          
+          <Route path="/bookingpage" element={<BookingPage/>}/>
+           
         </Routes>
       </Router>
     </div>
