@@ -1,34 +1,31 @@
-import { ReactNode } from "react";
+//import { ReactNode } from "react";
 
 interface ProfileSidebarProps {
-  className: ReactNode;
-  profilePhoto: string | undefined;
-  profileData: ProfileSidebarProps;
+  // className: string;
+  // profilePhoto: string | undefined;
+  profileData: any;
   editMode: boolean;
   userName: string;
-  handleUploadPhoto: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleUploadPhoto: () => void;
   handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEditProfile: () => void;
   handleSaveProfile: () => void;
+  handleLogout: () => void;
 }
 const Profilesidebar : React.FC<ProfileSidebarProps> = ({
+  // profilePhoto,
   profileData,
   editMode,
   userName,
-  //handleUploadPhoto,
+  handleUploadPhoto,
   handleFileChange,
   handleInputChange,
   handleEditProfile,
   handleSaveProfile,
+  handleLogout,
 }) => {
-  const handleLogout = () => {
-    // Add logic for logging out (e.g., clearing user session, etc.)
-    console.log("Logging out");
-    // Redirect to the login page
-    // You can replace '/login' with the actual path to your login page
-    window.location.href = "/login";
-  };
+ 
   
   const renderProfileDetails = () => {
     return (
@@ -41,7 +38,7 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
         <div className="mt-2">
           <button
             className="inline-block bg-[#142d55] rounded-xl px-5 py-3 text-sm font-semibold text-white"
-            //onClick={handleUploadPhoto}
+            onClick={handleUploadPhoto}
           >
             <label
               htmlFor="uploadPhoto"

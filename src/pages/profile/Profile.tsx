@@ -4,6 +4,7 @@ import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
 
 function Profile() {
+  
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -68,23 +69,24 @@ function Profile() {
   };
 
   return (
-    <div className="container mx-auto p-8 flex">
-      <ProfileSidebar
-        profileData={profileData}
-        editMode={editMode}
-        userName={userName}
-        handleUploadPhoto={handleUploadPhoto}
-        handleFileChange={handleFileChange}
-        handleInputChange={handleInputChange}
-        handleEditProfile={handleEditProfile}
-        handleSaveProfile={handleSaveProfile}
-      />
-      <div className="w-full z-50">
-        <ProfileContent handleLogout={()=>handleLogout()} />
-        <div className="ml-64"><Accordian /></div>
+      <div className="container mx-auto p-8 flex">
+        <ProfileSidebar
+          profileData={profileData}
+          editMode={editMode}
+          userName={userName}
+          handleUploadPhoto={handleUploadPhoto}
+          handleFileChange={handleFileChange}
+          handleInputChange={handleInputChange}
+          handleEditProfile={handleEditProfile}
+          handleSaveProfile={handleSaveProfile}
+          handleLogout={handleLogout} /* Include handleLogout prop */
+        />
+        <div className="w-full z-50">
+          <ProfileContent  />
+          <div className="ml-64"><Accordian /></div>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default Profile;
