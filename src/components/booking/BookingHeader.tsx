@@ -1,6 +1,6 @@
 const BookingHeader = () => {
   return (
-    <div className="flex justify-around h-16 items-center bg-white shadow-lg">
+    <div className="flex justify-around h-16 items-center bg-white shadow-lg fixed w-full top-0 z-10">
 
 
       <div className="logo">

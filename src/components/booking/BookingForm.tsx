@@ -4,11 +4,11 @@ import PersonalDetails from "./PersonalDetails"
 
 const BookingForm = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100  relative">
       <BookingHeader/>
 
 
-      <div className="Booking-form mx-16 mt-8">
+      <div className="Booking-form mx-16 pt-20 ">
         <div>
             <PersonalDetails/>
             <BookingCard/>
