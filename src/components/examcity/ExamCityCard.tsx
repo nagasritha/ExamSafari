@@ -69,7 +69,7 @@ const ExamCityCard: React.FC<CardProps> = ({ properties }) => {
   return (
     <>
       <div className="properties-list">
-        <Link to={`/examcitydescription`}>
+        <Link to="/examcitydescription">
           {properties.map((property, index) => (
             <Card key={index} property={property} />
           ))}
