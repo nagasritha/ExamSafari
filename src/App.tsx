@@ -15,7 +15,8 @@ import Lucknow from './pages/lucknow/Lucknow';
 import Travel from './pages/travel/Travel';
 import TravelWithAccomadation from './pages/travelwithaccomadation/TravelWithAccomadation';
 import NoPage from './pages/nopage/NoPage';
-
+import Profile from './pages/profile/Profile';
+//import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
             <Router>
                 <Routes>
                   <Route path="/" element={<Home/>} />   
-                  <Route path="/login" element={<Login/>} />   
+                  <Route path="/login" element={<Login/>} /> 
+                  <Route path="/profile" element={<Profile/>} />  
                   <Route path="/accomadation" element={<Accomadation/>} />   
                   <Route path="/allahabad" element={<Allahabad/>} />   
                   <Route path="/banaras" element={<Banaras/>} /> 
@@ -33,6 +35,7 @@ function App() {
                   <Route path="/travel" element={<Travel/>} /> 
                   <Route path="/travelwithaccomadation" element={<TravelWithAccomadation/>} /> 
                   <Route path="/*" element={<NoPage/>} />
+                  {/* <Route path="/dasboard" element={<Dashboard/>} /> */}
                 </Routes>
           </Router>
           </div>

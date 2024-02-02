@@ -1,8 +1,11 @@
 //import React from 'react'
 import Footer from '../footer/Footer'
+import { ReactNode } from 'react';
 //import Navbar from '../navbar/Navbar'
-
-function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+function Layout({ children }: LayoutProps) {
   return (
     <div>
       <div className="content">

@@ -1,7 +1,10 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./login.css";
-import Banner from "/public/images/bannar3-modified.png";
+import Banner from "/images/bannar3-modified.png";
 import { useState, useEffect } from "react";
+//import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const initialValues = {
@@ -14,14 +17,15 @@ function Login() {
       { digit: "" },
     ],
   };
-
+  const navigate = useNavigate(); 
   const initialTimer = 5 * 60;
   const [timer, setTimer] = useState(initialTimer);
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
+  const [otpValues, setOtpValues] = useState(initialValues.otp);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
 
-  const handlePhoneNumberChange = (e) => {
+  const handlePhoneNumberChange = (e: { target: { value: any } }) => {
     const newPhoneNumber = e.target.value;
     setPhoneNumber(newPhoneNumber);
 
@@ -30,13 +34,14 @@ function Login() {
     setIsValidPhoneNumber(isValid);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitClicked(true);
+  const handleOtpChange = (index: number, value: string) => {
+    const newOtpValues = [...otpValues];
+    newOtpValues[index].digit = value;
+    setOtpValues(newOtpValues);
   };
 
   useEffect(() => {
-    let intervalId;
+    let intervalId: string | number | NodeJS.Timeout | undefined;
 
     if (isSubmitClicked && timer > 0) {
       intervalId = setInterval(() => {
@@ -49,15 +54,30 @@ function Login() {
 
   const minutes = Math.floor(timer / 60);
   const seconds = timer % 60;
+  const isOtpValid = otpValues.every((otp) => otp.digit !== "");
 
+  const handleFormSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setIsSubmitClicked(true);
+  };
+  const handleFormLogin = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    const isOtpValid = otpValues.every((otp) => otp.digit !== "");
+
+    if (isOtpValid && isValidPhoneNumber) {
+      // Redirect to the profile page using navigate
+      navigate("/profile");
+    }
+  };
   return (
     <>
       <Navbar />
       <div
-        className="py-16 relative inset-0"
+        className="py-16 relative inset-0 min-h-screen"
         style={{
           backgroundImage: `url(${Banner})`,
           backgroundSize: "cover",
+          //backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
       >
@@ -134,8 +154,12 @@ function Login() {
                 </button>
               </div>
             </form>
-            <div className=" h-max">
-              <div className="card scale-90 pb-3">
+            <div className=" h-max ">
+              <div
+                className={`card scale-90 pb-3 ${
+                  isSubmitClicked ? `block` : "hidden"
+                }`}
+              >
                 {/* <div className="card-header">
                   <img src="./smartphone-2.svg" alt="smartphone" />
                   <div className="header-text">Two-Factor Verification</div>
@@ -149,7 +173,7 @@ function Login() {
                     Type your 6 digit security code
                   </div>
                   <div className="otp-inputs">
-                    {initialValues.otp.map((item, index) => {
+                    {initialValues.otp.map((_item, index) => {
                       return (
                         <input
                           className="otp-input"
@@ -157,6 +181,9 @@ function Login() {
                           inputMode="numeric"
                           autoComplete="one-time-code"
                           maxLength={1}
+                          onChange={(e) =>
+                            handleOtpChange(index, e.target.value)
+                          }
                           key={index}
                         />
                       );
@@ -178,9 +205,19 @@ function Login() {
               </div>
             </div>
             <div className="mt-">
-              <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">
+              {/* <Link to={"/Profile"}> */}
+              <button
+                type="submit"
+                className={`bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600 ${
+                  isValidPhoneNumber && isOtpValid
+                    ? ""
+                    : "cursor-not-allowed opacity-50"
+                }`}
+                disabled={!isValidPhoneNumber || !isOtpValid}
+              onClick={handleFormLogin}>
                 Login
               </button>
+              {/* </Link> */}
             </div>
             {/* <div className="mt-4 flex items-center justify-between">
               <span className="border-b w-1/5 md:w-1/4"></span>
