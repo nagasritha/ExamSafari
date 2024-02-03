@@ -24,6 +24,8 @@ const Stats: React.FC = () => {
       } else {
         setSlideToShow(3);
         setDots(false);
+        setCenterPadding(10);
+        setCenterAlign(false);
       }
     };
   
