@@ -138,7 +138,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.admitCard && <p className="text-red-500">Admit Card is required</p>}
         </div>
         <div style={{ textAlign: 'right' }}>
-          <button type="submit" className={deactivate ? 'submit p-2' : "submit p-2 opacity-70"}>Submit</button>
+          <button type="submit" className={deactivate ? 'submit p-2' : "submit p-2 opacity-80"}>Submit</button>
         </div>
       </form>
     </div>
