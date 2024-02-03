@@ -10,6 +10,14 @@ import Bannar1 from "@/components/bannar/Bannar1";
 import Layout from "@/components/layout/Layout";
 import "./index.css";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      marquee: React.DetailedHTMLProps<React.HTMLAttributes<HTMLMarqueeElement>, HTMLMarqueeElement>;
+    }
+  }
+}
+
 function Home() {
   return (
     <Layout>
