@@ -126,7 +126,7 @@ function Login() {
               </a>
               <span className="border-b w-1/5 lg:w-1/4"></span>
             </div>
-            <form onSubmit={handleFormSubmit} className="mt-4 mb-2">
+            <form id='login' onSubmit={handleFormSubmit} className="mt-4 mb-2">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="phone"
@@ -137,6 +137,7 @@ function Login() {
                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 w-full"
                 type="tel"
                 name="phone"
+                id="phone"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
                 pattern="[0-9]{10}"

@@ -20,12 +20,12 @@ const TravelFeature: React.FC = () => {
         setSlideToShow(1);
       } else if (window.innerWidth <= 1000) {
         setSlideToShow(2);
-        setCenterPadding(10);
+        setCenterPadding(20);
         setCenterAlign(false);
       } 
       else if (window.innerWidth <= 1200) {
         setSlideToShow(3);
-        setCenterPadding(10);
+        setCenterPadding(20);
         setCenterAlign(false);
       }else{
         setSlideToShow(4);
