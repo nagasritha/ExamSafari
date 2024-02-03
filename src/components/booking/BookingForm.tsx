@@ -9,7 +9,7 @@ const BookingForm = () => {
 
 
       <div className="Booking-form mx-16 pt-20 ">
-        <div>
+        <div className="flex">
             <PersonalDetails/>
             <BookingCard/>
         </div>

@@ -1,4 +1,5 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate , Link } from "react-router-dom";
+
 
 const BookingPage = () => {
 
@@ -14,8 +15,12 @@ const BookingPage = () => {
     <div className="px-60 pt-12 bg-gray-100 h-screen">
       <div className="upper-portion">
         <div className="flex gap-6">
+          <Link to={"/"}>
           <div className="font-semibold">Home /</div>
+          </Link>
+          <Link to={""}>
           <div className="font-semibold">Profile /</div>
+          </Link>
           <div className="font-semibold">Booking</div>
         </div>
 
