@@ -7,40 +7,23 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import { FaPeopleRoof } from "react-icons/fa6";
 import './index.css'
 
-const Stats: React.FC = () => {
+const MyCarousel: React.FC = () => {
   const [slidesToShow,setSlideToShow]=useState<number>(1)
   const [dots,setDots]=useState<boolean>(true)
-  const [centerAlign,setCenterAlign]=useState<boolean>(true)
-  const [centerPadding,setCenterPadding]=useState<number>(50)
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 400) {
-        setSlideToShow(1);
-      } else if (window.innerWidth <= 1000) {
-        setSlideToShow(2);
-        setCenterPadding(10);
-        setCenterAlign(false);
-      } else {
-        setSlideToShow(3);
-        setDots(false);
-        setCenterPadding(10);
-        setCenterAlign(false);
-      }
-    };
-  
-    // Run handleResize initially
-    handleResize();
-  
-    // Add event listener to handle window resize
-    window.addEventListener('resize', handleResize);
-  
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); // Add window.innerWidth as dependency to rerun effect on resize
-  
+  useEffect(()=>{
+    if(window.innerWidth<=400){
+      setSlideToShow(1)
+    }
+    else if(window.innerWidth<=1000){
+      setSlideToShow(2)
+    }
+    else{
+      setSlideToShow(3)
+      setDots(false)
+    }
+  }
+  )
 
   const CustomPrevArrow = (props: any) => (
     <button onClick={props.onClick} className="custom-prev-arrow">
@@ -60,16 +43,15 @@ const Stats: React.FC = () => {
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    centerMode:centerAlign,
-    centerPadding:`${centerPadding}px`,
     prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    nextArrow: <CustomNextArrow />
   };
 
   
 
   return (
     <div>
+      <h2>Previous and Next methods</h2>
       <Slider {...settings}>
       <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
           <div className="align-center">
@@ -97,4 +79,4 @@ const Stats: React.FC = () => {
   );
 };
 
-export default Stats;
+export default MyCarousel;

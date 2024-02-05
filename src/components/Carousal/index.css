@@ -1,0 +1,33 @@
+.custom-prev-arrow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1; /* Ensure it's above the slides */
+}
+
+.custom-next-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1; /* Ensure it's above the slides */
+}
+.custom-next-arrow,.custom-prev-arrow{
+  cursor: pointer;
+    color:rgb(18, 17, 17);
+    font-size: 20px;
+    background-color:#ffffff;
+    width:30px;
+    height:30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+@media(min-width:1000px){
+  .custom-next-arrow,.custom-prev-arrow{
+    display:none;
+  }
+}

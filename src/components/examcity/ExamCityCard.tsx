@@ -18,9 +18,6 @@ interface Property {
 interface CardProps {
   properties: Property[];
 }
-
-
-
 const Card: React.FC<{ property: Property }> = ({ property }) => {
   return (
     <div className="px-2 md:px-0 card border border-md my-4  border-gray-300 rounded-lg flex flex-col md:flex-row w-full bg-white">
@@ -51,11 +48,11 @@ const Card: React.FC<{ property: Property }> = ({ property }) => {
               <li className="flex items-center">
                 {" "}
                 <p className="text-xs"> "From"</p>
-                <li>
+                <div>
                   <p className="font-semibold text-lg ">{`${
                     property.price.from
                   } ${property.price.status || ""}`}</p>
-                </li>
+                </div>
               </li>
             </div>
           </ul>
@@ -69,7 +66,7 @@ const ExamCityCard: React.FC<CardProps> = ({ properties }) => {
   return (
     <>
       <div className="properties-list">
-        <Link to="/examcitydescription">
+        <Link to='/examcitydescription'>
           {properties.map((property, index) => (
             <Card key={index} property={property} />
           ))}

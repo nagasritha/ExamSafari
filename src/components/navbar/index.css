@@ -38,3 +38,9 @@ width:100%;
     width:100px;
     margin-left:50px;
   }
+  .menu-pannal{
+    background-color: rgb(127, 219, 255);
+    height:100vh;
+    width:100vw;
+    margin-top:-10px;
+  }

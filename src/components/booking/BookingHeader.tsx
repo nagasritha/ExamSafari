@@ -36,3 +36,4 @@ const BookingHeader = () => {
 };
 
 export default BookingHeader;
+
