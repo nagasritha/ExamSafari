@@ -18,7 +18,6 @@ interface Property {
 interface CardProps {
   properties: Property[];
 }
-
 const Card: React.FC<{ property: Property }> = ({ property }) => {
   return (
     <div className="px-2 md:px-0 card border border-md my-4  border-gray-300 rounded-lg flex flex-col md:flex-row w-full bg-white">
@@ -55,8 +54,6 @@ const Card: React.FC<{ property: Property }> = ({ property }) => {
                   } ${property.price.status || ""}`}</p>
                 </div>
               </li>
-
-              
             </div>
           </ul>
         </div>

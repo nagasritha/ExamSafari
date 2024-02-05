@@ -60,7 +60,7 @@ export default function Navbar() {
   };
 
   return (
-    <Disclosure as="nav" className="nav-width pr-10">
+    <Disclosure as="nav" className="nav-width w-full pr-10">
       {(open: any) => (
         <>
           <div>
