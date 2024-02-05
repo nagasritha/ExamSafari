@@ -1,57 +1,82 @@
-import { useRef,useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, {useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import {Link} from 'react-router-dom'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './index.css'
 
-function ExamCity() {
-    const containerRef = useRef<HTMLDivElement>(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
+const ExamCity: React.FC = () => {
+  const [slidesToShow,setSlideToShow]=useState<number>(1)
+  const [dots,setDots]=useState<boolean>(true)
+  const [centerAlign,setCenterAlign]=useState<boolean>(true)
+  const [centerPadding,setCenterPadding]=useState<number>(20)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        // Check if there is overflow content to the left
-        setShowLeftArrow(containerRef.current.scrollLeft > 0);
-        // Check if there is overflow content to the right
-        setShowRightArrow(
-          containerRef.current.scrollLeft <
-            containerRef.current.scrollWidth - containerRef.current.clientWidth
-        );
+    const handleResize = () => {
+      if (window.innerWidth <= 350) {
+        setSlideToShow(1);
+      }
+      if (window.innerWidth <= 480) {
+        setSlideToShow(1);
+        setCenterPadding(80)
+      } else if (window.innerWidth <= 1220) {
+        setSlideToShow(2);
+        setCenterAlign(false);
+        setCenterPadding(50);
+      } 
+     else{
+        setSlideToShow(3);
+        setDots(false);
+        setCenterPadding(0);
+        setCenterAlign(false);
       }
     };
-
-    // Attach the handleScroll function to the scroll event
-    if (containerRef.current) {
-      containerRef.current.addEventListener('scroll', handleScroll);
-    }
-    handleScroll();
-
-    // Cleanup: Remove the scroll event listener when the component unmounts
+  
+    // Run handleResize initially
+    handleResize();
+  
+    // Add event listener to handle window resize
+    window.addEventListener('resize', handleResize);
+  
+    // Cleanup function to remove event listener
     return () => {
-      if (containerRef.current) {
-        containerRef.current.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []); // Add window.innerWidth as dependency to rerun effect on resize
+  
 
-  const scrollLeft = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollLeft -= 280; // Adjust the scroll distance as needed
-    }
+  const CustomPrevArrow = (props: any) => (
+    <button onClick={props.onClick} className="custom-prev-arrow-feauture">
+     &lt;
+    </button>
+  );
+  
+  const CustomNextArrow = (props: any) => (
+    <button onClick={props.onClick} className="custom-next-arrow-feauture">
+      &gt;
+    </button>
+  );
+
+  const settings = {
+    dots: dots,
+    infinite: false,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    centerMode:centerAlign,
+    centerPadding:`${centerPadding}px`,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
   };
 
-  const scrollRight = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollLeft += 280; // Adjust the scroll distance as needed
-    }
-  };
+  
+
   return (
-    <div className='services-container mb-16'>
-        <div className='service-heading'>Exam Cities</div>
-        <div className='service-para'>Little text about Cities </div>
-        <div className='services-items' ref={containerRef}>
-            
-            <Link to="/examcitymain">
+    <div>
+       <h1 className='service-heading'>Services</h1>
+      <p className='service-para'>Little text about services </p>
+      <Slider {...settings}>
+      <Link to="/examcitymain">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">
                 <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/allahabad.png" alt="dummy-image"/>
                 <button className="exams-item-btn">Allahabad..</button>
@@ -71,28 +96,10 @@ function ExamCity() {
                 <button className="exams-item-btn">Kanpur..</button>
             </div>
             </Link>
-        </div>
-        <div className='controls-images'>
-        {/* Left arrow control */}
-     <div>
-     {showLeftArrow && <div className="control-style"
-        onClick={scrollLeft}
-      >
-       &lt;
-      </div>
-      }
-     </div>
-               
-      {/* Right arrow control */}
-      <div>
-      {showRightArrow && <div className="control-style"
-        onClick={scrollRight}>
-       &gt;
-      </div>}
-      </div>
-      </div>
-</div>
-  )
-}
+        
+      </Slider>
+    </div>
+  );
+};
 
-export default ExamCity
+export default ExamCity;
