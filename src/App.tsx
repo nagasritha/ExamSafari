@@ -18,6 +18,7 @@ import ExamCityDescription from "./components/examcitydescription/ExamCityDescri
 import ExamCityMain from "./components/examcity/ExamCityMain";
 import BookingForm from "./components/booking/BookingForm";
 import BookingPage from "./components/booking/BookingPage";
+import BookingPayment from "./components/booking/BookingPayment";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/*" element={<NoPage />} />
           <Route path="/bookingform" element={<BookingForm/>}/>
           <Route path="/bookingpage" element={<BookingPage/>}/>
+          <Route path="payment" element={<BookingPayment/>}/>
            
         </Routes>
       </Router>
