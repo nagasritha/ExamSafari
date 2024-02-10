@@ -54,12 +54,11 @@ module.exports = {
         },
       },
       borderRadius: {
-        'sm': '0.125rem', // small
-        'md': '0.375rem', // medium
-        'lg': '0.75rem',  // large
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        borderRadius: {
+          'sm': '0.125rem', // small
+          'md': '0.375rem', // medium
+          'lg': '0.75rem',  // large
+        },
       },
       keyframes: {
         "accordion-down": {
