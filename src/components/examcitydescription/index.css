@@ -219,6 +219,15 @@ background-color:transparent;
       width:50%;
     }
   }
+  .animated-text {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    height:20px;
+    font-weight:bold;
+    transform: translate(0px,0px);
+    opacity:0;
+    animation: top-to-bottom 0.5s ease-in-out forwards;
+}
   
   .para1,.para2{
    transform: translate(0px,0px);
@@ -243,31 +252,10 @@ background-color:transparent;
       opacity:1;
     }
   }
-  .animated-text {
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    height:20px;
-    font-weight:bold;
-}
-.text-box{
-  margin-top:-40px;
-  background-color:#0cc0df;
-  transform: translateX(100%);
-  animation:text 2s ease-out forwards;
-  color:#0cc0df;
-}
 
-@keyframes text {
-  0%{
-    transform: translateX(0px);
-  }
-  100%{
-    transform: translateX(100%);
-    display:none;
-  }
-}
+
 @media(min-width:500px){
-  .animated-text,.text-box{
+  .animated-text{
     font-size:20px;
   }
 

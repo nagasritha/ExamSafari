@@ -26,7 +26,7 @@ const RoomTypeCard = () => {
               <div>
               <div className="flex py-2">
                 <div className="flex mr-4"> <div className="text-sm mr-1">Duration:</div> <div className="text-sm font-semibold">31 week</div></div>
-                <div className="md:flex hidden"><div className="text-sm mr-1">Move In :</div> <div className="text-sm font-semibold"> Flexible</div></div>
+                <div className="md:flex hidden"><div className="text-sm mr-1">Move In :</div> <div className="text-sm font-semibold">Flexible</div></div>
               </div>
               <div className="text-xs text-gray-600">
               Note: Immediate Move Ins

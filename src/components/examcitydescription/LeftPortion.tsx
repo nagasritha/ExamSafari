@@ -36,14 +36,14 @@ const LeftPortion: React.FC = () => {
     <div className="MainContainer md:w-4/6 w-full items-center flex flex-col justify-center mt-4   md:ml-10 md:mr-3 mx-2  rounded-lg">
       <div className="border w-full border-gray-300  my-4 mt-0 bg-white rounded-lg">
         <div className="m-4 ">
-          <div className="flex justify-between top-container mt-4 ">
+          <div className="flex flex-wrap sm:no-wrap justify-between top-container mt-4 items-center">
             <div className="flex left-box">
               <div className="font-semibold text-blue-600">India </div> /
               <div className="font-semibold text-blue-600">Uttar Pradesh </div> /
               <div className="font-semibold text-blue-600">Allahbad</div>
             </div>
 
-            <div className="Right-box flex ">
+            <div className="Right-box flex mt-2 sm:mt-0">
               <button className="flex items-center text-blue-600 font-semibold mr-1 gap-1">
                 <GoShare />
                 Share
@@ -92,7 +92,7 @@ const LeftPortion: React.FC = () => {
             </div>
           </div>
 
-          <div className="rectangle-box flex justify-between items-center my-3">
+          <div className="rectangle-box flex flex-wrap sm:no-wrap justify-between items-center my-3">
             <div className="buttons flex  ">
               <button className="photo flex items-center px-5 py-2 mr-2 border font-semibold border-gray-500 text-sm rounded-xl ">
                 <IoCameraOutline size={20} style={{ marginRight: "5px" }} />
@@ -104,7 +104,7 @@ const LeftPortion: React.FC = () => {
               </button>
             </div>
 
-            <div>
+            <div className='mt-2 sm:mt-0'>
               <button className="flex items-center px-5 py-2 mr-2 font-semibold border border-gray-500 rounded-xl text-sm bg-blue-50">
                 <FaStar style={{ color: "blue" }} />{" "}
                 <div className="ml-1">5.0</div>{" "}
