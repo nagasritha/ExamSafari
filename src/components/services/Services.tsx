@@ -10,15 +10,16 @@ const Services: React.FC = () => {
   const [dots,setDots]=useState<boolean>(true)
   const [centerAlign,setCenterAlign]=useState<boolean>(true)
   const [centerPadding,setCenterPadding]=useState<number>(20)
-
+ 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 350) {
         setSlideToShow(1);
+        setCenterAlign(false);
       }
       if (window.innerWidth <= 480) {
         setSlideToShow(1);
-        setCenterPadding(80)
+        setCenterPadding(50);
       } else if (window.innerWidth <= 1220) {
         setSlideToShow(2);
         setCenterAlign(false);
@@ -42,7 +43,7 @@ const Services: React.FC = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Add window.innerWidth as dependency to rerun effect on resize
+  }, []);// Add window.innerWidth as dependency to rerun effect on resize
   
 
   const CustomPrevArrow = (props: any) => (

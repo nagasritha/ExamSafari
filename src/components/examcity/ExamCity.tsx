@@ -15,10 +15,11 @@ const ExamCity: React.FC = () => {
     const handleResize = () => {
       if (window.innerWidth <= 350) {
         setSlideToShow(1);
+        setCenterAlign(false);
       }
       if (window.innerWidth <= 480) {
         setSlideToShow(1);
-        setCenterPadding(80)
+        setCenterPadding(50);
       } else if (window.innerWidth <= 1220) {
         setSlideToShow(2);
         setCenterAlign(false);
@@ -73,8 +74,8 @@ const ExamCity: React.FC = () => {
 
   return (
     <div>
-       <h1 className='service-heading'>Services</h1>
-      <p className='service-para'>Little text about services </p>
+       <h1 className='service-heading'>Exam City</h1>
+      <p className='service-para'>Little text about exam City </p>
       <Slider {...settings}>
       <Link to="/examcitymain">
             <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t from-red-500 to-pink-500">

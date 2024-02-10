@@ -1,19 +1,35 @@
-
+import {useState} from 'react'
 import { GoShare } from "react-icons/go";
 import { CiHeart } from "react-icons/ci";
 import { IoCameraOutline } from "react-icons/io5";
 import { IoPlayCircleOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt,FaAngleRight } from "react-icons/fa";
 import { MdElectricBolt } from "react-icons/md";
-import Accordion from "./Accordion";
-import WhatYouGet from "./WhatYouGet";
-import RoomType from "./RoomType";
+import Modal from 'react-modal'
+import EnquireModal from '@/components/ModalComponents/EnquireModal';
+import ThankyouModal from '@/components/ModalComponents/ThankyouModal';
 import HotelDescription from "./HotelDescription";
 
+Modal.setAppElement('#root');
+
 const LeftPortion: React.FC = () => {
-  
+  const [enquireIsOpen, setEnquire] = useState(false);
+  const [thankyou,setThankyou] = useState(false);
+
+  const EnquireFalse=()=>{
+    closeEnquire();
+    setThankyou(true);
+  }
+
+  const closeEnquire=()=>{
+    setEnquire(false);
+  }
+  const closeThankyou=()=>{
+    setThankyou(false);
+    console.log("called");
+  }
 
   
   return (
@@ -136,13 +152,33 @@ const LeftPortion: React.FC = () => {
               Recycling
             </button>
           </div>
+          <hr className='mt-4'/>
+          <button
+              className="md:hidden text-blue-600 flex items-center gap-1  hover:bg-gray-200  font-medium hover:rounded-md text-sm py-2 px-4 mx-4 my-2 text-center "
+              type="button"
+              onClick={()=>setEnquire(true)} 
+            >
+              Enquire Now <FaAngleRight />
+            </button>
         </div>
       </div>
-      
+      <Modal
+        isOpen={enquireIsOpen}
+        onRequestClose={() => setEnquire(false)}
+        className="custom-modal"
+        overlayClassName="custom-overlay"
+      >
+       <EnquireModal closeEnquire={closeEnquire} enquireFalse={EnquireFalse}/>
+          </Modal>
+          <Modal
+            isOpen={thankyou}
+            onRequestClose={closeThankyou}
+            overlayClassName="custom-overlay"
+            className="custom-modal"
+          >
+          <ThankyouModal closeThankyou={closeThankyou}/>
+          </Modal>
     <HotelDescription/>
-      <WhatYouGet/>
-     <RoomType/>
-      <Accordion/>
     </div>
   );
 };

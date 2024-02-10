@@ -1,11 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { GoVerified } from 'react-icons/go';
 import { TbHome2 } from 'react-icons/tb';
 import { BsFire } from 'react-icons/bs';
 import { FaAngleRight } from 'react-icons/fa6';
 import { CiDollar } from 'react-icons/ci';
+import Modal from "react-modal";
+import EnquireModal from '@/components/ModalComponents/EnquireModal';
+import ThankyouModal from '@/components/ModalComponents/ThankyouModal';
+
+Modal.setAppElement('#root');
 
 const RightPortion: React.FC = () => {
+  const [enquireIsOpen, setEnquire] = useState(false);
+  const [thankyou,setThankyou] = useState(false);
+
+  const EnquireFalse=()=>{
+    closeEnquire();
+    setThankyou(true);
+  }
+
+  const closeEnquire=()=>{
+    setEnquire(false);
+  }
+  const closeThankyou=()=>{
+    setThankyou(false);
+    console.log("called");
+  }
+
+
+
   return (
     <div className='w-2/6 h-fit mt-2 bg hidden md:flex   '>
       <div className='Main-Container'>
@@ -39,10 +62,12 @@ const RightPortion: React.FC = () => {
               <button className='w-full bg-white text-blue-600 font-semibold border border-blue-600 py-3 rounded-md my-4'>
                 View Rooms
               </button>
-              <button className='w-full bg-blue-600 text-white font-semibold border border-blue-600 py-3 rounded-md my-4 flex items-center justify-center gap-1'>
+              <button onClick={()=>setEnquire(true)} className='w-full bg-blue-600 text-white font-semibold border border-blue-600 py-3 rounded-md my-4 flex items-center justify-center gap-1'>
                 Enquire Now <FaAngleRight />
               </button>
+             
             </div>
+           
           </div>
         </div>
 
@@ -58,6 +83,23 @@ const RightPortion: React.FC = () => {
           </button>
         </div>
       </div>
+      <Modal
+        isOpen={enquireIsOpen}
+        onRequestClose={() => setEnquire(false)}
+        className="custom-modal"
+        overlayClassName="custom-overlay"
+      >
+       <EnquireModal closeEnquire={closeEnquire} enquireFalse={EnquireFalse}/>
+          </Modal>
+          <Modal
+            isOpen={thankyou}
+            onRequestClose={closeThankyou}
+            overlayClassName="custom-overlay"
+            className="custom-modal"
+          >
+          <ThankyouModal closeThankyou={closeThankyou}/>
+          </Modal>
+    
     </div>
   );
 };

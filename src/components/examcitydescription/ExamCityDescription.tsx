@@ -1,13 +1,16 @@
 
+import Layout from '../layout/Layout';
 import LeftPortion from './LeftPortion';
 import RightPortion from './RightPortion';
-
+import './index.css'
 const ExamCityDescription: React.FC = () => {
   return (
-    <div className='flex  bg-gray-100 w-full'>
+    <Layout>
+      <div className='flex  bg-gray-100 w-full' style={{marginTop:'10vh'}}>
       <LeftPortion />
       <RightPortion />
     </div>
+    </Layout>
   );
 };
 

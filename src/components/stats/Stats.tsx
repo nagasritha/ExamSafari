@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaCity } from "react-icons/fa";
-import { RiCustomerService2Fill } from "react-icons/ri";
+import { RiCustomerService2Fill,Ri24HoursLine } from "react-icons/ri";
 import { FaPeopleRoof } from "react-icons/fa6";
 import './index.css'
 
@@ -19,10 +19,15 @@ const Stats: React.FC = () => {
         setSlideToShow(1);
       } else if (window.innerWidth <= 1000) {
         setSlideToShow(2);
-        setCenterPadding(10);
+        setCenterPadding(20);
         setCenterAlign(false);
-      } else {
+      } 
+      else if (window.innerWidth <= 1200) {
         setSlideToShow(3);
+        setCenterPadding(20);
+        setCenterAlign(false);
+      }else{
+        setSlideToShow(4);
         setDots(false);
         setCenterPadding(10);
         setCenterAlign(false);
@@ -91,6 +96,13 @@ const Stats: React.FC = () => {
             </div>
             <h2 className="heading">250+ Partners</h2> 
             <h6 className="text-[#6B7280] para">Book your perfect place from an extensive list of options.</h6>           
+        </div>  
+        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+          <div className='align-center'>
+            <Ri24HoursLine  style={{color: "#00aff5",}} className='image' />
+          </div>
+          <h2 className="text-[#374151] heading">24x7 Assistance</h2> 
+          <h6 className="text-[#6B7280] para">If you have a doubt or a query, we’re always a call away.</h6>          
         </div>  
       </Slider>
     </div>

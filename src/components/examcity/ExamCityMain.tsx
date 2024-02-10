@@ -1,4 +1,4 @@
-import Accordion from "../examcitydescription/Accordion"
+
 import ExamCityHome from "./ExamCityHome"
 import ExamCityMap from "./ExamCityMap"
 
@@ -14,7 +14,6 @@ const ExamCityMain = () => {
       </div>
     </div>
     <div className="mx-8 my-4">
-    <Accordion/>
     </div>
     
     </div>
