@@ -20,6 +20,7 @@ import ExamCityMain from "./components/examcity/ExamCityMain";
 import BookingForm from "./components/booking/BookingForm";
 import BookingPage from "./components/booking/BookingPage";
 import BookingPayment from "./components/booking/BookingPayment";
+import MyProfile from "./components/proflie/MyProfile";
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/accomadation" element={<Accomadation />} />
           <Route path="/allahabad" element={<Allahabad />} />
             <Route path="/profile" element={<Profile/>} />  
+            <Route path= "myprofile" element={<MyProfile/>}/>
           <Route path="/banaras" element={<Banaras />} />
           <Route path="/kanpur" element={<Kanpur />} />
           <Route path="/lucknow" element={<Lucknow />} />
