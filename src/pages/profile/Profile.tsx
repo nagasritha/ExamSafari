@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import ProfileSidebar from "./Profilesidebar";
 import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
+import Cookies from 'js-cookie';
 
 function Profile() {
-  
+  const jwtToken= Cookies.get('jwt_token');
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -23,7 +24,7 @@ function Profile() {
       },
       // Add more history entries as needed
     ],
-    profilePhoto: "public/images/logo1.jpeg",
+    profilePhoto: "images/logo1.jpeg",
   });
 
   const [userName, setUserName] = useState("");
@@ -33,6 +34,9 @@ function Profile() {
   const handleLogout = () => {
     console.log("Logging out");
     window.location.href = "/login";
+    if(Cookies.get('jwt_token')!==undefined){
+      Cookies.remove('jwt_token');
+    }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +71,7 @@ function Profile() {
       reader.readAsDataURL(selectedFile);
     }
   };
-
+  if(jwtToken!==undefined){
   return (
       <div className="container mx-auto p-8 flex">
         <ProfileSidebar
@@ -79,14 +83,17 @@ function Profile() {
           handleInputChange={handleInputChange}
           handleEditProfile={handleEditProfile}
           handleSaveProfile={handleSaveProfile}
-          handleLogout={handleLogout} /* Include handleLogout prop */
+          handleLogout={handleLogout}
         />
         <div className="w-full z-50">
           <ProfileContent  />
           <div className="ml-64"><Accordian /></div>
         </div>
       </div>
-    );
+    );}
+    else{
+      return handleLogout();
+    }
   }
 
 export default Profile;
