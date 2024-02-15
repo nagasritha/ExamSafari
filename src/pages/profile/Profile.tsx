@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProfileSidebar from "./Profilesidebar";
 import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
 import Cookies from 'js-cookie';
+import {useNavigate} from 'react-router-dom'
 
-function Profile() {
-  const jwtToken= Cookies.get('jwt_token');
+function Profile() { // Initialize useHistory hook
+  const jwtToken = Cookies.get('jwt_token');
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -30,13 +31,11 @@ function Profile() {
   const [userName, setUserName] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
+const navigate=useNavigate();
   const handleLogout = () => {
     console.log("Logging out");
-    window.location.href = "/login";
-    if(Cookies.get('jwt_token')!==undefined){
-      Cookies.remove('jwt_token');
-    }
+    Cookies.remove('jwt_token');
+    navigate('/login'); // Redirect to login page
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,29 +70,33 @@ function Profile() {
       reader.readAsDataURL(selectedFile);
     }
   };
-  if(jwtToken!==undefined){
-  return (
-      <div className="container mx-auto p-8 flex">
-        <ProfileSidebar
-          profileData={profileData}
-          editMode={editMode}
-          userName={userName}
-          handleUploadPhoto={handleUploadPhoto}
-          handleFileChange={handleFileChange}
-          handleInputChange={handleInputChange}
-          handleEditProfile={handleEditProfile}
-          handleSaveProfile={handleSaveProfile}
-          handleLogout={handleLogout}
-        />
-        <div className="w-full z-50">
-          <ProfileContent  />
-          <div className="ml-64"><Accordian /></div>
-        </div>
-      </div>
-    );}
-    else{
-      return handleLogout();
+
+  useEffect(() => {
+    if (!jwtToken) {
+      // If JWT token doesn't exist, navigate to login page
+      window.location.href='/login';
     }
-  }
+  }, [jwtToken]);
+
+  return (
+    <div className="container mx-auto p-8 flex">
+      <ProfileSidebar
+  profileData={profileData}
+  editMode={editMode}
+  userName={userName}
+  handleUploadPhoto={handleUploadPhoto}
+  handleFileChange={handleFileChange}
+  handleInputChange={handleInputChange}
+  handleEditProfile={handleEditProfile}
+  handleSaveProfile={handleSaveProfile}
+  handleLogout={handleLogout}
+/>
+      <div className="w-full z-50">
+        <ProfileContent  />
+        <div className="ml-64"><Accordian /></div>
+      </div>
+    </div>
+  );
+}
 
 export default Profile;

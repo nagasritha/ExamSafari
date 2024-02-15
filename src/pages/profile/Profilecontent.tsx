@@ -1,9 +1,9 @@
 //import React from "react";
 
-import { ReactNode } from "react";
+import React,{ ReactNode } from "react";
 import { JSX } from "react/jsx-runtime";
 
-const ProfileContent = ({ }) => {
+const ProfileContent:React.FC=()=> {
   return (
     <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
       <div className="sticky z-10 top-0 h-16 border-b bg-white lg:py-2.5">
