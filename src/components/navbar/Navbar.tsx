@@ -103,13 +103,13 @@ export default function Navbar() {
             <div>
             <div>
               {(jwtToken!==undefined) ? 
-                 <a href='/profile'>
+                 <Link to='/profile'>
                    <p className='profile'>E</p>
-                 </a>
+                 </Link>
               :
-                <a href={'/Login'}>
+                <Link to='/Login'>
                   <LuLogIn className='text-2xl text-white'/>
-                </a>
+                </Link>
               }
               </div>
             </div>
