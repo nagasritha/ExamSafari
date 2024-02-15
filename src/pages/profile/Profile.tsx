@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ProfileSidebar from "./Profilesidebar";
-import ProfileContent from "./Profilecontent";
-import Accordian from "./Accordian";
+import Dashboard from "./Accordian"
 
 function Profile() {
 
@@ -68,6 +67,10 @@ function Profile() {
     }
   };
 
+  const handleDashboard = () => {
+
+  }
+
   return (
     <div className="container mx-auto p-8 flex">
       <ProfileSidebar
@@ -78,12 +81,12 @@ function Profile() {
         handleFileChange={handleFileChange}
         handleInputChange={handleInputChange}
         handleEditProfile={handleEditProfile}
+        handleDashboard={handleDashboard}
         handleSaveProfile={handleSaveProfile}
         handleLogout={handleLogout} /* Include handleLogout prop */
       />
-      <div className="w-full z-50">
-        <ProfileContent />
-        <div className="ml-64"><Accordian /></div>
+      <div className="w-full z-50 ml-64">
+        <Dashboard />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 //import { ReactNode } from "react";
 
+import { Link } from "react-router-dom";
+
 interface ProfileSidebarProps {
   // className: string;
   // profilePhoto: string | undefined;
@@ -11,9 +13,10 @@ interface ProfileSidebarProps {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEditProfile: () => void;
   handleSaveProfile: () => void;
+  handleDashboard: () => void;
   handleLogout: () => void;
 }
-const Profilesidebar : React.FC<ProfileSidebarProps> = ({
+const Profilesidebar: React.FC<ProfileSidebarProps> = ({
   // profilePhoto,
   profileData,
   editMode,
@@ -22,11 +25,12 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
   handleFileChange,
   handleInputChange,
   handleEditProfile,
+  handleDashboard,
   handleSaveProfile,
   handleLogout,
 }) => {
- 
-  
+
+
   const renderProfileDetails = () => {
     return (
       <div className="mt-8 text-center">
@@ -95,14 +99,16 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
       <span className="block text-sm font-medium text-black-600">
         {profileData.className}
       </span>
-      <div className="mt-2">
-        <button
-          className="inline-block bg-[#142d55] rounded-xl px-5 py-3 text-sm font-semibold text-white"
-          onClick={handleEditProfile}
-        >
-          Edit Profile
-        </button>
-      </div>
+      {/* <div className="mt-2">
+        <Link to="/edit-profile">
+          <button
+            className="inline-block bg-[#142d55] rounded-xl px-5 py-3 text-sm font-semibold text-white"
+          // onClick={handleEditProfile}
+          >
+            Edit Profile
+          </button>
+        </Link>
+      </div> */}
     </>
   );
 
@@ -141,7 +147,9 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
                   className="fill-current group-hover:text-sky-300"
                 ></path>
               </svg>
-              <span className="-mr-1 font-medium">Dashboard</span>
+              <Link to="/profile" onClick={handleDashboard}>
+                <span className="-mr-1 font-medium">Dashboard</span>
+              </Link>
             </p>
           </li>
           <li>
@@ -166,7 +174,9 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
                   d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">Profile Updated</span>
+              <Link to="/edit-profile">
+                <span className="group-hover:text-gray-700">Profile Updated</span>
+              </Link>
             </a>
           </li>
           <li>
@@ -191,7 +201,9 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
                   d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">History</span>
+              <Link to="/history">
+                <span className="group-hover:text-gray-700">History</span>
+              </Link>
             </a>
           </li>
           <li>
@@ -216,7 +228,9 @@ const Profilesidebar : React.FC<ProfileSidebarProps> = ({
                   clip-rule="evenodd"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">Booking Check</span>
+              <Link to="/booking">
+                <span className="group-hover:text-gray-700">Booking Check</span>
+              </Link>
             </a>
           </li>
         </ul>
