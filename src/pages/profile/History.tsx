@@ -78,8 +78,9 @@ function History() {
                 handleInputChange={handleInputChange}
                 handleEditProfile={handleEditProfile}
                 handleSaveProfile={handleSaveProfile}
-                handleLogout={handleLogout} /* Include handleLogout prop */
-            />
+                handleLogout={handleLogout} /* Include handleLogout prop */ handleDashboard={function (): void {
+                    throw new Error("Function not implemented.");
+                } }            />
             <div className="w-full z-50 ml-64">
                 <BookingHistory />
             </div>

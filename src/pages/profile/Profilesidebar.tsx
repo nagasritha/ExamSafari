@@ -24,7 +24,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
   handleUploadPhoto,
   handleFileChange,
   handleInputChange,
-  handleEditProfile,
+  //handleEditProfile,
   handleDashboard,
   handleSaveProfile,
   handleLogout,
