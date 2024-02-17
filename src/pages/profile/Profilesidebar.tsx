@@ -11,7 +11,6 @@ interface ProfileSidebarProps {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEditProfile: () => void;
   handleSaveProfile: () => void;
-  handleLogout: () => void; // Ensure handleLogout is properly typed
 }
 
 const Profilesidebar: React.FC<ProfileSidebarProps> = ({
@@ -22,7 +21,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
   handleFileChange,
   handleInputChange,
   handleEditProfile,
-  handleSaveProfile, // Receive handleLogout as a prop
+  handleSaveProfile,
 }) => {
  
   
