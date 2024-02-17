@@ -30,11 +30,6 @@ function Profile() { // Initialize useHistory hook
   const [userName, setUserName] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const handleLogout = () => {
-    console.log("Logging out");
-    Cookies.remove('jwt_token');
-    <Navigate to='/login' replace={true}/> // Redirect to login page
-  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
