@@ -1,10 +1,26 @@
+import React from 'react';
 import { LuHome } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
+import { useNavigate,Navigate } from "react-router-dom";
+import Cookies from 'js-cookie'
 
-const SideBar = () => {
+
+
+const SideBar:React.FC= () => {
+  const navigate=useNavigate();
+  const handleLogout=()=>{
+    
+    Cookies.remove('jwt_token');
+    navigate('/');
+  }
+
+  if(Cookies.get("jwt_token")===undefined){
+    return <Navigate to='/login' replace={true}/>
+  }
+
   return (
     <div className="bg-blue-50 w-1/5 px-8 h-screen pt-10">
       <div className="flex flex-col items-center pb-4">
@@ -55,6 +71,11 @@ const SideBar = () => {
           <div>Rerfer and Earn</div>
         </div>
       </div>
+      <div>
+          <button onClick={handleLogout} className="relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+            Logout
+          </button>
+        </div>
     </div>
   );
 };

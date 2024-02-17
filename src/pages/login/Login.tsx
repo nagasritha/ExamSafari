@@ -1,17 +1,39 @@
 import "./login.css";
 import Banner from "/images/bannar3-modified.png";
-import { useState, useEffect } from "react";
+import { useState, useRef} from "react";
 //import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import OTPInput from "@/components/FormOTP/OTPInput";
-
+import {Navigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 function Login() {
-  const initialTimer = 1 * 60;
-  const [timer, setTimer] = useState(initialTimer);
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
   const [email, setPhoneEmail] = useState("");
-const [error,setError]=useState<string>('');
+  const [error,setError]=useState<string>('');
+  const [timer, setTimer] = useState<number>(60); // Set timer to 60 seconds (1 minute)
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startTimer = () => {
+    console.log('called')
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+
+    // Start a new timer
+    timerRef.current = setInterval(() => {
+      setTimer((prevTimer) => {
+        if (prevTimer === 0) {
+          // Reset timer to initial value when it reaches 0
+          clearInterval(timerRef.current!);
+          return 0;
+        } else {
+          return prevTimer - 1;
+        }
+      });
+    }, 1000);
+  };
 
   const handleEmail = (e: { target: { value: any } }) => {
     const newEmail = e.target.value;
@@ -21,17 +43,6 @@ const [error,setError]=useState<string>('');
   const failure=()=>{
     setError('Invalid email address');
   }
-  
-  useEffect(() => {
-    let intervalId: string | number | NodeJS.Timeout | undefined;
-    if (isSubmitClicked && timer > 0) {
-      intervalId = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-    }
-
-    return () => clearInterval(intervalId);
-  }, [timer, isSubmitClicked]);
  
   const handleFormSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -39,6 +50,7 @@ const [error,setError]=useState<string>('');
 };
 
   const sendOTP=async ()=>{
+    setTimer(0);
     const userDetails = {
       'email': email
   };
@@ -51,15 +63,20 @@ const [error,setError]=useState<string>('');
   };
   const url = "https://examsafaribackend.onrender.com/sendOTP";
   const response = await fetch(url, options);
-  const jsonData=await response.json()
+  const jsonData=await response.json();
   if(response.ok){
     setIsSubmitClicked(true);
+    setTimer(60);
+    startTimer();
+    console.log(jsonData);
   }else{
     failure();
   }
-  console.log(jsonData);
+ 
   }
-  
+  if(Cookies.get('jwt_token')!==undefined){
+    return <Navigate to='/profile' replace={true}/>
+  }
   return (
     <Layout>
       <div
@@ -108,16 +125,13 @@ const [error,setError]=useState<string>('');
                 </button>
               </div>
             </form>}
-            <div className=" h-max ">
+           {isSubmitClicked &&  <div className=" h-max ">
               <div
-                className={`card scale-90 pb-3 ${
-                  isSubmitClicked ? `block` : "hidden"
-                }`}
+                className={`card scale-90 pb-3`}
               >
-                <OTPInput email={email} sendOtp={sendOTP}/>
-                
+                <OTPInput email={email} timer={timer} sendOtp={sendOTP} />
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>

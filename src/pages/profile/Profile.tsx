@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import ProfileSidebar from "./Profilesidebar";
 import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
 import Cookies from 'js-cookie';
-import {useNavigate} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 
 function Profile() { // Initialize useHistory hook
-  const jwtToken = Cookies.get('jwt_token');
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -31,11 +30,10 @@ function Profile() { // Initialize useHistory hook
   const [userName, setUserName] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-const navigate=useNavigate();
   const handleLogout = () => {
     console.log("Logging out");
     Cookies.remove('jwt_token');
-    navigate('/login'); // Redirect to login page
+    <Navigate to='/login' replace={true}/> // Redirect to login page
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,12 +69,9 @@ const navigate=useNavigate();
     }
   };
 
-  useEffect(() => {
-    if (!jwtToken) {
-      // If JWT token doesn't exist, navigate to login page
-      window.location.href='/login';
-    }
-  }, [jwtToken]);
+ if(Cookies.get('jwt_token')===undefined){
+    return <Navigate to='/login' replace={true}/>
+ }
 
   return (
     <div className="container mx-auto p-8 flex">
@@ -89,7 +84,6 @@ const navigate=useNavigate();
   handleInputChange={handleInputChange}
   handleEditProfile={handleEditProfile}
   handleSaveProfile={handleSaveProfile}
-  handleLogout={handleLogout}
 />
       <div className="w-full z-50">
         <ProfileContent  />

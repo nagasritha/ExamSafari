@@ -1,52 +1,26 @@
-import React, { useRef, useState, useEffect, ChangeEvent } from 'react';
+import React, { useRef, useState,useEffect, ChangeEvent } from 'react';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 interface OTPInputProps{
 email: string,
+timer: number,
 sendOtp:()=>void
 }
 
-const OTPInput: React.FC<OTPInputProps>= ({email,sendOtp}) => {
+const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
+
+  const [otp, setOTP] = useState<string>('');
   const otpRefs = Array.from({ length: 6 }, () => useRef<HTMLInputElement>(null));
   const [error, setError]=useState<string>('');
-  const [otp, setOTP] = useState<string>('');
-  const [timer, setTimer] = useState<number>(60); // Set timer to 60 seconds (1 minute)
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const navigate=useNavigate();
-  
 
   useEffect(() => {
-    // Start the timer when component mounts
-    startTimer();
-
-    // Clean up timer when component unmounts
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, []);
-
-  const startTimer = () => {
-    // Clear any existing timer
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
+    if (otpRefs[0].current) {
+      otpRefs[0].current.focus();
     }
-
-    // Start a new timer
-    timerRef.current = setInterval(() => {
-      setTimer((prevTimer) => {
-        if (prevTimer === 0) {
-          // Reset timer to initial value when it reaches 0
-          clearInterval(timerRef.current!);
-          return 0;
-        } else {
-          return prevTimer - 1;
-        }
-      });
-    }, 1000);
-  };
+  }, []);
+ 
+  const navigate=useNavigate();
 
   const handleChange = (index: number, e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -98,8 +72,6 @@ const OTPInput: React.FC<OTPInputProps>= ({email,sendOtp}) => {
   }
 
   const resend=()=>{
-    setTimer(60);
-    startTimer();
     sendOtp();
     setError('');
     setOTP('');
@@ -160,6 +132,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,sendOtp}) => {
       </div>
       {error!=='' && <p className='text-red m-3 text-center' style={{color:'red'}}>{error}</p>}
       <button
+      onKeyDown={handleFormLogin}
         type="submit"
         className={`bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600 ${
           email!=='' && otp.length===6
