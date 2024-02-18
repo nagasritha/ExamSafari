@@ -7,7 +7,7 @@ function Footer() {
 <footer
   className="text-center text-neutral-600 lg:text-left mt-[70px] footer-bg">
   <div className="md:mx-6 py-10 text-center md:text-left">
-     <div className="footer-container">
+     <div className="">
    
       <div className='flex-sub-section'>
         <div className="footer-section">

@@ -16,7 +16,7 @@ const PersonalDetails = () => {
   };
 
   return (
-    <div className="w-4/6 ">
+    <div className="md:w-4/6 w-full  ">
       <div className="upper-div flex justify-between pb-6">
         <div className="text-2xl font-bold">Booking Form</div>
         <div className="flex gap-2">
@@ -27,7 +27,7 @@ const PersonalDetails = () => {
 
      
 
-      <div className="Personal Details  bg-white pb-4 mb-2 px-8 rounded-lg ">
+      <div className="Personal Details md:bg-white bg-gray-100 pb-4 mb-2 md:px-8  rounded-lg ">
         <div className="upper-Portion flex py-4 pl-0 pb-2 px-4 items-center">
           <div className="flex">
             <div className="border border-green-500  rounded-full py-3 ml-0 m-4 px-4 items-center justify-center text-sm font-bold ">
