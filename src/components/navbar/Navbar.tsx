@@ -6,10 +6,12 @@ import {FaSearch} from 'react-icons/fa'
 import "../herosection/hero.css";
 import { Link } from "react-router-dom";
 import { LuLogIn } from "react-icons/lu";
+import Cookies from 'js-cookie'
 import "./index.css";
 
 
 export default function Navbar() {
+  const jwtToken=Cookies.get('jwt_token');
   function handleNotificationClick(
     _event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void {
@@ -99,9 +101,17 @@ export default function Navbar() {
           {/* Profile dropdown */}
           <Menu as="div" className="relative ml-1 md:ml-3">
             <div>
-            <Link to={"/Login"}>
-                <LuLogIn className='text-2xl text-white'/>
-              </Link>
+            <div>
+              {(jwtToken!==undefined) ? 
+                 <Link to='/profile'>
+                   <p className='profile'>E</p>
+                 </Link>
+              :
+                <Link to='/Login'>
+                  <LuLogIn className='text-2xl text-white'/>
+                </Link>
+              }
+              </div>
             </div>
           </Menu>
         </div>

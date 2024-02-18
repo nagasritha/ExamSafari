@@ -12,15 +12,15 @@
     width: 5px; /* width of the scrollbar */
   }
  .form::-webkit-scrollbar-track {
-    background: #96b0f0; /* color of the track */
+    background: #00c0df;; /* color of the track */
   }
   .form::-webkit-scrollbar-thumb {
-    background: #00c0df; /* color of the scrollbar handle */
+    background: #0013df;/* color of the scrollbar handle */
   }
 .submit{
     color:rgb(249, 248, 248);
     border-radius:10px;
-    background-color:#00c0df !important;
+    background-color:#0013df !important;
 }
 @media(max-width:999px){
     .form{
@@ -38,4 +38,25 @@
             transform:translateY(0px);
         }
     }
+}
+.form-group input{
+    border-radius:10px;
+}
+.form-group textarea{
+    border-radius:7px 7px 0px 7px;
+    padding:3px;
+}
+.form-group input[type=file]{
+    border:2px solid white;
+}
+
+.form-group input:focus{
+    box-shadow: 2px 2px 3px rgb(23, 5, 5);
+    border-width:2px;
+    border-style:solid;
+}
+.form-group textarea:focus{
+    box-shadow: 2px 2px 3px rgb(23, 5, 5);
+    border-width:2px;
+    border-style:solid;
 }

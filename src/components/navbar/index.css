@@ -52,3 +52,14 @@ width:100%;
       width:40%;
     }
   }
+  .profile{
+    width:30px;
+    height:30px;
+    border-radius: 15px;
+    background-color: blue;
+    color:white;
+    padding:2px;
+    display:flex;
+    justify-content: center;
+    align-items:Center;
+  }

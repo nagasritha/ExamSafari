@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import ProfileSidebar from "./Profilesidebar";
 import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
+import Cookies from 'js-cookie';
+import {Navigate} from 'react-router-dom'
 
-function Profile() {
-  
+function Profile() { // Initialize useHistory hook
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -23,17 +24,12 @@ function Profile() {
       },
       // Add more history entries as needed
     ],
-    profilePhoto: "public/images/logo1.jpeg",
+    profilePhoto: "images/logo1.jpeg",
   });
 
   const [userName, setUserName] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const handleLogout = () => {
-    console.log("Logging out");
-    window.location.href = "/login";
-  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
@@ -68,25 +64,28 @@ function Profile() {
     }
   };
 
+ if(Cookies.get('jwt_token')===undefined){
+    return <Navigate to='/login' replace={true}/>
+ }
+
   return (
-      <div className="container mx-auto p-8 flex">
-        <ProfileSidebar
-          profileData={profileData}
-          editMode={editMode}
-          userName={userName}
-          handleUploadPhoto={handleUploadPhoto}
-          handleFileChange={handleFileChange}
-          handleInputChange={handleInputChange}
-          handleEditProfile={handleEditProfile}
-          handleSaveProfile={handleSaveProfile}
-          handleLogout={handleLogout} /* Include handleLogout prop */
-        />
-        <div className="w-full z-50">
-          <ProfileContent  />
-          <div className="ml-64"><Accordian /></div>
-        </div>
+    <div className="container mx-auto p-8 flex">
+      <ProfileSidebar
+  profileData={profileData}
+  editMode={editMode}
+  userName={userName}
+  handleUploadPhoto={handleUploadPhoto}
+  handleFileChange={handleFileChange}
+  handleInputChange={handleInputChange}
+  handleEditProfile={handleEditProfile}
+  handleSaveProfile={handleSaveProfile}
+/>
+      <div className="w-full z-50">
+        <ProfileContent  />
+        <div className="ml-64"><Accordian /></div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default Profile;

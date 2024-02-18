@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './index.css'; // Assuming you have a CSS file for styling
 
@@ -59,9 +60,9 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
 
   return (
     <div className="form-container lg:fixed">
-      <form onSubmit={handleSubmit} className="form xl:ml-10">
+      <form onSubmit={handleSubmit} className="form xl:ml-10 z-10">
         <div className="form-group">
-          <label htmlFor="fullName">Full Name *</label>
+          <label htmlFor="fullName"  className='font-bold'>Full Name *</label>
           <input
             type="text"
             id="fullName"
@@ -74,7 +75,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.fullName && <p className="text-red-500">Full Name is required</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="whatsappNumber">WhatsApp Number *</label>
+          <label htmlFor="whatsappNumber" className='font-bold'>WhatsApp Number *</label>
           <input
             type="tel"
             pattern="[0-9]{10}"
@@ -88,7 +89,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.whatsappNumber && <p className="text-red-500">WhatsApp Number is required</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="currentAddress">Current Address *</label>
+          <label htmlFor="currentAddress" className='font-bold'>Current Address *</label>
           <textarea
             id="currentAddress"
             name="currentAddress"
@@ -100,7 +101,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.currentAddress && <p className="text-red-500">Current Address is required</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="examCity">Exam City *</label>
+          <label htmlFor="examCity" className='font-bold'>Exam City *</label>
           <input
             type="text"
             id="examCity"
@@ -113,7 +114,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.examCity && <p className="text-red-500">Exam City is required</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="examCenter">Exam Center *</label>
+          <label htmlFor="examCenter" className='font-bold'>Exam Center *</label>
           <input
             type="text"
             id="examCenter"
@@ -126,7 +127,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.examCenter && <p className="text-red-500">Exam Center is required</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="admitCard">Upload Admit Card *</label>
+          <label htmlFor="admitCard" className='font-bold'>Upload Admit Card *</label>
           <input
             type="file"
             id="admitCard"
@@ -134,6 +135,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
             accept=".pdf,.jpg,.png"
             onChange={handleChange}
             required
+            className='font-bold'
           />
           {errors.admitCard && <p className="text-red-500">Admit Card is required</p>}
         </div>
