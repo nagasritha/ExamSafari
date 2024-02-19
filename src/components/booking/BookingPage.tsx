@@ -12,8 +12,8 @@ const BookingPage = () => {
 
 
   return (
-    <div className="px-60 pt-12 bg-gray-100 h-screen">
-      <div className="upper-portion">
+    <div className="md:px-60 md:pt-12  bg-gray-100 h-screen">
+      <div className="upper-portion pt-4">
         <div className="flex gap-6">
           <Link to={"/"}>
           <div className="font-semibold">Home /</div>
@@ -28,9 +28,9 @@ const BookingPage = () => {
       </div>
 
       <div className="main-portion bg-white rounded-lg ">
-        <div className="w-full h-2/3 upper-div px-4 py-5  ">
+        <div className="w-full h-2/3 upper-div px-4 md:py-5  my-14 md:my-0 ">
           <div className="lower-div mx-4">
-            <div className="nav-bar flex gap-12 w-full   font-semibold py-3 text-sm ">
+            <div className="nav-bar flex md:gap-12 gap-4  w-full   font-semibold py-3 text-xs md:text-sm ">
               <div>Enquiry</div>
               <div>Booking Details </div>
               <div>Payment</div>
@@ -41,7 +41,7 @@ const BookingPage = () => {
               <hr />
             </div>
 
-            <div className="card flex">
+            <div className="card-1 flex">
               <div className="img">
                 <img
                   className="h-32 w-50 rounded-xl"

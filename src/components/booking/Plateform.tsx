@@ -2,16 +2,16 @@
 
 const Plateform = () => {
   return (
-    <div className="w-4/6  ">
+    <div className=" md:w-4/6  w-full  ">
    <div className="upper-div flex justify-between pb-6">
      <div className="text-2xl font-bold">Payment</div>
      <div className="flex gap-2">
-       <div className="">Need help, we are here</div>
+       <div className="md:flex hidden">Need help, we are here</div>
        <div className="font-bold underline"> Contact us</div>
      </div>
    </div>
    
-   <div className="payment  bg-white pb-4 mb-2 px-8 rounded-lg ">
+   <div className="payment md:bg-white bg-gray-100 pb-4 mb-2 md:px-8 px-4 rounded-lg ">
         <div className="upper-Portion flex py-4 pl-0 pb-4 px-4 items-center">
           <div className="flex">
             <div className="border border-green-500  rounded-full py-3 ml-0 m-4 px-4 items-center justify-center text-sm font-bold ">
@@ -34,12 +34,12 @@ const Plateform = () => {
         <div className="left">
             <div className="text-sm text-gray-700">Platform Fee</div>
             <div className="text-sm text-gray-700 py-2">Payment Gateway Charges</div>
-            <div className="text-xl font-bold">Total Payable Amount</div>
+            <div className="md:text-xl text-lg font-bold">Total Payable Amount</div>
         </div>
         <div className="Right">
             <div className="text-sm text-gray-700">£100</div>
             <div className="text-sm text-gray-700 py-2">£3.63</div>
-            <div className="text-xl font-bold">£103.63</div>
+            <div className="md:text-xl text-lg font-bold">£103.63</div>
         </div>
         </div>
 

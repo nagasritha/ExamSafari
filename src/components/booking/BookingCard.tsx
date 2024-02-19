@@ -1,7 +1,7 @@
 const BookingCard = () => {
 
 return (
-    <div className="w-2/6 mx-4 flex  flex-col bg-white p-4 rounded-xl h-fit">
+    <div className="mx-4 md:flex hidden md:w-2/6 w-full flex-col bg-white p-4 rounded-xl h-fit">
       <div className="upperDiv">
         <div className="img">
           <img
