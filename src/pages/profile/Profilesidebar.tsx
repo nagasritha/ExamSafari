@@ -4,6 +4,8 @@ import { CiLogout } from "react-icons/ci";
 import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 interface ProfileSidebarProps {
+  // className: string;
+  // profilePhoto: string | undefined;
   profileData: any;
   editMode: boolean;
   userName: string;
@@ -12,9 +14,11 @@ interface ProfileSidebarProps {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEditProfile: () => void;
   handleSaveProfile: () => void;
+  handleDashboard: () => void;
+  handleLogout: () => void;
 }
-
 const Profilesidebar: React.FC<ProfileSidebarProps> = ({
+  // profilePhoto,
   profileData,
   editMode,
   userName,
@@ -22,7 +26,9 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
   handleFileChange,
   handleInputChange,
   //handleEditProfile,
+  handleDashboard,
   handleSaveProfile,
+  handleLogout,
 }) => {
 
 
@@ -106,13 +112,6 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
       </div> */}
     </>
   );
-  
-  const navigate=useNavigate();
-  const handleLogout = () => {
-    console.log("Logging out");
-    Cookies.remove('jwt_token');
-    navigate('/login'); // Redirect to login page
-  };
 
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -149,7 +148,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                   className="fill-current group-hover:text-sky-300"
                 ></path>
               </svg>
-                <span className="-mr-1 font-medium">Dashboard</span>
+                <span className="-mr-1 font-medium" onClick={handleDashboard}>Dashboard</span>
             </Link>
           </li>
           <li>
