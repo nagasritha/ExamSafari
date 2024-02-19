@@ -21,6 +21,7 @@ import BookingForm from "./components/booking/BookingForm";
 import BookingPage from "./components/booking/BookingPage";
 import BookingPayment from "./components/booking/BookingPayment";
 import MyProfile from "./components/proflie/MyProfile";
+import AdminDashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
           <Route path="/bookingform" element={<BookingForm/>}/>
           <Route path="/bookingpage" element={<BookingPage/>}/>
           <Route path="payment" element={<BookingPayment/>}/>
-           
+          <Route path='/adminPanel' element={<AdminDashboard/>}/>
         </Routes>
       </Router>
     </div>
