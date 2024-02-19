@@ -199,7 +199,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
             </Link>
           </li>
           <li>
-            <Link to='/booking'
+            <Link to='/bookingpage'
               className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
