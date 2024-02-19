@@ -21,7 +21,11 @@ import BookingForm from "./components/booking/BookingForm";
 import BookingPage from "./components/booking/BookingPage";
 import BookingPayment from "./components/booking/BookingPayment";
 import MyProfile from "./components/proflie/MyProfile";
+import EditProfile from "./pages/profile/EditProfile";
+import History from "./pages/profile/History";
+import Booking from "./pages/profile/Booking";
 import AdminDashboard from "./pages/dashboard";
+
 
 function App() {
   return (
@@ -32,8 +36,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/accomadation" element={<Accomadation />} />
           <Route path="/allahabad" element={<Allahabad />} />
-          <Route path="/profile" element={<Profile/>} />  
-          <Route path= "myprofile" element={<MyProfile/>}/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="myprofile" element={<MyProfile />} />
           <Route path="/banaras" element={<Banaras />} />
           <Route path="/kanpur" element={<Kanpur />} />
           <Route path="/lucknow" element={<Lucknow />} />
@@ -41,7 +48,7 @@ function App() {
           <Route path="/travelwithaccomadation" element={<TravelWithAccomadation />} />
           <Route path="/examcitydescription" element={<ExamCityDescription />} />
           <Route path="/examcitymain" element={<ExamCityMain />} />
-          <Route path="/bookingform" element={<BookingForm/>}/>
+          <Route path="/bookingform" element={<BookingForm />} />
           <Route path="/*" element={<NoPage />} />
           <Route path="/bookingform" element={<BookingForm/>}/>
           <Route path="/bookingpage" element={<BookingPage/>}/>

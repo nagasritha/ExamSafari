@@ -1,11 +1,14 @@
 import React, { useState} from "react";
 import ProfileSidebar from "./Profilesidebar";
+
 import ProfileContent from "./Profilecontent";
 import Accordian from "./Accordian";
 import Cookies from 'js-cookie';
+import Dashboard from "./Accordian"
 import {Navigate} from 'react-router-dom'
 
 function Profile() { // Initialize useHistory hook
+
   const [profileData, setProfileData] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -67,10 +70,10 @@ function Profile() { // Initialize useHistory hook
  if(Cookies.get('jwt_token')===undefined){
     return <Navigate to='/login' replace={true}/>
  }
-
   return (
     <div className="container mx-auto p-8 flex">
       <ProfileSidebar
+
   profileData={profileData}
   editMode={editMode}
   userName={userName}
@@ -80,9 +83,8 @@ function Profile() { // Initialize useHistory hook
   handleEditProfile={handleEditProfile}
   handleSaveProfile={handleSaveProfile}
 />
-      <div className="w-full z-50">
-        <ProfileContent  />
-        <div className="ml-64"><Accordian /></div>
+      <div className="w-full z-50 ml-64">
+        <Dashboard />
       </div>
     </div>
   );
