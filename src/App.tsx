@@ -24,7 +24,7 @@ import MyProfile from "./components/proflie/MyProfile";
 import EditProfile from "./pages/profile/EditProfile";
 import History from "./pages/profile/History";
 import Booking from "./pages/profile/Booking";
-
+import AdminDashboard from "./pages/dashboard";
 
 
 function App() {
@@ -50,10 +50,10 @@ function App() {
           <Route path="/examcitymain" element={<ExamCityMain />} />
           <Route path="/bookingform" element={<BookingForm />} />
           <Route path="/*" element={<NoPage />} />
-          <Route path="/bookingform" element={<BookingForm />} />
-          <Route path="/bookingpage" element={<BookingPage />} />
-          <Route path="payment" element={<BookingPayment />} />
-
+          <Route path="/bookingform" element={<BookingForm/>}/>
+          <Route path="/bookingpage" element={<BookingPage/>}/>
+          <Route path="payment" element={<BookingPayment/>}/>
+          <Route path='/adminPanel' element={<AdminDashboard/>}/>
         </Routes>
       </Router>
     </div>

@@ -1,9 +1,9 @@
 //import React from "react";
 
-import { ReactNode } from "react";
+import React,{ ReactNode } from "react";
 import { JSX } from "react/jsx-runtime";
 
-const ProfileContent = ({ }) => {
+const ProfileContent:React.FC=()=> {
   return (
     <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
       <div className="sticky z-10 top-0 h-16 border-b bg-white lg:py-2.5">
@@ -21,9 +21,9 @@ const ProfileContent = ({ }) => {
             >
               {/* ... (your existing menu icon) */}
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
@@ -67,9 +67,9 @@ const ProfileContent = ({ }) => {
               {renderIconButton(
                 "chat",
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
                 />,
                 "gray-600"
