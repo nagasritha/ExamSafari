@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import React from 'react'
 import { CiLogout } from "react-icons/ci";
-import Cookies from 'js-cookie'
-import {useNavigate} from 'react-router-dom'
 interface ProfileSidebarProps {
   // className: string;
   // profilePhoto: string | undefined;
