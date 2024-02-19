@@ -1,8 +1,5 @@
 import React, { useState} from "react";
-import ProfileSidebar from "./Profilesidebar";
-
-import ProfileContent from "./Profilecontent";
-import Accordian from "./Accordian";
+import Profilesidebar from "./Profilesidebar";
 import Cookies from 'js-cookie';
 import Dashboard from "./Accordian"
 import {Navigate} from 'react-router-dom'
@@ -72,7 +69,7 @@ function Profile() { // Initialize useHistory hook
  }
   return (
     <div className="container mx-auto p-8 flex">
-      <ProfileSidebar
+      <Profilesidebar
 
   profileData={profileData}
   editMode={editMode}
