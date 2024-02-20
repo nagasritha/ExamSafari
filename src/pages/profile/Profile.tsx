@@ -24,7 +24,7 @@ function Profile() { // Initialize useHistory hook
       },
       // Add more history entries as needed
     ],
-    profilePhoto: "public/images/logo1.jpeg",
+    profilePhoto: "images/logo1.jpeg",
   });
 
   const [userName, setUserName] = useState("");
