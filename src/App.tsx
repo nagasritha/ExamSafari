@@ -26,6 +26,13 @@ import History from "./pages/profile/History";
 import Booking from "./pages/profile/Booking";
 import AdminDashboard from "./pages/dashboard";
 
+import List from "./components/DashboardComponents/Table";
+import CityList from "./pages/list/CityList";
+import CenterList from "./pages/list/Centerlist";
+import Single from "./pages/single";
+import {userInputs} from './DataFolders/formSource';
+import New from "./pages/new";
+
 
 function App() {
   return (
@@ -54,6 +61,12 @@ function App() {
           <Route path="/bookingpage" element={<BookingPage/>}/>
           <Route path="payment" element={<BookingPayment/>}/>
           <Route path='/adminPanel' element={<AdminDashboard/>}/>
+
+          <Route path="users">
+            <Route index element={<List />} /> 
+            <Route path=":userId" element={<Single />} /> 
+            <Route path="new" element={<New inputs={userInputs}  title="Add New User"/>} /> 
+          </Route>
         </Routes>
       </Router>
     </div>
