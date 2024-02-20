@@ -7,6 +7,7 @@ interface Row {
     status: string;
 }
 
+
 export const centerColumns = [
     { field: "id", headerName: "ID", width: 70 },
     {

@@ -11,68 +11,64 @@ interface WidgetProps {
 }
 
 const Widget: React.FC<WidgetProps> = ({ type }) => {
-
     let data: {
         title: string;
         isMoney: boolean;
         link: string;
         icon: JSX.Element;
-    }={
+    } = {
         title: "",
         isMoney: false,
         link: "",
-        icon: <></>,
-    };;
+        icon: <div></div>, // Placeholder JSX.Element
+    };
 
     //temporary
-    const amount: number = 100;
-    const diff: number = 20;
+    const amount = 100;
+    const diff = 20;
 
-    switch (type) {
+    switch(type){
         case "user":
-            data = {
-                title: "USERS",
+            data={
+                title:"USERS",
                 isMoney: false,
                 link: "See all users",
-                icon: <PersonOutlinedIcon className="icon" style={{ color: "crimson", backgroundColor: "rgba(255, 0, 0, 0.2)" }} />,
+                icon: <PersonOutlinedIcon className="icon" style={{color:"crimson", backgroundColor: "rgba(255, 0, 0, 0.2)",}} />,
             };
             break;
 
-
         case "order":
-            data = {
-                title: "SERVICES",
+            data={
+                title:"SERVICES",
                 isMoney: false,
                 link: "View all services",
-                icon: <ShoppingCartOutlinedIcon className="icon" style={{ color: "goldenrod", backgroundColor: "rgba(218, 165, 32, 0.2)" }} />,
+                icon: <ShoppingCartOutlinedIcon className="icon" style={{color:"goldenrod", backgroundColor:    "rgba(218, 165, 32, 0.2)",}}  />,
             };
             break;
 
         case "earning":
-            data = {
-                title: "EARNING",
+            data={
+                title:"EARNING",
                 isMoney: true,
                 link: "View net earnings",
-                icon: <MonetizationOnOutlinedIcon className="icon" style={{ color: "green", backgroundColor: "rgba(0, 128, 0, 0.2)" }} />,
+                icon: <MonetizationOnOutlinedIcon className="icon"  style={{color:"green", backgroundColor: "rgba(0, 128, 0, 0.2)",}}/>,
             };
             break;
 
         case "balance":
-            data = {
-                title: "BALANCE",
+            data={
+                title:"BALANCE",
                 isMoney: true,
                 link: "See details",
-                icon: <AccountBalanceWalletOutlinedIcon className="icon" style={{ color: "purple", backgroundColor: "rgba(128, 0, 128, 0.2)" }} />,
+                icon: <AccountBalanceWalletOutlinedIcon className="icon" style={{color:"purple", backgroundColor: "rgba(128, 0, 128, 0.2)",}} />,
             };
             break;
 
-
         default:
             break;
-
     }
 
-    return (
+    return(
         <div className="widget">
             <div className="left">
                 <span className="title">{data.title}</span>
@@ -81,7 +77,7 @@ const Widget: React.FC<WidgetProps> = ({ type }) => {
             </div>
             <div className="right">
                 <div className="percentage positive">
-                    <KeyboardArrowUpIcon />
+                    <KeyboardArrowUpIcon/>
                     {diff} %
                 </div>
                 {data.icon}
@@ -91,3 +87,4 @@ const Widget: React.FC<WidgetProps> = ({ type }) => {
 }
 
 export default Widget;
+

@@ -1,18 +1,19 @@
 import React from "react";
-import "./index.css";
-import Sidebar from "@/components/DashboardComponents/Sidebar/index";
-import DashboardNavbar from "@/components/DashboardComponents/dashboardNavbar";
-import Widget from "@/components/DashboardComponents/Widget/index";
-import Featured from "@/components/DashboardComponents/feautured";
-import Chart from "@/components/DashboardComponents/Charts";
-import List from "@/components/DashboardComponents/Table";
+import "./home.scss";
+import Sidebar from "../../components/DashboardComponents/Sidebar/index";
+import Navbar from "../../components/DashboardComponents/Sidebar/index";
+import Widget from "../../components/DashboardComponents/Widget/index";
+import Featured from "../../components/DashboardComponents/feautured/index";
+import Chart from "../../components/DashboardComponents/Charts/index";
+import List from "../../components/DashboardComponents/Table/index";
 
-const AdminDashboard: React.FC = () => {
+
+const Home: React.FC = () => {
     return (
         <div className="home">
             <Sidebar />
             <div className="homeContainer">
-                <DashboardNavbar />
+                <Navbar />
                 <div className="widgets">
                     <Widget type="user" />
                     <Widget type="order" />
@@ -32,4 +33,4 @@ const AdminDashboard: React.FC = () => {
     );
 };
 
-export default AdminDashboard;
+export default Home;

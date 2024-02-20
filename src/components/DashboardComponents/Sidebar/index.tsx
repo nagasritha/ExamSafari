@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./sidebar.css";
+import "./index.scss";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
