@@ -1,22 +1,45 @@
-.quest-color{
-    color:gray;
-    font-size:18px;
+.quest-color {
+    color: gray;
+    font-size: 18px;
 }
-.faq-section{
-    margin:30px 10px 30px -40px;
-    width:100%;
+
+.faq-section {
+    margin: 30px 10px 30px -40px;
+    width: 100%;
 }
-.faq-part{
-    width:80%;
+
+.faq-part {
+    width: 80%;
 }
-@media(min-width:1000px){
-    .faq-section{
-        margin:30px 20px 30px -40px;
-        width:100%;
-        display:flex;
-        justify-content:space-evenly;
+
+@media(min-width:1000px) {
+    .faq-section {
+        margin: 30px 20px 30px -40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
     }
-    .faq-part{
-        width:100%;
+
+    .faq-part {
+        width: 100%;
     }
 }
+
+/* .accordion-phase {
+    display: flex;
+    /* Set display to flex to make items flex containers */
+/* justify-content: space-between; */
+/* Space items horizontally */
+
+/* .accordion-item {
+    flex: 1;
+    /* Make each accordion item take equal width */
+/* } */
+
+/* Add more styles as needed */
+
+
+/* Add more styles as needed */
+
+
+/* Add more styles as needed */

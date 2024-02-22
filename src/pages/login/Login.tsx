@@ -48,7 +48,6 @@ function Login() {
     e.preventDefault();
     sendOTP();
 };
-
   const sendOTP=async ()=>{
     setTimer(0);
     const userDetails = {
@@ -90,8 +89,8 @@ function Login() {
       >
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl w-full">
           <div className="hidden lg:block lg:w-1/2 bg-cover bgImage"></div>
-          <div className="w-full p-8 lg:w-1/2">
-            <h2 className="text-2xl font-semibold text-gray-700 text-center">
+          <div className="w-full p-16 lg:w-1/2">
+            <h2 className="text-3xl font-semibold text-gray-700 text-center">
               Exam Safari!
             </h2>
             <p className="text-xl text-gray-600 text-center">Welcome back!</p>

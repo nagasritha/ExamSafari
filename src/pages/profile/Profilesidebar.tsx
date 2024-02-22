@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import React from 'react'
 import { CiLogout } from "react-icons/ci";
-import Cookies from 'js-cookie'
-import {useNavigate} from 'react-router-dom'
 interface ProfileSidebarProps {
+  // className: string;
+  // profilePhoto: string | undefined;
   profileData: any;
   editMode: boolean;
   userName: string;
@@ -11,20 +12,24 @@ interface ProfileSidebarProps {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEditProfile: () => void;
   handleSaveProfile: () => void;
+  handleDashboard: () => void;
+  handleLogout: () => void;
 }
-
 const Profilesidebar: React.FC<ProfileSidebarProps> = ({
+  // profilePhoto,
   profileData,
   editMode,
   userName,
   handleUploadPhoto,
   handleFileChange,
   handleInputChange,
-  handleEditProfile,
+  //handleEditProfile,
+  handleDashboard,
   handleSaveProfile,
+  handleLogout,
 }) => {
- 
-  
+
+
   const renderProfileDetails = () => {
     return (
       <div className="mt-8 text-center">
@@ -93,23 +98,18 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
       <span className="block text-sm font-medium text-black-600">
         {profileData.className}
       </span>
-      <div className="mt-2">
-        <button
-          className="inline-block bg-[#142d55] rounded-xl px-5 py-3 text-sm font-semibold text-white"
-          onClick={handleEditProfile}
-        >
-          Edit Profile
-        </button>
-      </div>
+      {/* <div className="mt-2">
+        <Link to="/edit-profile">
+          <button
+            className="inline-block bg-[#142d55] rounded-xl px-5 py-3 text-sm font-semibold text-white"
+          // onClick={handleEditProfile}
+          >
+            Edit Profile
+          </button>
+        </Link>
+      </div> */}
     </>
   );
-  
-  const navigate=useNavigate();
-  const handleLogout = () => {
-    console.log("Logging out");
-    Cookies.remove('jwt_token');
-    navigate('/login'); // Redirect to login page
-  };
 
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -128,7 +128,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
 
         <ul className="space-y-2 tracking-wide mt-3">
           <li>
-            <p
+            <Link to='/profile'
               aria-label="dashboard"
               className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-gray-500 hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
@@ -146,12 +146,11 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                   className="fill-current group-hover:text-sky-300"
                 ></path>
               </svg>
-              <span className="-mr-1 font-medium">Dashboard</span>
-            </p>
+                <span className="-mr-1 font-medium" onClick={handleDashboard}>Dashboard</span>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link to="/edit-profile"
               className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
@@ -171,12 +170,12 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                   d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">Profile Updated</span>
-            </a>
+
+                <span className="group-hover:text-gray-700">Profile Updated</span>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link to="/history"
               className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
@@ -196,12 +195,11 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                   d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">History</span>
-            </a>
+                <span className="group-hover:text-gray-700">History</span>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link to='/bookingpage'
               className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
@@ -221,8 +219,8 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="group-hover:text-gray-700">Booking Check</span>
-            </a>
+                <span className="group-hover:text-gray-700">Booking Check</span>
+            </Link>
           </li>
         </ul>
       </div>

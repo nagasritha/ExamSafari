@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import {loadStripe} from '@stripe/stripe-js';
 
 const Plateform = () => {
@@ -19,14 +19,16 @@ const Plateform = () => {
       body:JSON.stringify(body)
     });
     const session = await response.json();
-    
-    const result =stripe?.redirectToCheckout({
-      sessionId :session.id
+    console.log(session);
+    const result =stripe.StripeClientCheckoutOptions({
+      sessionId :session.sessionId
     })
     if (result.error){
       console.log(result.error)
     }
   }
+
+  
   return (
     <div className=" md:w-4/6  w-full  ">
       <div className="upper-div flex justify-between pb-6">
