@@ -80,7 +80,6 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let value=false
     try {
       const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard } = formData;
 
@@ -102,11 +101,10 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
       Object.entries(formFields).forEach(([key, value]) => {
         formDataToSend.append(key, value);
       });
-      const tok='dccfvfvf';
       const options = {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${tok}`, // Add the authorization header
+          Authorization: `Bearer ${token}`, // Add the authorization header
         },
         body: formDataToSend,
       };
@@ -117,7 +115,6 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        value=false;
        enquire(false);
         setFormData({
           fullName: '',
@@ -129,7 +126,6 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
         });
       } else {
         const errorData = await response.json();
-        value=true;
         enquire(true);
         console.log("error called");
         console.error(errorData);
