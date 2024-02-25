@@ -106,7 +106,7 @@ background-color:transparent;
   }
 }
 .thankyou-popup{
-  background-color:#5e17eb;
+  background-color:#00c0df;
   color:#eff2f2;
     display:flex;
     flex-direction: column;
@@ -116,6 +116,38 @@ background-color:transparent;
     text-align:center;
 }
 
+.thankyou-modal-container{
+    position: fixed;
+    top: 50%;
+    left:50%;
+    width:250px;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 8px;
+    z-index:5000;
+    animation:in 1s ease;
+}
+@keyframes in {
+  0%{
+    top:0%;
+    transform:translate(-50%, 0%) scale(0.1);
+  }
+  100%{
+    top:50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.tick{
+  background-color: green;
+  color:white;
+  font-size:30px;
+  width:50px;
+  height:50px;
+  border-radius:35px;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-top:-20%;
+}
 /* modalstyles */
 .custom-modal {
     position: fixed;
@@ -128,6 +160,22 @@ background-color:transparent;
     border-radius: 8px;
     z-index:5000;
   }
+  @media(min-width:350px){
+    .thankyou-modal-container{
+      width:300px;
+    }
+  }
+  @media(min-width:500px){
+    .thankyou-modal-container{
+      width:400px;
+    }
+    .tick{
+      width:100px;
+      height:100px;
+      border-radius:50px;
+    }
+  }
+
   .custom-modal-padding{
     padding: 20px 0px 50px 20px;
   }
@@ -265,45 +313,15 @@ background-color:transparent;
   color:#ffffff;
 }
 
-
-@keyframes typing-animation {
-    from {
-        width: 0;
-    }
-}
-
-.tick{
-  background-color: green;
-  color:white;
-  font-size:30px;
-  width:50px;
-  height:50px;
-  border-radius:35px;
-  display:flex;
-  justify-content: center;
-  align-items:center;
-}
-.text-examSafari{
-  font-size:25px;
-  font-family:bold;
-  stroke: #031818;
-  animation:rotate 2s linear infinite;
-  margin-top:10px;
-}
-@keyframes rotate {
-  0%,50%,100%{
-    transform: rotateZ(0deg);
-    transform: scale(1.1);
-  }
-  25%{
-    transform: rotateZ(10deg);
-  }
-  75%{
-    transform: rotateZ(-10deg);
-  }
-}
 .thanks-text{
   color:#c7bddb;
   text-shadow:5px 5px 5px #1303f9;
   font-size:30px;
+}
+.ok-button{
+  background-color:white;
+  color:white;
+  margin:10px;
+  text-align:center;
+
 }

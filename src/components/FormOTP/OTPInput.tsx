@@ -82,6 +82,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
     });
     
     // Focus on the first OTP input field
+    //done
   if (otpRefs[0].current) {
     otpRefs[0].current.focus();
   }

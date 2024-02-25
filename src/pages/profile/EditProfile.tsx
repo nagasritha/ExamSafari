@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProfileSidebar from "./Profilesidebar";
 import EditProfileForm from "./EditProfileForm";
+import Layout from "@/components/layout/Layout";
 
 function EditProfile() {
 
@@ -72,6 +73,7 @@ function EditProfile() {
     }
 
     return (
+       <Layout>
         <div className="container mx-auto p-8 flex">
             <ProfileSidebar
                 profileData={profileData}
@@ -85,10 +87,11 @@ function EditProfile() {
                 handleSaveProfile={handleSaveProfile}
                 handleLogout={handleLogout} /* Include handleLogout prop */
             />
-            <div className="w-full z-50 ml-64">
+            <div className="w-full z-50 ml-64 mt-11">
                 <EditProfileForm />
             </div>
         </div>
+        </Layout> 
     );
 }
 
