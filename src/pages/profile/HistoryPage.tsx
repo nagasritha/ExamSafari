@@ -1,5 +1,7 @@
 //import React from 'react';
 
+import Layout from "@/components/layout/Layout";
+
 const BookingHistory = () => {
     const bookings = [
         {
@@ -32,6 +34,7 @@ const BookingHistory = () => {
         }
     ];
     return (
+        <Layout>
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 className="text-xl font-semibold mb-4">Booking History</h2>
             <div className="overflow-x-auto">
@@ -59,6 +62,7 @@ const BookingHistory = () => {
                 </table>
             </div>
         </div>
+        </Layout>
     );
 }
 

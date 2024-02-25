@@ -7,7 +7,7 @@ import OTPInput from "@/components/FormOTP/OTPInput";
 import {Navigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-function Login() {
+const Login:React.FC=()=> {
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
   const [email, setPhoneEmail] = useState("");
   const [error,setError]=useState<string>('');

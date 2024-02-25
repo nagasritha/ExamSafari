@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+import "./index.css";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
@@ -74,17 +74,18 @@ const Widget: React.FC<WidgetProps> = ({ type }) => {
 
     return (
         <div className="widget">
-            <div className="left">
+            <div className="flex flex-col justify-between">
                 <span className="title">{data.title}</span>
                 <span className="counter">{data.isMoney && "$"} {amount}</span>
                 <span className="link">{data.link}</span>
             </div>
-            <div className="right">
+            <div className="flex flex-col justify-between items-end">
                 <div className="percentage positive">
                     <KeyboardArrowUpIcon />
                     {diff} %
                 </div>
-                {data.icon}
+                <div>{data.icon}</div>
+            
             </div>
         </div>
     )

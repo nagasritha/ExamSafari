@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import { GoShare } from "react-icons/go";
 import { CiHeart } from "react-icons/ci";
 import { IoCameraOutline } from "react-icons/io5";
@@ -11,16 +12,21 @@ import Modal from 'react-modal'
 import EnquireModal from '@/components/ModalComponents/EnquireModal';
 import ThankyouModal from '@/components/ModalComponents/ThankyouModal';
 import HotelDescription from "./HotelDescription";
+import Cookies from "js-cookie"
 
 Modal.setAppElement('#root');
 
 const LeftPortion: React.FC = () => {
+  const token=Cookies.get("jwt_token");
+  const navigate=useNavigate();
   const [enquireIsOpen, setEnquire] = useState(false);
   const [thankyou,setThankyou] = useState(false);
+  const [failure,setFailure]=useState<boolean>(false);
 
-  const EnquireFalse=()=>{
+  const EnquireFalse=(value:boolean)=>{
     closeEnquire();
     setThankyou(true);
+    setFailure(value);
   }
 
   const closeEnquire=()=>{
@@ -30,7 +36,13 @@ const LeftPortion: React.FC = () => {
     setThankyou(false);
     console.log("called");
   }
-
+  const enquireSetup=()=>{
+    if(token!==undefined){
+      setEnquire(true)
+    }else{
+      navigate("/login");
+    }
+  }
   
   return (
     <div className="MainContainer md:w-4/6 w-full items-center flex flex-col justify-center mt-4   md:ml-10 md:mr-3 mx-2  rounded-lg">
@@ -156,7 +168,7 @@ const LeftPortion: React.FC = () => {
           <button
               className="md:hidden text-blue-600 flex items-center gap-1  hover:bg-gray-200  font-medium hover:rounded-md text-sm py-2 px-4 mx-4 my-2 text-center "
               type="button"
-              onClick={()=>setEnquire(true)} 
+              onClick={enquireSetup} 
             >
               Enquire Now <FaAngleRight />
             </button>
@@ -165,7 +177,7 @@ const LeftPortion: React.FC = () => {
       <Modal
         isOpen={enquireIsOpen}
         onRequestClose={() => setEnquire(false)}
-        className="custom-modal"
+        className="custom-modal shadow-cyan-500/50"
         overlayClassName="custom-overlay"
       >
        <EnquireModal closeEnquire={closeEnquire} enquireFalse={EnquireFalse}/>
@@ -174,9 +186,9 @@ const LeftPortion: React.FC = () => {
             isOpen={thankyou}
             onRequestClose={closeThankyou}
             overlayClassName="custom-overlay"
-            className="custom-modal"
+            className="thankyou-modal-container"
           >
-          <ThankyouModal closeThankyou={closeThankyou}/>
+          <ThankyouModal closeThankyou={closeThankyou} failure={failure}/>
           </Modal>
     <HotelDescription/>
     </div>

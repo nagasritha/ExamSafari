@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import "./index.scss";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
@@ -8,13 +8,21 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { DarkModeContext } from "@/context/darkModeContext";
+import Sidebar from "../Sidebar/sidebar";
 
 const DashboardNavbar: React.FC = () => {
     const { dispatch } = useContext(DarkModeContext);
+    const [sidebar,setSideBar]=useState<boolean>(false);
+    
+    
 
     return (
         <div className="navbar">
             <div className="wrapper">
+                <div className="item" onClick={()=>setSideBar(!sidebar)} >
+                    <ListOutlinedIcon className="icon flex md:hidden" />
+                   
+                </div>
                 <div className="search">
                     <input type="text" placeholder="Search..." />
                     <SearchOutlinedIcon />
@@ -44,6 +52,7 @@ const DashboardNavbar: React.FC = () => {
                     <div className="item">
                         <img src="/images/logo.png" alt="" className="avatar" />
                     </div>
+                    {sidebar && <div className='top-0 left-0'><Sidebar/></div>}
                 </div>
             </div>
         </div>

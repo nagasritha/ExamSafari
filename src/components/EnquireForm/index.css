@@ -5,7 +5,7 @@
     width:100%;
 }
 .form{
-    height:400px;
+    height:450px;
     overflow: auto;
 }
 .form::-webkit-scrollbar {
@@ -47,7 +47,7 @@
     padding:3px;
 }
 .form-group input[type=file]{
-    border:2px solid white;
+    border:2px solid rgb(69, 69, 69);
 }
 
 .form-group input:focus{
