@@ -1,20 +1,29 @@
 
 import React, { useState } from 'react';
 import './index.css'; // Assuming you have a CSS file for styling
-
+import Cookies from 'js-cookie'
 interface FormProps {
-  enquire: () => void;
+  enquire: (value:boolean) => void;
 }
 
 const Form: React.FC<FormProps> = ({ enquire }) => {
-  const [formData, setFormData] = useState({
+  const token=Cookies.get('jwt_token');
+  const [formData, setFormData] = useState<{
+    fullName: string;
+    whatsappNumber: string;
+    currentAddress: string;
+    examCity: string;
+    examCenter: string;
+    admitCard: File | null; // Explicitly specify admitCard can be null or File
+  }>({
     fullName: '',
     whatsappNumber: '',
     currentAddress: '',
     examCity: '',
     examCenter: '',
-    admitCard: '',
+    admitCard: null,
   });
+  
 
   const [errors, setErrors] = useState({
     fullName: false,
@@ -30,7 +39,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
 
   const areAllPropertiesFilled = () => {
     const { fullName, whatsappNumber, examCenter, examCity, currentAddress, admitCard}=formData
-    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==""){
+    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==null){
       setActivate(true);
     }else{
       setActivate(false);
@@ -50,18 +59,102 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     areAllPropertiesFilled()
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    enquire();
-    console.log('Form submitted:', formData);
+  const viewData = async () => {
+    const apiUrl = "https://examsafaribackend.onrender.com/formDetails";
+    const jwtToken = Cookies.get("jwt_token");
+    const token  = `Bearer ${jwtToken}`;
+    console.log(token);
+
+    const options = {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      method: "GET",
+    };
+    const response = await fetch(apiUrl, options);
+    if (response.ok === true) {
+      const fetchedData = await response.json();
+      console.log(fetchedData);
+    }
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard } = formData;
+
+      const formFields = {
+        name: fullName,
+        whatsappNumber,
+        address: currentAddress,
+        examCity,
+        examCenter,
+      };
+
+      const formDataToSend = new FormData();
+      if(admitCard){
+        formDataToSend.append('admitCard', admitCard); // Append the file to the FormData
+      }
+ 
+
+      // Append other form fields as well
+      Object.entries(formFields).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+      const options = {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`, // Add the authorization header
+        },
+        body: formDataToSend,
+      };
+
+      const response = await fetch('https://examsafaribackend.onrender.com/submit-form', options);
+      
+      console.log(response.ok)
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+       enquire(false);
+        setFormData({
+          fullName: '',
+          whatsappNumber: '',
+          currentAddress: '',
+          examCity: '',
+          examCenter: '',
+          admitCard: null, // Reset file input
+        });
+      } else {
+        const errorData = await response.json();
+        enquire(true);
+        console.log("error called");
+        console.error(errorData);
+      }
+    } catch (error) {
+      console.error(error);
+      enquire(true);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        admitCard: file,
+      }));
+    }
+  };
+
   const {fullName}=formData;
   console.log(fullName);
 
   return (
     <div className="form-container lg:fixed">
+     
       <form onSubmit={handleSubmit} className="form xl:ml-10 z-10">
         <div className="form-group">
+        <h1 onClick={viewData}>Enquire Form</h1>
           <label htmlFor="fullName"  className='font-bold'>Full Name *</label>
           <input
             type="text"
@@ -133,7 +226,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
             id="admitCard"
             name="admitCard"
             accept=".pdf,.jpg,.png"
-            onChange={handleChange}
+            onChange={handleFileChange}
             required
             className='font-bold'
           />

@@ -7,16 +7,24 @@ import { CiDollar } from 'react-icons/ci';
 import Modal from "react-modal";
 import EnquireModal from '@/components/ModalComponents/EnquireModal';
 import ThankyouModal from '@/components/ModalComponents/ThankyouModal';
+import Cookies from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
 
 Modal.setAppElement('#root');
 
 const RightPortion: React.FC = () => {
+  const navigate=useNavigate()
   const [enquireIsOpen, setEnquire] = useState(false);
   const [thankyou,setThankyou] = useState(false);
-
-  const EnquireFalse=()=>{
+  const [formResult, setResult]=useState(false);
+  const EnquireFalse=(value:boolean)=>{
     closeEnquire();
     setThankyou(true);
+    if(value){
+      setResult(true);
+    }else{
+      setResult(false);
+    }
   }
 
   const closeEnquire=()=>{
@@ -26,7 +34,13 @@ const RightPortion: React.FC = () => {
     setThankyou(false);
     console.log("called");
   }
-
+  const enquireSetup=()=>{
+    if(Cookies.get("jwt_token")!==undefined){
+      setEnquire(true);
+    }else{
+      navigate("/login");
+    }
+  }
 
 
   return (
@@ -62,7 +76,7 @@ const RightPortion: React.FC = () => {
               <button className='w-full bg-white text-blue-600 font-semibold border border-blue-600 py-3 rounded-md my-4'>
                 View Rooms
               </button>
-              <button onClick={()=>setEnquire(true)} className='w-full bg-blue-600 text-white font-semibold border border-blue-600 py-3 rounded-md my-4 flex items-center justify-center gap-1'>
+              <button onClick={enquireSetup} className='w-full bg-blue-600 text-white font-semibold border border-blue-600 py-3 rounded-md my-4 flex items-center justify-center gap-1'>
                 Enquire Now <FaAngleRight />
               </button>
              
@@ -86,7 +100,7 @@ const RightPortion: React.FC = () => {
       <Modal
         isOpen={enquireIsOpen}
         onRequestClose={() => setEnquire(false)}
-        className="custom-modal"
+        className="custom-modal shadow-cyan-500"
         overlayClassName="custom-overlay"
       >
        <EnquireModal closeEnquire={closeEnquire} enquireFalse={EnquireFalse}/>
@@ -95,9 +109,9 @@ const RightPortion: React.FC = () => {
             isOpen={thankyou}
             onRequestClose={closeThankyou}
             overlayClassName="custom-overlay"
-            className="custom-modal"
+            className="thankyou-modal-container"
           >
-          <ThankyouModal closeThankyou={closeThankyou}/>
+          <ThankyouModal closeThankyou={closeThankyou} failure={formResult}/>
           </Modal>
     
     </div>

@@ -9,19 +9,28 @@ import List from "@/components/DashboardComponents/Table";
 
 const AdminDashboard: React.FC = () => {
     return (
-        <div className="home">
-            <Sidebar />
+      <div>
+          <DashboardNavbar/>
+          <div className="home">
+           <div className="hidden lg:flex">
+           <Sidebar />
+           </div>
             <div className="homeContainer">
-                <DashboardNavbar />
-                <div className="widgets">
+                
+                <div className="widgets-container w-full md:w-4/5">
                     <Widget type="user" />
                     <Widget type="order" />
                     <Widget type="earning" />
                     <Widget type="balance" />
+                    
                 </div>
-                <div className="charts">
+                <div className="charts flex-col md:flex-row">
+                    <div className="w-full md:w-1/2">
                     <Featured />
+                    </div>
+                    <div className='w-full md:w-1/2'>
                     <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+                    </div>
                 </div>
                 <div className="listContainer">
                     <div className="listTitle">Updates on Exam Cities</div>
@@ -29,6 +38,7 @@ const AdminDashboard: React.FC = () => {
                 </div>
             </div>
         </div>
+      </div>
     );
 };
 

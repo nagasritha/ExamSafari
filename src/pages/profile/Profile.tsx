@@ -3,6 +3,7 @@ import Profilesidebar from "./Profilesidebar";
 import Cookies from 'js-cookie';
 import Dashboard from "./Accordian"
 import {Navigate,useNavigate} from 'react-router-dom'
+import Layout from "@/components/layout/Layout";
 
 function Profile() { // Initialize useHistory hook
   const navigate=useNavigate()
@@ -24,7 +25,7 @@ function Profile() { // Initialize useHistory hook
       },
       // Add more history entries as needed
     ],
-    profilePhoto: "public/images/logo1.jpeg",
+    profilePhoto: "images/logo1.jpeg",
   });
 
   const [userName, setUserName] = useState("");
@@ -79,6 +80,7 @@ function Profile() { // Initialize useHistory hook
     return <Navigate to='/login' replace={true}/>
  }
   return (
+    <Layout>
     <div className="container mx-auto p-8 flex">
       <Profilesidebar
         profileData={profileData}
@@ -96,6 +98,7 @@ function Profile() { // Initialize useHistory hook
         <Dashboard />
       </div>
     </div>
+    </Layout>
   );
 }
 
