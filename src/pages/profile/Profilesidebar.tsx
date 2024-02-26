@@ -151,7 +151,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
           </li>
           <li>
             <Link to="/edit-profile"
-              className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
+              className="px-4 py-3 flex items-center space-x-4  text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,12 +171,12 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
                 />
               </svg>
 
-                <span className="group-hover:text-gray-700">Profile Updated</span>
+                <span className="group-hover:text-gray-700">Profile </span>
             </Link>
           </li>
           <li>
             <Link to="/history"
-              className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
+              className="px-4 py-3 flex items-center space-x-4  text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,7 @@ const Profilesidebar: React.FC<ProfileSidebarProps> = ({
           </li>
           <li>
             <Link to='/bookingpage'
-              className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
+              className="px-4 py-3 flex items-center space-x-4  text-gray-600 group rounded-xl hover:bg-gradient-to-r from-sky-600 to-cyan-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
