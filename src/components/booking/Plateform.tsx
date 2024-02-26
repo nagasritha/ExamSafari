@@ -1,32 +1,32 @@
 
-import {loadStripe} from '@stripe/stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 
 const Plateform = () => {
   // payment intergration
-  const makePayment =async()=>{
-    const stripe = loadStripe("pk_test_51OlIUqSF6rutrfP17T6yFS4T5uI9eh8nnkGjGrESgeFkb4Yoid6WAYJIWalmbupzSgUAtSmQSVFOkgMdbcfQ9M4q00ipNcYpym");
+  // const makePayment =async()=>{
+  //   const stripe = loadStripe("pk_test_51OlIUqSF6rutrfP17T6yFS4T5uI9eh8nnkGjGrESgeFkb4Yoid6WAYJIWalmbupzSgUAtSmQSVFOkgMdbcfQ9M4q00ipNcYpym");
 
   
 
-    const body = { "hotel prize": 300 };
+  //   const body = { "hotel prize": 300 };
 
-    const headers = {
-      "content-Type":"application/json"
-    }
-    const response = await fetch("http://localhost:3000/api/create-checkout-session",{
-      method:"POST",
-      headers: headers,
-      body:JSON.stringify(body)
-    });
-    const session = await response.json();
-    console.log(session);
-    const result =stripe.StripeClientCheckoutOptions({
-      sessionId :session.sessionId
-    })
-    if (result.error){
-      console.log(result.error)
-    }
-  }
+  //   const headers = {
+  //     "content-Type":"application/json"
+  //   }
+  //   const response = await fetch("http://localhost:3000/api/create-checkout-session",{
+  //     method:"POST",
+  //     headers: headers,
+  //     body:JSON.stringify(body)
+  //   });
+  //   const session = await response.json();
+  //   console.log(session);
+  //   const result =stripe.redirectToCheckout({
+  //     sessionId :session.sessionId
+  //   })
+  //   if (result.error){
+  //     console.log(result.error)
+  //   }
+  // }
 
   
   return (
@@ -107,7 +107,7 @@ const Plateform = () => {
         <div className="Next-button">
           <button
             type="button"
-            onClick={makePayment}
+            // onClick={makePayment}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-10 py-2  me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
             Make Payment
