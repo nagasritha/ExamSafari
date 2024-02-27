@@ -8,6 +8,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ enquire }) => {
   const token=Cookies.get('jwt_token');
+  const [image,setImage]=useState<string>('');
   const [formData, setFormData] = useState<{
     fullName: string;
     whatsappNumber: string;
@@ -75,6 +76,8 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     if (response.ok === true) {
       const fetchedData = await response.json();
       console.log(fetchedData);
+      setImage(fetchedData.EnquireDetails[4].admit_card_path)
+
     }
   };
 
@@ -146,15 +149,14 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     }
   };
 
-  const {fullName}=formData;
-  console.log(fullName);
-
+  console.log(image)
   return (
     <div className="form-container lg:fixed">
      
       <form onSubmit={handleSubmit} className="form xl:ml-10 z-10">
         <div className="form-group">
         <h1 onClick={viewData}>Enquire Form</h1>
+        {image!=='' && <img src={image}/>}
           <label htmlFor="fullName"  className='font-bold'>Full Name *</label>
           <input
             type="text"
