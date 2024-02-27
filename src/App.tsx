@@ -25,6 +25,8 @@ import EditProfile from "./pages/profile/EditProfile";
 import History from "./pages/profile/History";
 import Booking from "./pages/profile/Booking";
 import AdminDashboard from "./pages/dashboard";
+import Success from "./components/booking/Success";
+import Cancel from "./components/booking/Cancel";
 
 
 function App() {
@@ -54,6 +56,10 @@ function App() {
           <Route path="/bookingpage" element={<BookingPage/>}/>
           <Route path="payment" element={<BookingPayment/>}/>
           <Route path='/adminPanel' element={<AdminDashboard/>}/>
+          <Route path='/success' element={<Success/>}/>
+          <Route path='/cancel' element={<Cancel/>}/>
+          
+
         </Routes>
       </Router>
     </div>

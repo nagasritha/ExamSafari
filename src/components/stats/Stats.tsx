@@ -74,34 +74,34 @@ const Stats: React.FC = () => {
   
 
   return (
-    <div>
+    <div className='pt-8 px-4  '>
       <Slider {...settings}>
-      <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+      <div className=" p-6 pb-0 transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className="align-center">
             <FaCity style={{color: "#00aff5",}} className="image" />
           </div>        
             <h2 className="heading">4+ Cities</h2> 
             <h6 className="text-[#6B7280] para">Book your perfect place from an extensive list of options.</h6>           
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        <div className=" p-6 pb-0 transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
             <div className='align-center'>
             <RiCustomerService2Fill style={{color: "#00aff5",}} className='image' />
             </div>
             <h2 className="heading">3+ Services</h2> 
             <h6 className="text-[#6B7280] para">Book your perfect place from an extensive list of options.</h6>           
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        <div className=" p-6 pb-0 transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
             <div className='align-center'>
             <FaPeopleRoof style={{color: "#00aff5",}} className='image' />
             </div>
             <h2 className="heading">250+ Partners</h2> 
             <h6 className="text-[#6B7280] para">Book your perfect place from an extensive list of options.</h6>           
         </div>  
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        <div className=" p-6 pb-0  transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className='align-center'>
             <Ri24HoursLine  style={{color: "#00aff5",}} className='image' />
           </div>
-          <h2 className="text-[#374151] heading">24x7 Assistance</h2> 
+          <h2 className="text-black heading">24x7 Assistance</h2> 
           <h6 className="text-[#6B7280] para">If you have a doubt or a query, we’re always a call away.</h6>          
         </div>  
       </Slider>

@@ -4,7 +4,7 @@ const BookingHeader = () => {
   return (
     <div className="flex justify-around h-16 items-center bg-white shadow-lg fixed w-full top-0 z-10">
       <Link to="/">
-        <div className="logo p-0">
+        <div className="logo p-0 ">
           <img src="/images/logo.png" alt="" />
         </div>
       </Link>

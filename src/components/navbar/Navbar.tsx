@@ -39,9 +39,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <Disclosure as="nav" className="nav-width pr-2">
+    <Disclosure as="nav" className="nav-width h-16 pr-2">
       <div className="relative flex h-20 items-center justify-between">
-        <div>
+        <div className='pb-5'>
           <Link to={"/"}>
             <img
               className="h-11 logo ml-1"
@@ -50,7 +50,7 @@ export default function Navbar() {
             />
             </Link>
         </div>
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end pb-2 md:pr-5">
           {showSearchBar && 
               <div className='flex items-center md:pl-2 md:pr-2 pr-1 pl-1 bg-white rounded nav-search-bar mr-1 md:mr-3 w-1/2 sm:w-full mb-2'>
                 <FaSearch className='text-sm md:text-xl'/>

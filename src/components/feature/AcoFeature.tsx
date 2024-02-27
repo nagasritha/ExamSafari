@@ -76,38 +76,49 @@ const AcoFeature: React.FC = () => {
 
   return (
     <div>
-      <h1 className="service-heading">Book your Perfect Accommodation</h1>
-      <p className="service-para">Take the hassle out of securing your student home for the best years of your life </p>
+      <div className="service-heading pb-2">Book your Perfect Accommodation</div>
+      <div className="service-para pb-4">Take the hassle out of securing your student home for the best years of your life </div>
+     <div className='mx-3 pt-6'> 
       <Slider {...settings}>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+
+        <div className='mx-3 '>
+          <div className="mx-4 p-3 transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className='align-center'>
             <GiTakeMyMoney style={{color: "#00aff5",}} className='image' />
           </div>
-          <h2 className="heading">Quick & easy bookings</h2> 
+          <h2 className="heading text-gray-800">Quick & easy bookings</h2> 
           <h6 className="text-[#6B7280] para">Time is money. Save both when you book with us.</h6>      
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        </div>
+        <div className='mx-3'>
+           <div className="mx-4 p-3 transition-all rounded-xl duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className='align-center'>
             <TbZoomMoney style={{color: "#00aff5",}} className='image' />
           </div>
-          <h2 className="text-[#374151] heading">Price Match Guarantee</h2> 
+          <h2 className="text-gray-800 heading">Price Match Guarantee</h2> 
           <h6 className="text-[#6B7280] para">Find a lower price and we'll match it. No questions asked. .</h6>      
+          </div>
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        <div className='mx-3'>
+           <div className="mx-4 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className='align-center'>
             <Ri24HoursLine  style={{color: "#00aff5",}} className='image' />
           </div>
-          <h2 className="text-[#374151] heading">24x7 Assistance</h2> 
+          <h2 className="text-gray-800 heading">24x7 Assistance</h2> 
           <h6 className="text-[#6B7280] para">If you have a doubt or a query, we’re always a call away.</h6>          
-        </div>  
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        </div> 
+        </div> 
+        <div className='mx-3'>
+        <div className="mx-4 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
           <div className='align-center'>
             <MdOutlineVerifiedUser style={{color: "#00aff5",}} className='image' />
           </div>
-          <h2 className="text-[#374151] heading">100% Verified Listings</h2> 
+          <h2 className="text-gray-800 heading">100% Verified Listings</h2> 
           <h6 className="text-[#6B7280] para">We promise to deliver what you see on the website.</h6>           
+        </div>
         </div>  
       </Slider>
+      </div>
     </div>
   );
 };

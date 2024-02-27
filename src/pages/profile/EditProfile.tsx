@@ -73,8 +73,12 @@ function EditProfile() {
     }
 
     return (
+
+        <div className="container mx-auto p-8 pb-0 flex">
+
        <Layout>
         <div className="container mx-auto p-8 flex">
+
             <ProfileSidebar
                 profileData={profileData}
                 editMode={editMode}
@@ -91,7 +95,9 @@ function EditProfile() {
                 <EditProfileForm />
             </div>
         </div>
+        
         </Layout> 
+        </div>
     );
 }
 

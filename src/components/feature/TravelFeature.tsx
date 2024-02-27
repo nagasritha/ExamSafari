@@ -75,39 +75,49 @@ const TravelFeature: React.FC = () => {
   
 
   return (
-    <div>
-      <h1 className="service-heading">Travel kar lo guys please ,ek baar kar lo</h1>
-      <p className="service-para">Travel karna chahiye chahe man kare ya na kare per karna chahiye </p>
+    <div className='pt-10'>
+      <h1 className="ml-4 text-3xl font-bold pb-4  ">Travel kar lo guys please ,ek baar kar lo</h1>
+      <p className="service-para pb-6">Travel karna chahiye chahe man kare ya na kare per karna chahiye </p>
+      <div className='mx-4 pt-4'>
       <Slider {...settings}>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        <div className='mx-3'>
+        <div className="mx-3 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
         <div className='align-center'>
               <GiTakeMyMoney style={{color: "#00aff5",}} className='image' />
               </div>
               <h2 className="heading">Maje hi maje hein  dekhlo</h2> 
               <h6 className="text-[#6B7280] para">Time is money. Save both when you book with us.</h6>  
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        </div>
+        <div className='mx-3'>
+        <div className="mx-3 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
         <div className='align-center'>
               <TbZoomMoney style={{color: "#00aff5",}} className='image' />
               </div>
               <h2 className="heading">apko samosa bhi denge  </h2> 
               <h6 className="text-[#6B7280] para">Find a lower price and we'll match it. No questions asked. .</h6>         
         </div>
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        </div>
+        <div className='mx-3'>
+        <div className="mx-3 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
         <div className='align-center'>
               <Ri24HoursLine  style={{color: "#00aff5",}} className='image' />
               </div>
               <h2 className="heading">24x7 Assistance</h2> 
               <h6 className="text-[#6B7280] para">If you have a doubt or a query, we’re always a call away.</h6>         
         </div>  
-        <div className="stats-item transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-white-500">
+        </div>
+        <div className='mx-3'>
+        <div className="mx-3 p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-300 hover:to-white-500">
         <div className="align-center">
               <MdOutlineVerifiedUser style={{color: "#00aff5",}} className='image' />
               </div>
               <h2 className="heading">100% Verified samosa </h2> 
               <h6 className="text-[#6B7280] para">We promise to deliver what you see on the website.</h6>          
-        </div>  
+        </div> 
+        </div> 
       </Slider>
+      </div>
     </div>
   );
 };

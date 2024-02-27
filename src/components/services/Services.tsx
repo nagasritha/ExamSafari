@@ -74,7 +74,7 @@ const Services: React.FC = () => {
 
   return (
     <div>
-       <h1 className='service-heading'>Services</h1>
+       <h1 className='px-5 font-bold text-4xl py-2 mt-10'>Services</h1>
       <p className='service-para'>Little text about services </p>
       <Slider {...settings}>
         <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">

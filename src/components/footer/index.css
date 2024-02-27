@@ -52,10 +52,10 @@ padding:10px;
     align-items:Center;
 }
 .footer-bg{
-    background-color:#74f1fc;
+    background-color:#38b6ff;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    border-top:20px solid rgb(6, 140, 158);
+    border-top:20px solid #0c356a;
 }
 .logo-color{
     background-color:blue;
