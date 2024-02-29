@@ -183,6 +183,21 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           />
           {errors.whatsappNumber && <p className="text-red-500">WhatsApp Number is required</p>}
         </div>
+
+        <div className="form-group">
+  <label htmlFor="emailAddress" className='font-bold'>Email Address *</label>
+  <input
+    type="email"
+    id="emailAddress"
+    name="emailAddress"
+    onChange={handleChange}
+    placeholder="Enter your email address"
+    required
+  />
+  {/* {errors.emailAddress && <p className="text-red-500">Email Address is required</p>} */}
+</div>
+
+        
         <div className="form-group">
           <label htmlFor="currentAddress" className='font-bold'>Current Address *</label>
           <textarea
@@ -195,6 +210,24 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           ></textarea>
           {errors.currentAddress && <p className="text-red-500">Current Address is required</p>}
         </div>
+
+        <div className="form-group">
+  <label htmlFor="examSelect" className='font-bold'>Select Exam *</label>
+  <select
+    id="examSelect"
+    name="examSelect"
+    // value={formData.examSelect}
+    // onChange={handleChange}
+    required
+  >
+    <option value="">Select an exam</option>
+    <option value="UPSC">UPSC</option>
+    <option value="JEE">JEE</option>
+    <option value="CAT">CAT</option>
+  </select>
+  {/* {errors.examSelect && <p className="text-red-500">Please select an exam</p>} */}
+</div>
+
         <div className="form-group">
           <label htmlFor="examCity" className='font-bold'>Exam City *</label>
           <input
