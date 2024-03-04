@@ -18,11 +18,11 @@ import  { useState } from 'react';
     <div className="">
       <ProfileHeader selected={selectedButton}/>
     </div>
-    <div className="flex">
-      <div className="w-[20%]">
+    <div className="flex  ">
+      <div className="md:w-[20%] w-full relative z-2">
       <SideBar  onSelect={handleSidebarClick}/>
       </div>
-      <div className="w-[80%]">
+      <div className="w-full md:w-[80%] relative z-1">
       <MainContainer  selected={selectedButton}/>
       </div>
     </div>
