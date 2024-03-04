@@ -5,10 +5,12 @@ import Cookies from 'js-cookie';
 interface OTPInputProps{
 email: string,
 timer: number,
-sendOtp:()=>void
+sendOtp:()=>void,
+loaderSetup : ()=>void,
+loadersetupFalse:()=>void
 }
 
-const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
+const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp,loaderSetup,loadersetupFalse}) => {
 
   const [otp, setOTP] = useState<string>('');
   const otpRefs = Array.from({ length: 6 }, () => useRef<HTMLInputElement>(null));
@@ -35,7 +37,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
   
   const handleFormLogin =(e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log('called login form');
+    loaderSetup();
     verification();
   };
 
@@ -51,9 +53,10 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
       },
       body: JSON.stringify(userDetails) // Changed JSON.parse to JSON.stringify
   };
-  const url = "https://examsafaribackend.onrender.com/login";
+  const url = "https://example-na5m.onrender.com/verifyOtp";
   const response = await fetch(url, options);
   const jsonData=await response.json();
+  loadersetupFalse();
   if(response.ok){
     addToken(jsonData.token);
   }else{
@@ -64,7 +67,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
 
   const addToken=(token:string)=>{
     Cookies.set('jwt_token',token,{expires:15});
-    navigate('/profile');
+    navigate('/myprofile');
   }
   
   const failure=(message:string)=>{
@@ -89,6 +92,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
   }
 
   return (
+    <div>
     <form className="flex flex-col" onSubmit={handleFormLogin}>
        <label
         className="mb-2 text-lg font-semibold"
@@ -145,6 +149,7 @@ const OTPInput: React.FC<OTPInputProps>= ({email,timer,sendOtp}) => {
              
       
     </form>
+    </div>
   );
 };
 
