@@ -1,7 +1,7 @@
 import React from 'react';
 import BookingPage from "../booking/BookingPage"; // Assuming BookingPage is a component
 
-import EditProfileForm from '@/components/proflie/EditProfileForm';
+import EditProfileForm from '@/components/proflie/EditProfileForm1';
 import HistoryPage from "@/components/proflie/HistoryPage"
 
 interface MainContainerProps {
