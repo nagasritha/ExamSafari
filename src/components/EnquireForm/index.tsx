@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './index.css'; // Assuming you have a CSS file for styling
 import Cookies from 'js-cookie'
+import Loading from '../Loading/loading';
 interface FormProps {
   enquire: (value:boolean) => void;
 }
@@ -9,12 +10,15 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({ enquire }) => {
   const token=Cookies.get('jwt_token');
   const [image,setImage]=useState<string>('');
+  const [loader,setLoader]=useState<boolean>(false);
   const [formData, setFormData] = useState<{
     fullName: string;
     whatsappNumber: string;
     currentAddress: string;
     examCity: string;
     examCenter: string;
+    busStop : string;
+    exam : string;
     admitCard: File | null; // Explicitly specify admitCard can be null or File
   }>({
     fullName: '',
@@ -23,7 +27,13 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     examCity: '',
     examCenter: '',
     admitCard: null,
+    exam : '',
+    busStop:''
   });
+
+  const loaderSetup = ()=>{
+    setLoader(!loader);
+  }
   
 
   const [errors, setErrors] = useState({
@@ -33,14 +43,16 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     examCity: false,
     examCenter: false,
     admitCard: false,
+    busStop: false,
+    exam: false
   });
 
   const [deactivate, setActivate] = useState(false);
   console.log(deactivate);
 
   const areAllPropertiesFilled = () => {
-    const { fullName, whatsappNumber, examCenter, examCity, currentAddress, admitCard}=formData
-    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==null){
+    const { fullName, whatsappNumber, examCenter, examCity, currentAddress, admitCard,exam,busStop}=formData
+    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==null && exam!=='' && busStop !== ''){
       setActivate(true);
     }else{
       setActivate(false);
@@ -83,15 +95,19 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    loaderSetup();
+    console.log(loader);
     try {
-      const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard } = formData;
-
+      const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard, exam, busStop } = formData;
+      console.log(exam)
       const formFields = {
         name: fullName,
         whatsappNumber,
         address: currentAddress,
         examCity,
         examCenter,
+        busStop,
+        exam
       };
 
       const formDataToSend = new FormData();
@@ -112,11 +128,13 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
         body: formDataToSend,
       };
 
-      const response = await fetch('https://examsafaribackend.onrender.com/submit-form', options);
+      const response = await fetch('https://example-na5m.onrender.com/api/submit-enquire', options);
       
       console.log(response.ok)
       if (response.ok) {
         const data = await response.json();
+        loaderSetup();
+        console.log(loader);
         console.log(data);
        enquire(false);
         setFormData({
@@ -125,9 +143,12 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           currentAddress: '',
           examCity: '',
           examCenter: '',
-          admitCard: null, // Reset file input
+          admitCard: null, 
+          exam:'',
+          busStop: ""
         });
       } else {
+        loaderSetup();
         const errorData = await response.json();
         enquire(true);
         console.log("error called");
@@ -152,7 +173,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
   console.log(image)
   return (
     <div className="form-container lg:fixed">
-     
+      {loader && <Loading/>}
       <form onSubmit={handleSubmit} className="form xl:ml-10 z-10">
         <div className="form-group">
         <h1 onClick={viewData}>Enquire Form</h1>
@@ -185,20 +206,6 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
         </div>
 
         <div className="form-group">
-  <label htmlFor="emailAddress" className='font-bold'>Email Address *</label>
-  <input
-    type="email"
-    id="emailAddress"
-    name="emailAddress"
-    onChange={handleChange}
-    placeholder="Enter your email address"
-    required
-  />
-  {/* {errors.emailAddress && <p className="text-red-500">Email Address is required</p>} */}
-</div>
-
-        
-        <div className="form-group">
           <label htmlFor="currentAddress" className='font-bold'>Current Address *</label>
           <textarea
             id="currentAddress"
@@ -210,14 +217,24 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           ></textarea>
           {errors.currentAddress && <p className="text-red-500">Current Address is required</p>}
         </div>
-
         <div className="form-group">
-  <label htmlFor="examSelect" className='font-bold'>Select Exam *</label>
+        <label htmlFor="busStop" className='font-bold'>Bus-stop *</label>
+        <input
+          type="text"
+          id="busStop"
+          name="busStop"
+          onChange={handleChange}
+          placeholder="Enter your near by bus-stop"
+          required
+        />
+      {errors.busStop && <p className="text-red-500">Bus stop is required</p>}
+        </div>
+        <div className="form-group">
+  <label htmlFor="exam" className='font-bold'>Select Exam *</label>
   <select
-    id="examSelect"
-    name="examSelect"
-    // value={formData.examSelect}
-    // onChange={handleChange}
+    id="exam"
+    name="exam"
+    onChange={()=>handleChange}
     required
   >
     <option value="">Select an exam</option>
@@ -225,8 +242,8 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     <option value="JEE">JEE</option>
     <option value="CAT">CAT</option>
   </select>
-  {/* {errors.examSelect && <p className="text-red-500">Please select an exam</p>} */}
-</div>
+  {errors.exam && <p className="text-red-500">Please select an exam</p>}
+        </div>
 
         <div className="form-group">
           <label htmlFor="examCity" className='font-bold'>Exam City *</label>
@@ -271,6 +288,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           <button type="submit" className={deactivate ? 'submit p-2' : "submit p-2 opacity-80"}>Submit</button>
         </div>
       </form>
+      
     </div>
   );
 };

@@ -22,8 +22,8 @@ import BookingPage from "./components/booking/BookingPage";
 import BookingPayment from "./components/booking/BookingPayment";
 import MyProfile from "./components/proflie/MyProfile";
 import Admin from "./components/AdminDashboard/Admin";
-
-
+import Loader from "./components/ui/Loader";
+import Loading from "./components/Loading/loading";
 
 
 function App() {
@@ -31,6 +31,8 @@ function App() {
     <div className="page-width">
       <Router>
         <Routes>
+          <Route path='/loader' element={<Loader/>}/>
+          <Route path='loading' element={<Loading/>}/>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/accomadation" element={<Accomadation />} />
