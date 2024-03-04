@@ -6,6 +6,7 @@ import Layout from "@/components/layout/Layout";
 import OTPInput from "@/components/FormOTP/OTPInput";
 import {Navigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import Loading from "@/components/Loading/loading";
 
 const Login:React.FC=()=> {
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
@@ -13,7 +14,15 @@ const Login:React.FC=()=> {
   const [error,setError]=useState<string>('');
   const [timer, setTimer] = useState<number>(60); // Set timer to 60 seconds (1 minute)
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [loader,setLoader]=useState<boolean>(false);
 
+  const loaderSetup = ()=>{
+    setLoader(true);
+  }
+
+  const loaderSetupfalse=()=>{
+    setLoader(false);
+  }
   const startTimer = () => {
     console.log('called')
     // Clear any existing timer
@@ -47,8 +56,10 @@ const Login:React.FC=()=> {
   const handleFormSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     sendOTP();
+    
 };
   const sendOTP=async ()=>{
+    loaderSetup();
     setTimer(0);
     const userDetails = {
       'email': email
@@ -60,9 +71,10 @@ const Login:React.FC=()=> {
       },
       body: JSON.stringify(userDetails) // Changed JSON.parse to JSON.stringify
   };
-  const url = "https://examsafaribackend.onrender.com/sendOTP";
+  const url = "https://example-na5m.onrender.com/sendOTP";
   const response = await fetch(url, options);
   const jsonData=await response.json();
+  loaderSetupfalse();
   if(response.ok){
     setIsSubmitClicked(true);
     setTimer(60);
@@ -76,6 +88,8 @@ const Login:React.FC=()=> {
   if(Cookies.get('jwt_token')!==undefined){
     return <Navigate to='/profile' replace={true}/>
   }
+
+  console.log(loader)
   return (
     <Layout>
       <div
@@ -88,6 +102,7 @@ const Login:React.FC=()=> {
         }}
       >
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl w-full">
+          {loader && <Loading/>}
           <div className="hidden lg:block lg:w-1/2 bg-cover bgImage"></div>
           <div className="w-full p-16 lg:w-1/2">
             <h2 className="text-3xl font-semibold text-gray-700 text-center">
@@ -128,7 +143,7 @@ const Login:React.FC=()=> {
               <div
                 className={`card scale-90 pb-3`}
               >
-                <OTPInput email={email} timer={timer} sendOtp={sendOTP} />
+                <OTPInput email={email} timer={timer} sendOtp={sendOTP} loaderSetup={loaderSetup} loadersetupFalse={loaderSetupfalse}/>
               </div>
             </div>}
           </div>
