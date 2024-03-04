@@ -55,7 +55,7 @@ const SideBar: React.FC<SidebarProps> = ({ onSelect }) => {
             </div>
             <div>Dashboard</div>
           </button>
-          <button onClick={() => handleClick('Profile')} className="flex items-center text-black gap-2 md:text-xl text-3xl  font-semibold py-5 md:py-2">
+          <button onClick={() => handleClick('profile')} className="flex items-center text-black gap-2 md:text-xl text-3xl  font-semibold py-5 md:py-2">
             <div>
               <CgProfile />
             </div>

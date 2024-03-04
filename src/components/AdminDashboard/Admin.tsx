@@ -1,24 +1,30 @@
 import { Link } from "react-router-dom";
-import EditProfileForm from "../proflie/EditProfileForm";
+
 import { useState } from "react";
-import ServicesAdd from "./ServicesAdd";
 
+import MainContainer from "./MainContainer";
 
+interface AdminProps {
+    onSelect: (buttonLabel: any) => void;
+  } 
 
+const Admin: React.FC<AdminProps> = ({ onSelect }) => {
+  const [selected, setSelected] = useState<string>("Dashboard");
 
-const Admin = () => {
+  const handleClick = (buttonLabel: React.SetStateAction<string>) => {
+    setSelected(buttonLabel);
+    onSelect(buttonLabel);
+  };
 
-    
+  const [Services, setServices] = useState(false);
+  const toggleServices = () => {
+    setServices(!Services);
+  };
 
-const [Services , setServices ] = useState(false);
-const toggleServices =()=>{
-    setServices(!Services)   
-}
-
-const [user , setUser ] = useState(false);
-const toggleUser =()=>{
-    setUser(!user)   
-}
+  const [user, setUser] = useState(false);
+  const toggleUser = () => {
+    setUser(!user);
+  };
   return (
     <div>
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -139,7 +145,10 @@ const toggleUser =()=>{
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
             <li>
-              <button className="w-full flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <button
+                onClick={() => handleClick("dashboard")}
+                className="w-full flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
                 <svg
                   className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   aria-hidden="true"
@@ -154,7 +163,13 @@ const toggleUser =()=>{
               </button>
             </li>
             <li>
-              <button onClick={toggleServices} className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <button
+                onClick={() => {
+                  toggleServices();
+                  handleClick("Services");
+                }}
+                className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   aria-hidden="true"
@@ -168,14 +183,21 @@ const toggleUser =()=>{
               </button>
             </li>
 
-            <div className={`pl-10 flex flex-col gap-3  ${Services ? "flex ": "hidden"}` }>
-                <div className="text-sm">Add</div>
-                <div className="text-sm">Manage</div>
+            <div
+              className={`pl-10 flex flex-col gap-3  ${
+                Services ? "flex " : "hidden"
+              }`}
+            >
+              <div className="text-sm">Add</div>
+              <div className="text-sm">Manage</div>
             </div>
 
             <li>
               <button
-                onClick={toggleUser}
+                onClick={() => {
+                    toggleUser();
+                    handleClick('users');
+                  }}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -191,11 +213,15 @@ const toggleUser =()=>{
               </button>
             </li>
 
-            <div className={`pl-10 flex flex-col gap-3  ${user ? "flex ": "hidden"}` }>
-                <div className="text-sm">Add</div>
-                <div className="text-sm">Manage</div>
+            <div
+              className={`pl-10 flex flex-col gap-3  ${
+                user ? "flex " : "hidden"
+              }`}
+            >
+              <div className="text-sm">Add</div>
+              <div className="text-sm">Manage</div>
             </div>
-           
+
             <li>
               <a
                 href="#"
@@ -219,14 +245,13 @@ const toggleUser =()=>{
                 <div className="flex-1 ms-3 whitespace-nowrap">Sign In</div>
               </a>
             </li>
-          
           </ul>
         </div>
       </aside>
 
       <div className="p-4 sm:ml-64">
         <div className=" rounded-lg dark:border-gray-700 mt-14">
-       <ServicesAdd/>
+          <MainContainer selected={"selectedButton"} />
         </div>
       </div>
     </div>
