@@ -14,6 +14,7 @@ interface SidebarProps {
 
 const SideBar: React.FC<SidebarProps> = ({ onSelect }) => {
   const [selected, setSelected] = useState<string>('Dashboard');
+  console.log(selected);
   const handleClick = (buttonLabel: React.SetStateAction<string>) => {
     setSelected(buttonLabel);
     onSelect(buttonLabel);

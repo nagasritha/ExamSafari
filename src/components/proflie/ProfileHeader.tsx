@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import BookingPage from "../booking/BookingPage";
+
 interface HeaderProps {
   selected: string;
 }
