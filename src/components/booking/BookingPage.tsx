@@ -12,7 +12,7 @@ const BookingPage = () => {
 
 
   return (
-    <div className="md:px-60 md:pt-12  bg-gray-100 h-screen">
+    <div className="md:px-60 md:pt-12   h-screen">
       <div className="upper-portion pt-4">
         <div className="flex gap-6">
           <Link to={"/"}>

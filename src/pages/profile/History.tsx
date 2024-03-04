@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProfileSidebar from "./Profilesidebar";
-import BookingHistory from "./HistoryPage";
+import BookingHistory from "../../components/proflie/HistoryPage";
 
 function History() {
 
