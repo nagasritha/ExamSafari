@@ -1,6 +1,42 @@
 import { Link } from "react-router-dom"
 
-const ProfileHeader = () => {
+interface HeaderProps {
+  selected: string;
+}
+
+const ProfileHeader : React.FC<HeaderProps> = ({ selected }) => {
+
+  const renderContent = () => {
+    switch (selected) {
+      case 'Dashboard':
+        return (
+          <div className="dashboard">
+            Dashboard 
+          </div>
+        );
+      case 'Profile':
+        return (
+          <div className="">
+            Profile 
+          </div>
+        );
+      case 'Booking':
+        return (
+          <div className="booking">
+            Booking
+          </div>
+        );
+      case 'History':
+        return (
+          <div className="history">
+            History
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="h-16 bg-blue-50  flex items-center ">
         <div className="w-1/5">
@@ -17,7 +53,7 @@ const ProfileHeader = () => {
       
 
       <div className="w-4/5 flex justify-between items-center px-2">
-       <div className="font-semibold text-xl">Dashboard</div>
+       <div className="font-semibold text-xl">{renderContent()}</div>
       <div>
         <div className="Search-bar w-72 ">
         <div>

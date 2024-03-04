@@ -82,7 +82,7 @@ function Booking() {
 
     return (
 
-        <div className="container mx-auto p-8 flex">
+        <div className="container mx-auto p-8 pl-0 flex">
 
             <ProfileSidebar
                 profileData={profileData}

@@ -21,12 +21,9 @@ import BookingForm from "./components/booking/BookingForm";
 import BookingPage from "./components/booking/BookingPage";
 import BookingPayment from "./components/booking/BookingPayment";
 import MyProfile from "./components/proflie/MyProfile";
-import EditProfile from "./pages/profile/EditProfile";
-import History from "./pages/profile/History";
-import Booking from "./pages/profile/Booking";
-import AdminDashboard from "./pages/dashboard";
-import Success from "./components/booking/Success";
-import Cancel from "./components/booking/Cancel";
+import Admin from "./components/AdminDashboard/Admin";
+
+
 
 
 function App() {
@@ -38,11 +35,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/accomadation" element={<Accomadation />} />
           <Route path="/allahabad" element={<Allahabad />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="myprofile" element={<MyProfile />} />
+          <Route path="/profile" element={<Profile/>} />  
+          <Route path= "myprofile" element={<MyProfile/>}/>
           <Route path="/banaras" element={<Banaras />} />
           <Route path="/kanpur" element={<Kanpur />} />
           <Route path="/lucknow" element={<Lucknow />} />
@@ -50,15 +44,13 @@ function App() {
           <Route path="/travelwithaccomadation" element={<TravelWithAccomadation />} />
           <Route path="/examcitydescription" element={<ExamCityDescription />} />
           <Route path="/examcitymain" element={<ExamCityMain />} />
-          <Route path="/bookingform" element={<BookingForm />} />
+          <Route path="/bookingform" element={<BookingForm/>}/>
           <Route path="/*" element={<NoPage />} />
           <Route path="/bookingform" element={<BookingForm/>}/>
           <Route path="/bookingpage" element={<BookingPage/>}/>
-          <Route path="payment" element={<BookingPayment/>}/>
-          <Route path='/adminPanel' element={<AdminDashboard/>}/>
-          <Route path='/success' element={<Success/>}/>
-          <Route path='/cancel' element={<Cancel/>}/>
-          
+          <Route path="/payment" element={<BookingPayment/>}/>
+          <Route path="/admin" element={<Admin/>}/>
+         
 
         </Routes>
       </Router>

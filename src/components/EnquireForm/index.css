@@ -5,18 +5,10 @@
     width:100%;
 }
 .form{
-    height:450px;
+    height:350px;
     overflow: auto;
 }
-.form::-webkit-scrollbar {
-    width: 5px; /* width of the scrollbar */
-  }
- .form::-webkit-scrollbar-track {
-    background: #00c0df;; /* color of the track */
-  }
-  .form::-webkit-scrollbar-thumb {
-    background: #0013df;/* color of the scrollbar handle */
-  }
+
 .submit{
     color:rgb(249, 248, 248);
     border-radius:10px;

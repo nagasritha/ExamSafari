@@ -10,10 +10,10 @@ interface EnquireModalProps{
 
 const EnquireModal:React.FC<EnquireModalProps>=({closeEnquire,enquireFalse})=>{
     
-    return <div className='rounded-t-xl'>
+    return <div className='rounded-t-lg'>
       
-        <div className='flex justify-between items-center text-white -mt-5 rounded-t-xl p-3' style={{backgroundColor:"#00c0df"}}>
-       <h1 className='text-xl md:text-3xl font-semibold'>Enquire</h1>
+        <div className='flex justify-between items-center text-white -mt-6 rounded-t-xl p-2 bg-blue-600' >
+       <h1 className='text-xl md:text-2xl px-4 font-semibold'>Enquire</h1>
         <RxCross2 className='text-xl md:text-3xl' onClick={closeEnquire}/>
        </div>
         <hr/>
@@ -28,9 +28,9 @@ const EnquireModal:React.FC<EnquireModalProps>=({closeEnquire,enquireFalse})=>{
         </div>
           
         </div>
-        <div className='text-center lg:text-right relative z-20 rounded-b-xl' style={{backgroundColor:'#00c0df', marginBottom:'-33px', marginRight:'-1px'}}>
+        <div className='text-center lg:text-right relative z-20 rounded-b-xl bg-blue-600' style={{ marginBottom:'-33px', marginRight:'-1px'}}>
           <hr/>
-          <button className='feauture-button close mb-3 rounded' onClick={closeEnquire}>Close Modal</button>
+          <button className='feauture-button bg-[#0c356a] close mb-2 rounded' onClick={closeEnquire}>Close Modal</button>
         </div>
         </div>
 }

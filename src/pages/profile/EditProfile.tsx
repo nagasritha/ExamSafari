@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProfileSidebar from "./Profilesidebar";
-import EditProfileForm from "./EditProfileForm";
+import EditProfileForm from "../../components/proflie/EditProfileForm";
 import Layout from "@/components/layout/Layout";
 
 function EditProfile() {
@@ -73,10 +73,11 @@ function EditProfile() {
     }
 
     return (
+        <>
 
-        <div className="container mx-auto p-8 pb-0 flex">
+        <div className="container mx-auto p-8 pb-0 pl-0 flex">
+       <Layout> 
 
-       <Layout>
         <div className="container mx-auto p-8 flex">
 
             <ProfileSidebar
@@ -98,6 +99,7 @@ function EditProfile() {
         
         </Layout> 
         </div>
+        </>
     );
 }
 
