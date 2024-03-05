@@ -2,6 +2,7 @@ import Dashboard from "./Dashboard";
 import Services from "./Services";
 import ServicesAdd from "./ServicesAdd";
 import ServicesManage from "./ServicesManage";
+import Users from "./Users";
 
 
 interface MainContainerProps {
@@ -26,7 +27,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
       case "users":
         return (
           <div className="booking">
-            {/* Your Users component */}
+            <Users/>
           </div>
         );
         case "addServices":

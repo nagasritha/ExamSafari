@@ -16,13 +16,13 @@ const Services = () => {
     ];
   
     return (
-        <>
-        <div className="bg-white font-semibold text-2xl pl-2">Services</div>
+        <div className="h-full">
+        <div className="bg-white font-semibold text-2xl pl-2 ">Services</div>
 
       <div className="flex gap-2 md:flex-row flex-col overflow-hidden">
         {/* Map through servicesData to generate divs */}
         {servicesData.map((service, index) => (
-          <div key={index} className="service1 md:w-1/3 w-full flex flex-col bg-white shadow-lg gap-2 p-2">
+          <div key={index} className="service1 md:w-1/3 w-full flex flex-col  shadow-md gap-2 p-2 rounded-lg">
             <div>
               <img src={service.imageUrl} alt="" />
             </div>
@@ -33,7 +33,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-      </>
+      </div>
     );
   }
   
