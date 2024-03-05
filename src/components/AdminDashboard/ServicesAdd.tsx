@@ -2,7 +2,7 @@
 
 const ServicesAdd = () => {
   return (
-    <div className="px-10">
+    <div className="px-10 h-screen pt-2">
 
      <div className="text-xl font-semibold pb-4 text-blue-700 ">Add Services</div>
 

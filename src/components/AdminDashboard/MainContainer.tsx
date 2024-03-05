@@ -1,5 +1,8 @@
 import Dashboard from "./Dashboard";
+import Services from "./Services";
 import ServicesAdd from "./ServicesAdd";
+import ServicesManage from "./ServicesManage";
+
 
 interface MainContainerProps {
   selected: string;
@@ -17,7 +20,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
       case "services":
         return (
           <div className="">
-            <ServicesAdd />
+            <Services/>
           </div>
         );
       case "users":
@@ -26,12 +29,24 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
             {/* Your Users component */}
           </div>
         );
+        case "addServices":
+          return (
+            <div className="">
+              <ServicesAdd/>
+            </div>
+          );
+          case "manageServices":
+          return (
+            <div className="">
+              <ServicesManage/>
+            </div>
+          );
       default:
         return null;
     }
   };
 
-  return <div className="main-container bg-gray-100">{renderContent()}</div>;
+  return <div className="main-container ">{renderContent()}</div>;
 };
 
 export default MainContainer;

@@ -4,16 +4,19 @@ import { useState } from "react";
 
 import MainContainer from "./MainContainer";
 
-interface AdminProps {
-    onSelect: (buttonLabel: any) => void;
-  } 
+import { IoMdArrowDropdown } from "react-icons/io";
 
-const Admin: React.FC<AdminProps> = ({ onSelect }) => {
-  const [selected, setSelected] = useState<string>("Dashboard");
+ 
+
+const Admin: React.FC = () => {
+  const [selected, setSelected] = useState<string>("dashboard");
+  console.log(selected);
+  
+ 
 
   const handleClick = (buttonLabel: React.SetStateAction<string>) => {
     setSelected(buttonLabel);
-    onSelect(buttonLabel);
+
   };
 
   const [Services, setServices] = useState(false);
@@ -53,7 +56,7 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
                   ></path>
                 </svg>
               </button>
-              <Link to="/" className="flex ms-2 md:me-24">
+              <Link to="/admin" className="flex ms-2 md:me-24">
                 <img src="/images/logo.png" className="h-8 me-3" alt="Logo" />
               </Link>
             </div>
@@ -166,10 +169,12 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
               <button
                 onClick={() => {
                   toggleServices();
-                  handleClick("Services");
+                  handleClick("services");
                 }}
                 className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
+                <div className="flex items-center gap-24">
+                <div className="flex gap-2">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   aria-hidden="true"
@@ -180,6 +185,15 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
                 </svg>
                 <div className="flex p  whitespace-nowrap">Services</div>
+                </div>
+                  { !Services &&
+                <div >
+                  <IoMdArrowDropdown size={"1.5rem"} />
+                  </div>
+                  }
+              
+
+                </div>
               </button>
             </li>
 
@@ -188,8 +202,9 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
                 Services ? "flex " : "hidden"
               }`}
             >
-              <div className="text-sm">Add</div>
-              <div className="text-sm">Manage</div>
+              <button onClick={()=> handleClick("addServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Add Services</button>
+              <button onClick={()=> handleClick("manageServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Manage Services</button>
+              
             </div>
 
             <li>
@@ -242,7 +257,7 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
                     d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                   />
                 </svg>
-                <div className="flex-1 ms-3 whitespace-nowrap">Sign In</div>
+                <div className="flex-1 ms-3 whitespace-nowrap">Sign Out</div>
               </a>
             </li>
           </ul>
@@ -250,8 +265,8 @@ const Admin: React.FC<AdminProps> = ({ onSelect }) => {
       </aside>
 
       <div className="p-4 sm:ml-64">
-        <div className=" rounded-lg dark:border-gray-700 mt-14">
-          <MainContainer selected={"selectedButton"} />
+        <div className=" rounded-lg   mt-14">
+        <MainContainer selected={selected} />
         </div>
       </div>
     </div>

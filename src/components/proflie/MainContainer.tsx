@@ -1,7 +1,7 @@
 import React from 'react';
 import BookingPage from "../booking/BookingPage"; // Assuming BookingPage is a component
 
-import EditProfileForm from '@/components/proflie/EditProfileForm1';
+import EditProfileForm1 from '@/components/proflie/EditProfileForm1';
 import HistoryPage from "@/components/proflie/HistoryPage"
 
 interface MainContainerProps {
@@ -17,10 +17,10 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
             Dashboard Content
           </div>
         );
-      case 'Profile':
+      case 'profile':
         return (
           <div className="">
-           <EditProfileForm/>
+           <EditProfileForm1/>
           </div>
         );
       case 'Booking':
