@@ -3,6 +3,7 @@ import Services from "./Services";
 import ServicesAdd from "./ServicesAdd";
 import ServicesManage from "./ServicesManage";
 import Users from "./Users";
+import UsersAdd from "./UsersAdd";
 
 
 interface MainContainerProps {
@@ -40,6 +41,12 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
           return (
             <div className="">
               <ServicesManage/>
+            </div>
+          );
+          case "addUser":
+          return (
+            <div className="">
+              <UsersAdd/>
             </div>
           );
       default:

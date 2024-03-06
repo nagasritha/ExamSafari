@@ -243,7 +243,9 @@ const Admin: React.FC = () => {
                 user ? "flex " : "hidden"
               }`}
             >
-              <button className="text-sm flex">Add Users</button>
+              <button onClick={()=>{
+                handleClick("addUser")
+              }} className="text-sm flex">Add Users</button>
               <button className="text-sm flex">Manage Users</button>
             </div>
 

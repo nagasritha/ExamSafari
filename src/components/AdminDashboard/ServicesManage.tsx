@@ -33,7 +33,7 @@ const ServicesManage = () => {
         <hr />
       </div>
 
-      <div className="services-list  flex gap-6 justify-center flex-wrap">
+      <div className="services-list  flex gap-6  justify-center flex-wrap">
         {services.map((service) => (
           <div key={service.id} className="flex flex-col md:w-2/5 w-full gap-1 p-2 rounded-md shadow-md">
             <div>
