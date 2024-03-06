@@ -3,6 +3,7 @@ import BookingPage from "../booking/BookingPage"; // Assuming BookingPage is a c
 
 import EditProfileForm1 from '@/components/proflie/EditProfileForm1';
 import HistoryPage from "@/components/proflie/HistoryPage"
+import Dashboard from './Dashboard';
 
 interface MainContainerProps {
   selected: string;
@@ -13,8 +14,9 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
     switch (selected) {
       case 'Dashboard':
         return (
-          <div className="dashboard">
-            Dashboard Content
+          <div className="Dashboard">
+            <Dashboard/>
+
           </div>
         );
       case 'profile':
