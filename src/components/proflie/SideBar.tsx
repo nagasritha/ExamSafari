@@ -14,7 +14,8 @@ interface SidebarProps {
 
 const SideBar: React.FC<SidebarProps> = ({ onSelect }) => {
   const [selected, setSelected] = useState<string>('Dashboard');
-  console.log(selected);
+  selected
+   
   const handleClick = (buttonLabel: React.SetStateAction<string>) => {
     setSelected(buttonLabel);
     onSelect(buttonLabel);
@@ -36,7 +37,7 @@ const SideBar: React.FC<SidebarProps> = ({ onSelect }) => {
   }
   return (
     <>
-      <div className='flex md:hidden sidebar-menu  md:py-0 pl-4' >
+      <div className='flex  z-100 md:hidden sidebar-menu   md:py-0 pl-4' >
         <label className="burger">
           <input type="checkbox" className='' id="burger" onClick={toggleSidebar} />
           <span></span>
@@ -45,29 +46,29 @@ const SideBar: React.FC<SidebarProps> = ({ onSelect }) => {
         </label>
       </div>
 
-      <div className={`md:bg-white  md:py-12 bg-black bg-opacity-40 rounded-r-xl md:rounded-none md:bg-opacity-100 w-full md:w-full px-8 h-screen  pt-10 main-bar md:flex flex-col ${isSidebarOpen ? 'Flex' : 'hidden'}`}>
+      <div className={`md:bg-white  fixed z-10 md:z-0 md:py-12  bg-black bg-opacity-90 rounded-r-xl md:rounded-none md:bg-opacity-100 w-full md:w-1/5 px-8 h-screen  pt-10 main-bar md:flex flex-col ${isSidebarOpen ? 'Flex' : 'hidden'}`}>
        
 
         <div className='flex flex-col justify-center items-center md:items-start md:gap-4 md:pt-4 md:pb-6'>
-          <button onClick={() => handleClick('Dashboard')} className="flex items-center text-black gap-2 md:text-xl text-3xl font-semibold md:pt-0 py-5 md:py-2">
+          <button onClick={() => handleClick('Dashboard')} className="flex items-center text-white md:text-black gap-2 md:text-xl text-3xl md:font-semibold md:pt-0 py-5 md:py-2">
             <div>
               <LuHome />
             </div>
             <div>Dashboard</div>
           </button>
-          <button onClick={() => handleClick('Profile')} className="flex items-center text-black gap-2 md:text-xl text-3xl  font-semibold py-5 md:py-2">
+          <button onClick={() => handleClick('profile')} className="flex items-center text-white md:text-black gap-2 md:text-xl text-3xl  md:font-semibold py-5 md:py-2">
             <div>
               <CgProfile />
             </div>
             <div>Profile</div>
           </button>
-          <button  onClick={() => handleClick('Booking')} className="flex items-center text-black gap-2 md:text-xl text-3xl font-semibold py-5 md:py-2">
+          <button  onClick={() => handleClick('Booking')} className="flex items-center text-white md:text-black gap-2 md:text-xl text-3xl md:font-semibold py-5 md:py-2">
             <div>
               <FaRegCalendarAlt />
             </div>
             <div>Booking</div>
           </button>
-          <button onClick={() => handleClick('History')} className="flex items-center text-black gap-2 md:text-xl text-3xl font-semibold py-5 md:py-2">
+          <button onClick={() => handleClick('History')} className="flex items-center text-white md:text-black gap-2 md:text-xl text-3xl md:font-semibold py-5 md:py-2">
             <div>
               <FaHeart />
             </div>

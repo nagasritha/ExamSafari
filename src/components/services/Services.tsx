@@ -70,12 +70,32 @@ const Services: React.FC = () => {
     nextArrow: <CustomNextArrow />,
   };
 
+  const [data, setData] = useState({
+    homeData: {
+      serviceDescription: "",
+      serviceHeading:"",
+      // Add other properties with their default values if necessary
+    }
+  });
+
+  useEffect(() => {
+    fetch("https://example-na5m.onrender.com/home/home")
+      .then((result) => result.json())
+      .then((resp) => {
+        console.log("result", resp);
+        setData(resp);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   
 
   return (
     <div>
-       <h1 className='px-5 font-bold text-4xl py-2 mt-10'>Services</h1>
-      <p className='service-para'>Little text about services </p>
+       <h1 className='px-5 font-bold text-4xl py-2 mt-10'>{data.homeData.serviceHeading}</h1>
+      <p className='service-para'>{data?.homeData?.serviceDescription} </p>
       <Slider {...settings}>
         <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">
             <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/service1.png" alt="dummy-image"/>
