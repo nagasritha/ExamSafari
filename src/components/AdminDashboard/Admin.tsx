@@ -204,6 +204,7 @@ const Admin: React.FC = () => {
             >
               <button onClick={()=> handleClick("addServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Add Services</button>
               <button onClick={()=> handleClick("manageServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Manage Services</button>
+              <button onClick={()=> handleClick("editHomePage")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Edit Home Page</button>
               
             </div>
 

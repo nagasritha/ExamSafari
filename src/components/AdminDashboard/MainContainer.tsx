@@ -1,4 +1,5 @@
 import Dashboard from "./Dashboard";
+import EditHomePage from "./EditHomePage";
 import Services from "./Services";
 import ServicesAdd from "./ServicesAdd";
 import ServicesManage from "./ServicesManage";
@@ -47,6 +48,12 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
           return (
             <div className="">
               <UsersAdd/>
+            </div>
+          );
+          case "editHomePage":
+          return (
+            <div className="">
+              <EditHomePage/>
             </div>
           );
       default:

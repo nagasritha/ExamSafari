@@ -4,78 +4,34 @@ import {Link} from 'react-router-dom'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './index.css'
+import { useEffect, useState } from 'react';
 
 const ExamCity: React.FC = () => {
-  // const [slidesToShow,setSlideToShow]=useState<number>(1)
-  // const [dots,setDots]=useState<boolean>(true)
-  // const [centerAlign,setCenterAlign]=useState<boolean>(true)
-  // const [centerPadding,setCenterPadding]=useState<number>(20)
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth <= 350) {
-  //       setSlideToShow(1);
-  //       setCenterAlign(false);
-  //     }
-  //     if (window.innerWidth <= 480) {
-  //       setSlideToShow(1);
-  //       setCenterPadding(50);
-  //     } else if (window.innerWidth <= 1220) {
-  //       setSlideToShow(2);
-  //       setCenterAlign(false);
-  //       setCenterPadding(50);
-  //     } 
-  //    else{
-  //       setSlideToShow(3);
-  //       setDots(false);
-  //       setCenterPadding(0);
-  //       setCenterAlign(false);
-  //     }
-  //   };
-  
-  //   // Run handleResize initially
-  //   handleResize();
-  
-  //   // Add event listener to handle window resize
-  //   window.addEventListener('resize', handleResize);
-  
-  //   // Cleanup function to remove event listener
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []); // Add window.innerWidth as dependency to rerun effect on resize
-  
-
-  // const CustomPrevArrow = (props: any) => (
-  //   <button onClick={props.onClick} className="custom-prev-arrow-feauture">
-  //    &lt;
-  //   </button>
-  // );
-  
-  // const CustomNextArrow = (props: any) => (
-  //   <button onClick={props.onClick} className="custom-next-arrow-feauture">
-  //     &gt;
-  //   </button>
-  // );
-
-  // const settings = {
-  //   dots: dots,
-  //   infinite: false,
-  //   speed: 500,
-  //   slidesToShow: slidesToShow,
-  //   slidesToScroll: 1,
-  //   centerMode:centerAlign,
-  //   centerPadding:`${centerPadding}px`,
-  //   prevArrow: <CustomPrevArrow />,
-  //   nextArrow: <CustomNextArrow />,
-  // };
-
-  
-
+    const [data, setData] = useState({
+        homeData: {
+            examHeading: "",
+            examDescription:"",
+         
+       
+        }
+      });
+    
+      useEffect(() => {
+        fetch("https://example-na5m.onrender.com/home/home")
+          .then((result) => result.json())
+          .then((resp) => {
+            console.log("result", resp);
+            setData(resp);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }, []);
+    
   return (
     <div>
-       <h1 className='service-heading'>Exam City</h1>
-      <p className='service-para'>Little text about exam City </p>
+       <h1 className='service-heading'>{data.homeData.examHeading}</h1>
+      <p className='service-para'> {data.homeData.examDescription} </p>
       {/* <Slider {...settings}/> */}
 
       <div className='md:flex md:overflow-x-scroll HideScrollBar  md:flex-row grid grid-cols-3 gap pt-2 md:pl-4  '>
