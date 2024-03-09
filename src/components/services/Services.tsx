@@ -94,8 +94,8 @@ const Services: React.FC = () => {
 
   return (
     <div>
-       <h1 className='px-5 font-bold text-4xl py-2 mt-10'>{data.homeData.serviceHeading}</h1>
-      <p className='service-para'>{data?.homeData?.serviceDescription} </p>
+       <h1 className='px-5 font-bold text-4xl py-2 mt-10'>{data.homeData.serviceHeading ? data.homeData.serviceHeading : "Services"}</h1>
+      <p className='service-para'>{data?.homeData?.serviceDescription ? data?.homeData?.serviceDescription : "ittle text about services"} </p>
       <Slider {...settings}>
         <div className="services-item relative h-64 transition-all duration-300 hover:bg-gradient-to-t hover:from-blue-500 hover:to-purple-500">
             <img className="h-[300px] w-auto rounded-[25px] p-2 service-image" src="./images/service1.png" alt="dummy-image"/>

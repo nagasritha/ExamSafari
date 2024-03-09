@@ -95,8 +95,8 @@ const AcoFeature: React.FC = () => {
 
   return (
     <div>
-      <div className="service-heading pb-2">{data?.homeData?.acoFeautureHeading}</div>
-      <div className="service-para pb-4">{data?.homeData?.acoFeautureDescription}</div>
+      <div className="service-heading pb-2">{data?.homeData?.acoFeautureHeading ? data?.homeData?.acoFeautureHeading : "Book your Perfect Accommodation"}</div>
+      <div className="service-para pb-4">{data?.homeData?.acoFeautureDescription ? data?.homeData?.acoFeautureDescription : "Take the hassle out of securing your student home for the best years of your life"}</div>
      <div className='mx-3 pt-6'> 
       <Slider {...settings}>
 
