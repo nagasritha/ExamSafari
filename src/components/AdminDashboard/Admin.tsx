@@ -6,6 +6,8 @@ import MainContainer from "./MainContainer";
 
 import { IoMdArrowDropdown } from "react-icons/io";
 
+import { FaCity } from "react-icons/fa";
+
  
 
 const Admin: React.FC = () => {
@@ -27,6 +29,11 @@ const Admin: React.FC = () => {
   const [user, setUser] = useState(false);
   const toggleUser = () => {
     setUser(!user);
+  };
+
+  const [city, setCity] = useState(false);
+  const toggleCity = () => {
+    setCity(!city);
   };
   return (
     <div>
@@ -239,6 +246,8 @@ const Admin: React.FC = () => {
                   </button>
             </li>
 
+            
+
             <div
               className={`pl-10 flex flex-col gap-3  ${
                 user ? "flex " : "hidden"
@@ -246,8 +255,45 @@ const Admin: React.FC = () => {
             >
               <button onClick={()=>{
                 handleClick("addUser")
-              }} className="text-sm flex">Add Users</button>
-              <button className="text-sm flex">Manage Users</button>
+              }} className="text-sm flex hover:text-blue-600 hover:font-bold">Add Users</button>
+              <button className="text-sm flex hover:text-blue-600 hover:font-bold">Manage Users</button>
+            </div>
+
+            <li>
+              <button
+                onClick={() => {
+                  toggleCity()
+                    handleClick('city');
+                  }}
+                className="w-full flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                  <div className="flex gap-28">
+                <div className="flex items-center">
+                <FaCity />
+
+                <div className=" ms-3 whitespace-nowrap">Citys</div>
+              </div>
+
+              { !city &&
+                <div >
+                  <IoMdArrowDropdown size={"1.5rem"} />
+                  </div>
+                  }
+                  </div>
+                  </button>
+            </li>
+
+            <div
+              className={`pl-10 flex flex-col gap-3  ${
+                city ? "flex " : "hidden"
+              }`}
+            >
+              <button onClick={()=>{
+                handleClick("addCity")
+              }} className="text-sm flex hover:text-blue-600 hover:font-bold">Add City</button>
+              <button onClick={()=>{
+                handleClick("manageCity")
+              }} className="text-sm flex hover:text-blue-600 hover:font-bold">Manage city</button>
             </div>
 
             <li>

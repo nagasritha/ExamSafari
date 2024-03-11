@@ -1,3 +1,6 @@
+import City from "./City";
+import CityAdd from "./CityAdd";
+import CityManage from "./CityManage";
 import Dashboard from "./Dashboard";
 import EditHomePage from "./EditHomePage";
 import Services from "./Services";
@@ -32,6 +35,24 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
             <Users/>
           </div>
         );
+        case "city":
+        return (
+          <div className="">
+            <City/>
+          </div>
+        );
+        case "addCity":
+        return (
+          <div className="">
+            <CityAdd/>
+          </div>
+        );
+        case "manageCity":
+          return (
+            <div className="">
+              <CityManage/>
+            </div>
+          );
         case "addServices":
           return (
             <div className="">
