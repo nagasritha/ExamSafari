@@ -111,7 +111,7 @@ const RightPortion: React.FC = () => {
             overlayClassName="custom-overlay"
             className="thankyou-modal-container"
           >
-          <ThankyouModal closeThankyou={closeThankyou} failure={formResult}/>
+          <ThankyouModal closeThankyou={closeThankyou} failure={formResult} message={formResult ?"Form Submitted Successfully" :"Something Went wrong, Try Again"}/>
           </Modal>
     
     </div>

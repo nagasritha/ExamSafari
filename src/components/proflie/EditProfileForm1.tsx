@@ -22,7 +22,7 @@ interface FormData {
 
 const EditProfileForm: React.FC = () => {
   const token = Cookies.get('jwt_token');
-  const [tab, setTab] = useState<string>('overView');
+  const [tab, setTab] = useState<string>('editProfile');
   const [formData, setFormData] = useState<FormData>({
     imageUrl: "https://examsafaribackend.onrender.com/uploads/3dof.PNG",
     name: "Kevin Anderson",
@@ -39,11 +39,13 @@ const EditProfileForm: React.FC = () => {
     linkedinProfile: "https://linkedin.com/#"
   });
 
-  const handleToggle = (tab: string) => {
-    setTab(tab);
+  const handleToggle = (active: string) => {
+    setTab(active);
+    console.log("called");
     if(tab==="overView"){
       fetchProfileData();
     }
+    console.log(active);
   };
 
   const { imageUrl, name, educationStatus, linkedinProfile, instaProfile, facebookProfile, twitterProfile } = formData;
@@ -103,7 +105,7 @@ const EditProfileForm: React.FC = () => {
       case "overView":
         return <OverView formData={formData} />;
       case "editProfile":
-        return <ProfileForm />;
+        return <ProfileForm handleToggle = {()=>handleToggle(tab)}/>;
       default:
         return null;
     }
@@ -138,8 +140,8 @@ const EditProfileForm: React.FC = () => {
         <div className="right-div md:w-2/3 w-full shadow-lg rounded-md px-4">
 
           <div className="navbar-head flex py-2 gap-4 ">
-            <button onClick={() => handleToggle('overView')} className="font-semibold">Overview</button>
-            <button className="font-semibold" onClick={() => handleToggle('editProfile')}> Edit Profile</button>
+            <button onClick={() => handleToggle('overView')} className="font-semibold" style={tab==="overView" ? {color:"blue"}:undefined}>Overview</button>
+            <button className="font-semibold" onClick={() => handleToggle('editProfile')} style={tab==="editProfile" ? {color:"blue"}:undefined}> Edit Profile</button>
           </div>
           <div className="pb-2">
             <hr />

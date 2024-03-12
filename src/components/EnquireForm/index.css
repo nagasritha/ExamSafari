@@ -31,7 +31,7 @@
         }
     }
 }
-.form-group input{
+.form-group input,select{
     border-radius:10px;
 }
 .form-group textarea{
@@ -42,7 +42,7 @@
     border:2px solid rgb(69, 69, 69);
 }
 
-.form-group input:focus{
+.form-group input:focus,select:focus{
     box-shadow: 2px 2px 3px rgb(23, 5, 5);
     border-width:2px;
     border-style:solid;

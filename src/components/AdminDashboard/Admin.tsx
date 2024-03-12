@@ -5,6 +5,8 @@ import { useState } from "react";
 import MainContainer from "./MainContainer";
 
 import { IoMdArrowDropdown } from "react-icons/io";
+import { FaEdit,FaRegCalendarAlt } from "react-icons/fa";
+import { MdHistoryToggleOff } from "react-icons/md";
 
  
 
@@ -50,8 +52,8 @@ const Admin: React.FC = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
+                    clipRule="evenodd"
+                    fillRule="evenodd"
                     d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
                   ></path>
                 </svg>
@@ -166,6 +168,17 @@ const Admin: React.FC = () => {
               </button>
             </li>
             <li>
+              <div className='flex gap-2'>
+                <button onClick={()=> handleClick("editHomePage")}  className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <FaEdit className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  />
+                 <p className="flex p whitespace-nowrap">Edit Home Page</p>
+                </button>
+              </div>
+            </li>
+            
+            <li>
               <button
                 onClick={() => {
                   toggleServices();
@@ -184,7 +197,7 @@ const Admin: React.FC = () => {
                 >
                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
                 </svg>
-                <div className="flex p  whitespace-nowrap">Services</div>
+                <div className="flex p whitespace-nowrap">Services</div>
                 </div>
                   { !Services &&
                 <div >
@@ -196,7 +209,7 @@ const Admin: React.FC = () => {
                 </div>
               </button>
             </li>
-
+            
             <div
               className={`pl-10 flex flex-col gap-3  ${
                 Services ? "flex " : "hidden"
@@ -204,7 +217,6 @@ const Admin: React.FC = () => {
             >
               <button onClick={()=> handleClick("addServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Add Services</button>
               <button onClick={()=> handleClick("manageServices")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Manage Services</button>
-              <button onClick={()=> handleClick("editHomePage")} className="text-sm flex justify-start hover:text-blue-600 hover:font-bold">Edit Home Page</button>
               
             </div>
 
@@ -249,8 +261,7 @@ const Admin: React.FC = () => {
               }} className="text-sm flex">Add Users</button>
               <button className="text-sm flex">Manage Users</button>
             </div>
-
-            <li>
+             <li>
               <a
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -272,6 +283,28 @@ const Admin: React.FC = () => {
                 </svg>
                 <div className="flex-1 ms-3 whitespace-nowrap">Sign Out</div>
               </a>
+            </li>
+            <li>
+              <div className='flex gap-2'>
+              <button onClick={()=> handleClick("userBookings")}  className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <FaRegCalendarAlt className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  />
+                 <p className="flex p whitespace-nowrap">Booking</p>
+                </button>
+
+              </div>
+            </li>
+            <li>
+              <div className='flex gap-2'>
+              <button onClick={()=> handleClick("history")}  className="w-full flex items-center p-2 gap-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <MdHistoryToggleOff className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  />
+                 <p className="flex p whitespace-nowrap">History</p>
+                </button>
+
+              </div>
             </li>
           </ul>
         </div>

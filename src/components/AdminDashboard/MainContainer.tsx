@@ -3,8 +3,10 @@ import EditHomePage from "./EditHomePage";
 import Services from "./Services";
 import ServicesAdd from "./ServicesAdd";
 import ServicesManage from "./ServicesManage";
+import UserBookings from "./UserBookings";
 import Users from "./Users";
 import UsersAdd from "./UsersAdd";
+import History from "./History";
 
 
 interface MainContainerProps {
@@ -54,6 +56,18 @@ const MainContainer: React.FC<MainContainerProps> = ({ selected }) => {
           return (
             <div className="">
               <EditHomePage/>
+            </div>
+          );
+          case "userBookings":
+          return (
+            <div className="">
+              <UserBookings/>
+            </div>
+          );
+          case "history":
+          return (
+            <div className="">
+              <History/>
             </div>
           );
       default:
