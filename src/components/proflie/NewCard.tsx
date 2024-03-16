@@ -23,7 +23,9 @@ const NewCard:React.FC<NewCardProps> = ({history}) => {
     return <div className='m-3 rounded md:w-2/3 shadow-lg'>
         <div className='bg-emerald-300 md:flex md:justify-around md:items-center p-3 rounded-t-xl pb-10'>
             <div className='text-center'>
-                <img src="https://res.cloudinary.com/dkredoejm/image/upload/v1710229823/enquire-removebg-preview_rgwbjs.png"/>
+                <div className='text-center w-full'>
+                    <img src="https://res.cloudinary.com/dkredoejm/image/upload/v1710229823/enquire-removebg-preview_rgwbjs.png"/>
+                </div>
                 <h1 className='text-xl font-bold'>{name}</h1>
                 <h1 className='text-cyan-900 font-bold'>{whatsappNumber}</h1>
             </div>

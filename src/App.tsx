@@ -24,6 +24,9 @@ import MyProfile from "./components/proflie/MyProfile";
 import Admin from "./components/AdminDashboard/Admin";
 import Loader from "./components/ui/Loader";
 import Loading from "./components/Loading/loading";
+import UserDetails from "./pages/UserDetails";
+import Failure from "./components/Failure";
+import Empty from "./components/Empty";
 
 
 function App() {
@@ -52,8 +55,9 @@ function App() {
           <Route path="/bookingpage" element={<BookingPage/>}/>
           <Route path="/payment" element={<BookingPayment/>}/>
           <Route path="/admin" element={<Admin/>}/>
-         
-
+          <Route path='/admin/:id' element={<UserDetails/>}/>
+          <Route path="/failure" element={<Failure/>}/>
+          <Route path="/empty" element={<Empty/>}/>
         </Routes>
       </Router>
     </div>

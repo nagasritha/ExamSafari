@@ -1,13 +1,16 @@
 import React , {useState} from 'react'
 import Loading from '../Loading/loading';
 import Cookies from 'js-cookie';
+import Modal from 'react-modal';
+import { RxCross2 } from "react-icons/rx";
 
 interface FormModalProps{
     closeModal : ()=>void,
+    setMessage : (msg:string)=>void
     id:string
 }
 
-const FormModal:React.FC<FormModalProps> = ({closeModal,id})=>{
+const FormModal:React.FC<FormModalProps> = ({closeModal,id,setMessage})=>{
     console.log(id);
     const url=`https://example-na5m.onrender.com/api/submit-enquire/${id}`;
     console.log(url)
@@ -40,11 +43,13 @@ const FormModal:React.FC<FormModalProps> = ({closeModal,id})=>{
      setLoader(true);
      const token = Cookies.get("jwt_token");
      const data = {
-        "requestStatus": formData.requestStatus
+        "requestStatus": formData.requestStatus,
+        "message" : formData.message
     }
      const options = {
         method: 'PUT',
         headers: {
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`, // Add the authorization header
         },
         body: JSON.stringify(data),
@@ -52,17 +57,24 @@ const FormModal:React.FC<FormModalProps> = ({closeModal,id})=>{
       
       const response = await fetch(`https://example-na5m.onrender.com/api/submit-enquire/${id}`, options);
     setLoader(false);
+  
     const jsonResponse = await response.json();
+    setMessage(jsonResponse.message);
     console.log(jsonResponse);
     console.log(response);
     }
     const {message}=formData;
 
     return (
-    <div>
+    <div className='loader-card'>
     {loader && <Loading/>}
+    <div className='w-full text-right'>
+    <button onClick={closeModal} className='ml-auto hover:bg-gray-300 hover:p-1 rounded-full'>
+    <RxCross2 />
+    </button>
+    </div>
     <form onSubmit={handleSubmit}>
-           <div className="form-group">
+          <div className="form-group">
           <label htmlFor="requestStatus" className='font-bold'>Approval *</label>
           <select
             id="requestStatus"
@@ -90,9 +102,10 @@ const FormModal:React.FC<FormModalProps> = ({closeModal,id})=>{
           ></textarea>
           {errors.message && <p className="text-red-500">message required</p>}
         </div>
-        <button type="submit">Submit</button>
+        <div className='w-full text-center'>
+        <button type="submit" className='text-center mt-3 w-1/2 rounded bg-blue-500 text-white'>Submit</button>
+        </div>
     </form>
-    <button onClick={closeModal}>Ok</button>
     </div>)
 }
 
