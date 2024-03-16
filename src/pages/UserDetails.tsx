@@ -54,8 +54,6 @@ const UserDetails:React.FC = ()=>{
     } catch (error) {
         console.error('Error fetching data:', error);
         setState(data.failure);
-    } finally {
-        setLoader(false);
     }
 };
 
