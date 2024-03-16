@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import Loading from '../Loading/loading';
 import {Link} from 'react-router-dom';
-import NewCard from '../proflie/NewCard';
 
 const UserBookings: React.FC = () => {
     const [history, setHistory] = useState([]);

@@ -1,7 +1,6 @@
 import React , {useState} from 'react'
 import Loading from '../Loading/loading';
 import Cookies from 'js-cookie';
-import Modal from 'react-modal';
 import { RxCross2 } from "react-icons/rx";
 
 interface FormModalProps{

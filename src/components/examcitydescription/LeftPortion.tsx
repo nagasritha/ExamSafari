@@ -188,7 +188,7 @@ const LeftPortion: React.FC = () => {
             overlayClassName="custom-overlay"
             className="thankyou-modal-container"
           >
-          <ThankyouModal closeThankyou={closeThankyou} failure={failure}/>
+          <ThankyouModal message={failure ?"Form Submitted Successfully" :"Something Went wrong, Try Again"} closeThankyou={closeThankyou} failure={failure}/>
           </Modal>
     <HotelDescription/>
     </div>

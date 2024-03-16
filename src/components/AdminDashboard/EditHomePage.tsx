@@ -205,59 +205,73 @@ const {backgroundText,serviceHeading,serviceDescription,examHeading,examDescript
       <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="backgroundUrlSm">background Url Sm</label>
       <input required type="file" id="backgroundUrlSm" name="backgroundUrlSm" onChange={handleFileChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.backgroundUrlSm && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="backgroundUrlLg">background Url Lg</label>
       <input required type="file" name="backgroundUrlLg" onChange={handleFileChange} id="backgroundUrlLg" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.backgroundUrlLg && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="backgroundText">background Text</label>
       <input required type="text" name="backgroundText" id="backgroundText" onChange={handleChange} value={backgroundText} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.backgroundText && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="serviceHeading">service Heading</label>
       <input required name="serviceHeading" onChange={handleChange} type="text" id="serviceHeading" value={serviceHeading} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.serviceHeading && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="serviceDescription">service Description</label>
       <input required type="text" id="serviceDescription" name="serviceDescription" onChange={handleChange} value={serviceDescription} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.serviceDescription && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  htmlFor="examHeading" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">exam Heading</label>
       <input required type="text" id="examHeading" name="examHeading" onChange={handleChange} value={examHeading} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.examHeading && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  htmlFor="examDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">exam Description</label>
       <input required type="text" id="examDescription" name="examDescription" onChange={handleChange} value={examDescription} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.examDescription && <p className="text-red-500">Required*</p>}
   </div>
 
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor='acoFeautureHeading'>aco Feauture Heading</label>
       <input required type="text" id="acoFeautureHeading" name="acoFeautureHeading" onChange={handleChange} value={acoFeautureHeading} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.acoFeautureDescription && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label htmlFor="acoFeautureDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">aco Feauture Description</label>
       <input required type="text" id="acoFeautureDescription" name="acoFeautureDescription" onChange={handleChange} value={acoFeautureDescription} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.acoFeautureDescription && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  htmlFor="bannerUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">banner Url</label>
       <input required type="file" id="bannerUrl" name="bannerUrl" onChange={handleFileChange} accept='.png,.jpg' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.bannerUrl && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  htmlFor="travelFeautureHeading" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">travel Feauture Heading</label>
       <input required type="text" id="travelfeautureHeading" name="travelFeautureHeading" onChange={handleChange} value={travelFeautureHeading} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.travelFeautureHeading && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="travelFeautureDescription">travel Feauture Description</label>
       <input required type="text" id="travelFeautureDescription" name="travelFeautureDescription" onChange={handleChange} value={travelFeautureDescription} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.travelFeautureDescription && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="faqHeading">faq Heading</label>
       <input required type="text" id="faqHeading" name="faqHeading" onChange={handleChange} value={faqHeading} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.faqHeading && <p className="text-red-500">Required*</p>}
   </div>
   <div className="mb-5">
       <label  htmlFor="faqDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">faq Description</label>
       <input required type="text" id="faqDescription" name="faqDescription" onChange={handleChange} value={faqDescription} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+      {errors.faqDescription && <p className="text-red-500">Required*</p>}
   </div>
 
   <div>
