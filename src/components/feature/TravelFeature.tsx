@@ -72,12 +72,33 @@ const TravelFeature: React.FC = () => {
     nextArrow: <CustomNextArrow />,
   };
 
+
+  const [data, setData] = useState({
+    homeData: {
+       
+      travelFeautureHeading:"",
+      travelFeautureDescription:"",   
+    }
+  });
+
+  useEffect(() => {
+    fetch("https://example-na5m.onrender.com/home/home")
+      .then((result) => result.json())
+      .then((resp) => {
+        // console.log("result", resp);
+        setData(resp);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   
 
   return (
     <div className='pt-10'>
-      <h1 className="ml-4 text-3xl font-bold pb-4  ">Travel kar lo guys please ,ek baar kar lo</h1>
-      <p className="service-para pb-6">Travel karna chahiye chahe man kare ya na kare per karna chahiye </p>
+      <h1 className="ml-4 text-3xl font-bold pb-4  ">{data.homeData.travelFeautureHeading}</h1>
+      <p className="service-para pb-6"> {data.homeData.travelFeautureDescription}</p>
       <div className='mx-4 pt-4'>
       <Slider {...settings}>
         <div className='mx-3'>

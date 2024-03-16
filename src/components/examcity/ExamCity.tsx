@@ -20,7 +20,7 @@ const ExamCity: React.FC = () => {
         fetch("https://example-na5m.onrender.com/home/home")
           .then((result) => result.json())
           .then((resp) => {
-            console.log("result", resp);
+            // console.log("result", resp);
             setData(resp);
           })
           .catch((error) => {

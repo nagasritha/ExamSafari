@@ -77,7 +77,7 @@ const Users: React.FC = () => {
                                 {contact.emailAddress}
                             </td>
                             <td className="px-6 py-4">
-                                <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">more</button>
                             </td>
                         </tr>
                     ))}
