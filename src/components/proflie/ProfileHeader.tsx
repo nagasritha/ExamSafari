@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
-interface HeaderProps {
+/*interface HeaderProps {
   selected: string;
-}
+}*/
 
-const ProfileHeader : React.FC<HeaderProps> = ({ selected }) => {
+const ProfileHeader : React.FC = () => {
 
-  const renderContent = () => {
+  /*const renderContent = () => {
     switch (selected) {
       case 'Dashboard':
         return (
@@ -35,11 +35,11 @@ const ProfileHeader : React.FC<HeaderProps> = ({ selected }) => {
       default:
         return null;
     }
-  };
+  };*/
 
   return (
-    <div className="h-16 bg-blue-50  flex items-center ">
-        <div className="w-1/5">
+      <div className="flex justify-between items-center px-2 bg-blue-50 fixed z-1000 w-full" style={{height:'10vh', zIndex:"1000"}}>
+      <div className="w-1/5">
       <div className="logo-2  ">
       <Link to={"/"}>
                     <img
@@ -51,9 +51,6 @@ const ProfileHeader : React.FC<HeaderProps> = ({ selected }) => {
       </div>
       </div>
       
-
-      <div className="w-4/5 flex justify-between items-center px-2">
-       <div className="font-semibold text-xl">{renderContent()}</div>
       <div>
         <div className="Search-bar w-72 ">
         <div>
@@ -72,8 +69,6 @@ const ProfileHeader : React.FC<HeaderProps> = ({ selected }) => {
                                            
       </div>
       </div>
-
-    </div>
   )
 }
 

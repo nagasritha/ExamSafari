@@ -2,9 +2,15 @@
 import React, { useState,useEffect } from 'react';
 import './index.css'; // Assuming you have a CSS file for styling
 import Cookies from 'js-cookie'
+import Loading from '../Loading/loading';
 
-const profileForm: React.FC = () => {
-  const token=Cookies.get('jwt_token');
+interface ProfileFormProps{
+  handleToggle : (tab:string)=>void;
+}
+
+const profileForm: React.FC<ProfileFormProps> = ({handleToggle}) => {
+  const token = Cookies.get('jwt_token');
+  const [loader,setLoader]=useState<boolean>(false);
   const [formData, setFormData] = useState<{
   name: string;
   educationStatus: string;
@@ -127,6 +133,7 @@ const profileForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoader(true);
     try {
 
       const formFields = {
@@ -167,7 +174,9 @@ const profileForm: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        
+        setLoader(false);
+        handleToggle('overView');
+
       } else {
         const errorData = await response.json();
         console.log("error called");
@@ -189,7 +198,7 @@ const profileForm: React.FC = () => {
   };
   return (
     <div className="form-container">
-     
+      {loader && <Loading/>}
       <form onSubmit={handleSubmit} className="form z-10">
         <div className="form-group">
           <label htmlFor="name"  className='font-bold'>Full Name *</label>

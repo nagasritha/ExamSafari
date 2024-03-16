@@ -8,7 +8,7 @@ import  { useState } from 'react';
 
  const MyProfile = () => {
 
-  const [selectedButton, setSelectedButton] = useState<string>('Dashboard');
+  const [selectedButton, setSelectedButton] = useState<string>('profile');
 
   const handleSidebarClick = (buttonLabel: string) => {
     setSelectedButton(buttonLabel);
@@ -16,7 +16,7 @@ import  { useState } from 'react';
   return (
     <div className="flex flex-col">
     <div className="">
-      <ProfileHeader selected={selectedButton}/>
+      <ProfileHeader/>
     </div>
     <div className="flex  ">
       <div className="md:w-[20%] w-full relative z-2">

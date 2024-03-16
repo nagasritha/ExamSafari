@@ -19,6 +19,8 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     examCenter: string;
     busStop : string;
     exam : string;
+    examDate : string;
+    serviceType : string;
     admitCard: File | null; // Explicitly specify admitCard can be null or File
   }>({
     fullName: '',
@@ -28,7 +30,9 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     examCenter: '',
     admitCard: null,
     exam : '',
-    busStop:''
+    busStop:'',
+    examDate : '',
+    serviceType : '',
   });
 
   const loaderSetup = ()=>{
@@ -44,22 +48,24 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     examCenter: false,
     admitCard: false,
     busStop: false,
-    exam: false
+    exam: false,
+    examDate : false,
+    serviceType : false,
   });
 
   const [deactivate, setActivate] = useState(false);
   console.log(deactivate);
 
   const areAllPropertiesFilled = () => {
-    const { fullName, whatsappNumber, examCenter, examCity, currentAddress, admitCard,exam,busStop}=formData
-    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==null && exam!=='' && busStop !== ''){
+    const { fullName, whatsappNumber, examCenter, examCity, currentAddress, admitCard,exam,busStop,examDate, serviceType}=formData
+    if(fullName!=="" && whatsappNumber.length!==10 && examCity!=="" && examCenter!=="" && currentAddress!=="" && admitCard!==null && exam!=='' && busStop !== '' && examDate!=='' && serviceType!==''){
       setActivate(true);
     }else{
       setActivate(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
@@ -98,7 +104,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
     loaderSetup();
     console.log(loader);
     try {
-      const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard, exam, busStop } = formData;
+      const { fullName, whatsappNumber, currentAddress, examCity, examCenter, admitCard, exam, busStop,examDate, serviceType} = formData;
       console.log(exam)
       const formFields = {
         name: fullName,
@@ -107,7 +113,9 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
         examCity,
         examCenter,
         busStop,
-        exam
+        exam,
+        examDate,
+        serviceType
       };
 
       const formDataToSend = new FormData();
@@ -145,7 +153,9 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           examCenter: '',
           admitCard: null, 
           exam:'',
-          busStop: ""
+          busStop: '',
+          examDate : '',
+          serviceType : '',
         });
       } else {
         loaderSetup();
@@ -218,7 +228,7 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
           {errors.currentAddress && <p className="text-red-500">Current Address is required</p>}
         </div>
         <div className="form-group">
-        <label htmlFor="busStop" className='font-bold'>Bus-stop *</label>
+        <label htmlFor="busStop" className='font-bold'>Nearby Bus-stop *</label>
         <input
           type="text"
           id="busStop"
@@ -230,21 +240,33 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
       {errors.busStop && <p className="text-red-500">Bus stop is required</p>}
         </div>
         <div className="form-group">
-  <label htmlFor="exam" className='font-bold'>Select Exam *</label>
-  <select
-    id="exam"
-    name="exam"
-    onChange={()=>handleChange}
-    required
-  >
-    <option value="">Select an exam</option>
-    <option value="UPSC">UPSC</option>
-    <option value="JEE">JEE</option>
-    <option value="CAT">CAT</option>
-  </select>
-  {errors.exam && <p className="text-red-500">Please select an exam</p>}
+          <label htmlFor="exam" className='font-bold'>Select Exam *</label>
+          <select
+            id="exam"
+            className='p-2'
+            name="exam"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select an exam</option>
+            <option value="UPSC">UPSC</option>
+            <option value="JEE">JEE</option>
+            <option value="CAT">CAT</option>
+          </select>
+          {errors.exam && <p className="text-red-500">Please select an exam</p>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="examDate" className='font-bold'>Select Exam Date *</label>
+        <input
+          id="examDate"
+          name="examDate"
+          onChange={handleChange}
+          required 
+          type='date'
+        />
+        
+        {errors.examDate && <p className="text-red-500">Please select an exam Date</p>}
         </div>
-
         <div className="form-group">
           <label htmlFor="examCity" className='font-bold'>Exam City *</label>
           <input
@@ -270,6 +292,22 @@ const Form: React.FC<FormProps> = ({ enquire }) => {
             required
           />
           {errors.examCenter && <p className="text-red-500">Exam Center is required</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="serviceType" className='font-bold'>Select Required Service *</label>
+          <select
+            id="serviceType"
+            name="serviceType"
+            onChange={handleChange}
+            className='p-2'
+            required
+          >
+            <option value="">Select service</option>
+            <option value="Travel">Travel</option>
+            <option value="Accomadation">Accomodation</option>
+            <option value="Travel+Accomadation">Travel+Accomadation</option>
+          </select>
+          {errors.exam && <p className="text-red-500">Please select an exam</p>}
         </div>
         <div className="form-group">
           <label htmlFor="admitCard" className='font-bold'>Upload Admit Card *</label>
